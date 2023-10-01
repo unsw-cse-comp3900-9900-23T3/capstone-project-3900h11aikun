@@ -5,3 +5,11 @@ Group formed. I read through all the project topics before our first meeting. I 
 Week2 diary:
 We decided how to split proposal work in this week's lab meeting. 
 I am going to draw interface and flow diagrams.
+
+Week3 diary:
+We discussed user story in online meetings, I draw the first version of story boards by Figma,
+including user log in and user register interface.
+After user story in proposal is written, I draw the rest of story boards,
+including user profile, home page, user projects page and so on.
+When I met some problem or considerations about user story, I chatted with groupmates in group chat,
+and did some modification to the story boards.
