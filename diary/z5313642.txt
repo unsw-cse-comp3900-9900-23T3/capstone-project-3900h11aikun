@@ -1,0 +1,11 @@
+Week 1 Diary:
+Group was formed. lab discussed the choice of topic for the project with members and finally decided on P21.
+
+Week 2 Diary:
+Assigned the parts of the proposal that each person needed to complete, I was assigned to determine the timeframe for the three sprints and what we needed to complete for the first sprint.
+
+Week 3 Diary:
+Everyone participated in the discussion and together all the user stories were finalized. I added all the user stories to jira.
+
+Week 4 Diary:
+This past weekend we had a separate group meeting where we decided on the division of labor for the first sprint. I was assigned to finish the backend, and the work was to build the entire structure, finish the database, make login and register, and show how sqlite can drink python links. So far, I've identified all the attributes needed for the database, and finished building the structure.
