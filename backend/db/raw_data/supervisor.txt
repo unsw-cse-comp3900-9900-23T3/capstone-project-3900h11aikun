@@ -1,0 +1,10 @@
+jonathan-richards|Jonathan|Richards|jonathan.richards@school.edu.au|Abcd1234!|Master of Business Administration|University of Sydney|Teamwork, UX/UI design, Project management, Graphic design
+evan-nelson|Evan|Nelson|evan.nelson@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Melbourne|Digital marketing, Leadership, Statistical analysis, Networking
+dylan-lewis|Dylan|Lewis|dylan.lewis@school.edu.au|Abcd1234!|PhD in Computer Science|University of Western Australia|Research, Statistical analysis, Data analysis, Teamwork
+jim-rivera|Jim|Rivera|jim.rivera@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Western Australia|Problem solving, Networking, UX/UI design, Digital marketing
+david-williams|David|Williams|david.williams@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|Macquarie University|UX/UI design, Leadership, Graphic design, Networking
+mary-roy|Mary|Roy|mary.roy@school.edu.au|Abcd1234!|Master of Information Technology|University of Sydney|Data analysis, Statistical analysis, Public speaking, Leadership
+kristin-cain|Kristin|Cain|kristin.cain@school.edu.au|Abcd1234!|PhD in Electrical Engineering|University of Canberra|Research, Problem solving, Database management, Statistical analysis
+kathy-bishop|Kathy|Bishop|kathy.bishop@school.edu.au|Abcd1234!|PhD in Computer Science|Macquarie University|UX/UI design, Statistical analysis, Software development, Problem solving
+albert-fisher|Albert|Fisher|albert.fisher@school.edu.au|Abcd1234!|Master of Arts|University of Adelaide|Software development, Public speaking, Networking, Data analysis
+charles-braun|Charles|Braun|charles.braun@school.edu.au|Abcd1234!|PhD in Mechanical Engineering|University of Queensland|Problem solving, Data analysis, Networking, Project management

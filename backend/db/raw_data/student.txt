@@ -1,0 +1,20 @@
+jesus-davis|Jesus|Davis|jesus-davis@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Canberra|Literature|Database management, UX/UI design, Data analysis|Versatile skillset
+nicholas-robinson|Nicholas|Robinson|nicholas-robinson@student.edu.au|Abcd1234!|Master of Information Technology|University of Sydney|Mathematics|Networking, Database management, Software development|Quick learner
+kimberly-johnson|Kimberly|Johnson|kimberly-johnson@student.edu.au|Abcd1234!|Master of Science|University of Adelaide|Mathematics|Database management, UX/UI design, Problem solving|Exceptional problem-solving aptitude
+christopher-hunter|Christopher|Hunter|christopher-hunter@student.edu.au|Abcd1234!|Bachelor of Education|James Cook University|Computer Science|Database management, Digital marketing, Problem solving|Versatile skillset
+richard-mcintosh|Richard|Mcintosh|richard-mcintosh@student.edu.au|Abcd1234!|Master of Information Technology|University of New South Wales|Business Administration|Teamwork, Problem solving, Research|Strong analytical capabilities
+melanie-mccall|Melanie|Mccall|melanie-mccall@student.edu.au|Abcd1234!|Bachelor of Commerce|Macquarie University|Mechanical Engineering|Graphic design, Project management, Software development|Exceptional problem-solving aptitude
+sarah-wright|Sarah|Wright|sarah-wright@student.edu.au|Abcd1234!|Master of Arts|Australian National University|Physics|Software development, Networking, Research|Strong analytical capabilities
+anthony-sullivan|Anthony|Sullivan|anthony-sullivan@student.edu.au|Abcd1234!|Bachelor of Commerce|University of Queensland|Physics|Teamwork, Networking, Research|Resourceful and creative
+brenda-ryan|Brenda|Ryan|brenda-ryan@student.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Tasmania|Literature|UX/UI design, Leadership, Project management|Solid management skills
+lori-underwood|Lori|Underwood|lori-underwood@student.edu.au|Abcd1234!|Bachelor of Commerce|Monash University|Education|Digital marketing, Software development, Database management|Detail-oriented
+victoria-pruitt|Victoria|Pruitt|victoria-pruitt@student.edu.au|Abcd1234!|Master of Business Administration|Monash University|Biology|Graphic design, Public speaking, Leadership|Goal-driven
+damon-moore|Damon|Moore|damon-moore@student.edu.au|Abcd1234!|Bachelor of Commerce|University of Canberra|Literature|Digital marketing, Problem solving, Networking|Resourceful and creative
+kristen-smith|Kristen|Smith|kristen-smith@student.edu.au|Abcd1234!|Master of Arts|University of Adelaide|Computer Science|Leadership, Networking, UX/UI design|Highly communicative and team-oriented
+maria-owen|Maria|Owen|maria-owen@student.edu.au|Abcd1234!|Bachelor of Science|University of Melbourne|Mathematics|Graphic design, Digital marketing, Public speaking|Quick learner
+tiffany-murphy|Tiffany|Murphy|tiffany-murphy@student.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Adelaide|Business Administration|UX/UI design, Problem solving, Statistical analysis|Exceptional problem-solving aptitude
+benjamin-bauer|Benjamin|Bauer|benjamin-bauer@student.edu.au|Abcd1234!|Master of Science|University of Sydney|Physics|Statistical analysis, Networking, Software development|Goal-driven
+bailey-ramsey|Bailey|Ramsey|bailey-ramsey@student.edu.au|Abcd1234!|Master of Information Technology|University of Canberra|Civil Engineering|Teamwork, Graphic design, Project management|Adept at multitasking
+mindy-benton|Mindy|Benton|mindy-benton@student.edu.au|Abcd1234!|Doctor of Philosophy in Arts|Macquarie University|Electrical Engineering|Teamwork, Leadership, UX/UI design|Versatile skillset
+nicole-salazar|Nicole|Salazar|nicole-salazar@student.edu.au|Abcd1234!|Master of Information Technology|University of Tasmania|Physics|Teamwork, Data analysis, Networking|Quick learner
+cynthia-rodriguez|Cynthia|Rodriguez|cynthia-rodriguez@student.edu.au|Abcd1234!|Master of Science|University of Western Australia|Physics|Data analysis, Research, Statistical analysis|Adept at multitasking
