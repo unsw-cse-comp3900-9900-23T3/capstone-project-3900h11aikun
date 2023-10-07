@@ -23,15 +23,18 @@ if not os.path.exists('./database.db'):
     print('Copy the backend/db/default_database.db to the backend folder, and rename it to database.db')
     exit(1)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# initialize the database
+# get the absolute path of the database.db
+db = SQLAlchemy()
+db_path = os.path.join(os.getcwd(), 'database.db')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
 
-# wrap with CORS
+# finish the setup
 CORS(app)
-
-# initialize
 api.init_app(app)
+db.init_app(app)
 
 # import the routes
 from apis import auth, profile
