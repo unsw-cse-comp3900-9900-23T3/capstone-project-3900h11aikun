@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restx import Api
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 
 # create the api
 api = Api(
@@ -12,17 +12,29 @@ api = Api(
     validate=True
 )
 
-# no database for now
-
 # create the app
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
-# wrap with CORS
-CORS(app)
+# connect to database: ./database.db
+# check if the file ./database.db exist, if not, exit the whole program
+if not os.path.exists('./database.db'):
+    print('Error: database.db not found!')
+    print('Copy the backend/db/default_database.db to the backend folder, and rename it to database.db')
+    exit(1)
 
-# initialize
+# initialize the database
+# get the absolute path of the database.db
+db = SQLAlchemy()
+db_path = os.path.join(os.getcwd(), 'database.db')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# finish the setup
+CORS(app)
 api.init_app(app)
+db.init_app(app)
 
 # import the routes
 from apis import auth, profile
