@@ -1,20 +1,10 @@
-abigail-hill|Abigail|Hill|abigail.hill@business.au|Abcd1234!|Myers-Lutz|Head of HR|Proven track record in scaling startups to multi-million user bases.
-melissa-baker|Melissa|Baker|melissa.baker@business.au|Abcd1234!|Cook, Wilson and Brown|COO|Strong advocate for diversity and inclusion, implementing company-wide programs.
-crystal-rubio|Crystal|Rubio|crystal.rubio@business.au|Abcd1234!|Cowan-Stephens|HR|Significant expertise in business transformation and change management across diverse industries.
-alan-doyle|Alan|Doyle|alan.doyle@business.au|Abcd1234!|Mckay Ltd|Director of Operations|Proven track record in scaling startups to multi-million user bases.
-kristina-gross|Kristina|Gross|kristina.gross@business.au|Abcd1234!|Murphy and Sons|Director of Operations|Proven track record in scaling startups to multi-million user bases.
-matthew-hall|Matthew|Hall|matthew.hall@business.au|Abcd1234!|Powers, Ochoa and Snow|Director of Sales|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
-michael-garcia|Michael|Garcia|michael.garcia@business.au|Abcd1234!|Sanders-Ferrell|Director of Operations|Significant expertise in business transformation and change management across diverse industries.
-brandi-norman|Brandi|Norman|brandi.norman@business.au|Abcd1234!|Nelson-Henson|Head of HR|Expertise in global finance, managing budgets exceeding $100 million.
-paula-brown|Paula|Brown|paula.brown@business.au|Abcd1234!|Fletcher Ltd|Head of HR|Played a pivotal role in expanding the company's footprint in Asia and Europe.
-timothy-orr|Timothy|Orr|timothy.orr@business.au|Abcd1234!|Calhoun, Schultz and Jones|Director of Sales|Adept at building, maintaining, and nurturing high-value customer relationships.
-blake-owens|Blake|Owens|blake.owens@business.au|Abcd1234!|Harris, Benson and Roman|Chief Officer|Known for a hands-on leadership style, directly contributing to project successes.
-allen-sims|Allen|Sims|allen.sims@business.au|Abcd1234!|Davis-Collins|Director of Sales|Skilled in negotiation, having secured valuable partnerships and contracts.
-jared-levy|Jared|Levy|jared.levy@business.au|Abcd1234!|Mathews, Cochran and Sanchez|Director of Operations|Passionate about fostering team growth, development, and ensuring optimal productivity.
-adam-shannon|Adam|Shannon|adam.shannon@business.au|Abcd1234!|Bryan Inc|Director of Sales|Consistently prioritizes customer feedback, leading to better product iterations.
-taylor-guerrero|Taylor|Guerrero|taylor.guerrero@business.au|Abcd1234!|Salazar, Mcpherson and Jones|CTO|Expertise in global finance, managing budgets exceeding $100 million.
-jeffrey-marks|Jeffrey|Marks|jeffrey.marks@business.au|Abcd1234!|Crawford-Krueger|COO|Highly skilled in crisis management, steering the company through multiple challenging periods.
-judy-harper|Judy|Harper|judy.harper@business.au|Abcd1234!|Adams-Knox|HR|Over 20 years of experience leading technology teams.
-james-luna|James|Luna|james.luna@business.au|Abcd1234!|Perkins, Wilson and Barron|Head of HR|Frequent speaker at international conferences, representing the company's vision and achievements.
-steven-fitzpatrick|Steven|Fitzpatrick|steven.fitzpatrick@business.au|Abcd1234!|Moreno, Anderson and Dean|Chief Officer|Consistently prioritizes customer feedback, leading to better product iterations.
-susan-castillo|Susan|Castillo|susan.castillo@business.au|Abcd1234!|Blanchard Group|Chief Officer|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
+jo-zhang|Jo|Zhang|jo.zhang@business.au|Abcd1234!|Delacruz, Wright and Mckinney|CEO|Consistently prioritizes customer feedback, leading to better product iterations.
+katherine-johnston|Katherine|Johnston|katherine.johnston@business.au|Abcd1234!|Paul, Gibson and Wall|COO|Over 20 years of experience leading technology teams.
+melissa-elliott|Melissa|Elliott|melissa.elliott@business.au|Abcd1234!|Sandoval-Reynolds|HR|Directed multiple successful product launches, resulting in a 300% growth in sales.
+kyle-scott|Kyle|Scott|kyle.scott@business.au|Abcd1234!|Sanders-James|HR|Frequent speaker at international conferences, representing the company's vision and achievements.
+jeff-williams|Jeff|Williams|jeff.williams@business.au|Abcd1234!|Yoder, Davis and Jones|HR|Broad experience in setting company vision, strategy, and successfully executing it.
+tina-russell|Tina|Russell|tina.russell@business.au|Abcd1234!|James, Yu and Johnson|Director of Sales|Broad experience in setting company vision, strategy, and successfully executing it.
+danielle-wilson|Danielle|Wilson|danielle.wilson@business.au|Abcd1234!|Cox, Jones and Curry|CTO|Has spearheaded numerous green initiatives, pushing for sustainability in the industry.
+gregory-rollins|Gregory|Rollins|gregory.rollins@business.au|Abcd1234!|Davis and Sons|Head of HR|Over 20 years of experience leading technology teams.
+angela-watson|Angela|Watson|angela.watson@business.au|Abcd1234!|Rosales, Holland and Swanson|COO|Expertise in global finance, managing budgets exceeding $100 million.
+misty-melton|Misty|Melton|misty.melton@business.au|Abcd1234!|Bradshaw Ltd|Head of HR|Strong advocate for diversity and inclusion, implementing company-wide programs.
