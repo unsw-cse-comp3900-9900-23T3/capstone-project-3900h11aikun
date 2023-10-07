@@ -1,10 +1,10 @@
-jo-zhang|Jo|Zhang|jo.zhang@business.au|Abcd1234!|Delacruz, Wright and Mckinney|CEO|Consistently prioritizes customer feedback, leading to better product iterations.
-katherine-johnston|Katherine|Johnston|katherine.johnston@business.au|Abcd1234!|Paul, Gibson and Wall|COO|Over 20 years of experience leading technology teams.
-melissa-elliott|Melissa|Elliott|melissa.elliott@business.au|Abcd1234!|Sandoval-Reynolds|HR|Directed multiple successful product launches, resulting in a 300% growth in sales.
-kyle-scott|Kyle|Scott|kyle.scott@business.au|Abcd1234!|Sanders-James|HR|Frequent speaker at international conferences, representing the company's vision and achievements.
-jeff-williams|Jeff|Williams|jeff.williams@business.au|Abcd1234!|Yoder, Davis and Jones|HR|Broad experience in setting company vision, strategy, and successfully executing it.
-tina-russell|Tina|Russell|tina.russell@business.au|Abcd1234!|James, Yu and Johnson|Director of Sales|Broad experience in setting company vision, strategy, and successfully executing it.
-danielle-wilson|Danielle|Wilson|danielle.wilson@business.au|Abcd1234!|Cox, Jones and Curry|CTO|Has spearheaded numerous green initiatives, pushing for sustainability in the industry.
-gregory-rollins|Gregory|Rollins|gregory.rollins@business.au|Abcd1234!|Davis and Sons|Head of HR|Over 20 years of experience leading technology teams.
-angela-watson|Angela|Watson|angela.watson@business.au|Abcd1234!|Rosales, Holland and Swanson|COO|Expertise in global finance, managing budgets exceeding $100 million.
-misty-melton|Misty|Melton|misty.melton@business.au|Abcd1234!|Bradshaw Ltd|Head of HR|Strong advocate for diversity and inclusion, implementing company-wide programs.
+rhonda-murray|Rhonda|Murray|rhonda.murray@business.au|Abcd1234!|Hansen Group|HR|Pioneered the adoption of AI and ML techniques for business optimization in the company.
+donna-riley|Donna|Riley|donna.riley@business.au|Abcd1234!|Salinas and Sons|Director of Operations|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
+dana-hurst|Dana|Hurst|dana.hurst@business.au|Abcd1234!|Bishop-Brown|HR|Broad experience in setting company vision, strategy, and successfully executing it.
+sharon-rice|Sharon|Rice|sharon.rice@business.au|Abcd1234!|Chaney, Mcintosh and Johnson|COO|Over 20 years of experience leading technology teams.
+david-curtis|David|Curtis|david.curtis@business.au|Abcd1234!|Vega Inc|COO|Proven track record in scaling startups to multi-million user bases.
+michael-petersen|Michael|Petersen|michael.petersen@business.au|Abcd1234!|Park-Macdonald|Director of Sales|Played a pivotal role in expanding the company's footprint in Asia and Europe.
+tiffany-hall|Tiffany|Hall|tiffany.hall@business.au|Abcd1234!|Morgan, Gonzalez and Cross|Chief Officer|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
+linda-mcintosh|Linda|Mcintosh|linda.mcintosh@business.au|Abcd1234!|Johnson LLC|Director of Operations|Passionate about innovative marketing strategies and their execution in the global market.
+connor-hernandez|Connor|Hernandez|connor.hernandez@business.au|Abcd1234!|Reynolds LLC|CEO|Has spearheaded numerous green initiatives, pushing for sustainability in the industry.
+samantha-adams|Samantha|Adams|samantha.adams@business.au|Abcd1234!|Chen-Underwood|Chief Officer|Strong advocate for diversity and inclusion, implementing company-wide programs.
