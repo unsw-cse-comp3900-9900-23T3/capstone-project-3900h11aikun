@@ -1,0 +1,20 @@
+danny-johnson|Danny|Johnson|danny-johnson@student.edu.au|Abcd1234!|Master of Business Administration|University of Melbourne|Mathematics|Project management, Public speaking, Graphic design|Goal-driven
+thomas-grant|Thomas|Grant|thomas-grant@student.edu.au|Abcd1234!|Master of Arts|Australian National University|Computer Science|Public speaking, Digital marketing, Research|Adaptable to change
+tammie-allen|Tammie|Allen|tammie-allen@student.edu.au|Abcd1234!|Bachelor of Arts|University of Western Australia|Biology|Project management, Public speaking, Graphic design|Adept at multitasking
+ricardo-jacobson|Ricardo|Jacobson|ricardo-jacobson@student.edu.au|Abcd1234!|Master of Arts|University of Western Australia|Mechanical Engineering|Leadership, Digital marketing, Public speaking|Resourceful and creative
+holly-tran|Holly|Tran|holly-tran@student.edu.au|Abcd1234!|Bachelor of Engineering|James Cook University|Civil Engineering|Public speaking, Problem solving, Data analysis|Solid management skills
+tyler-weeks|Tyler|Weeks|tyler-weeks@student.edu.au|Abcd1234!|Bachelor of Engineering|James Cook University|Computer Science|Teamwork, Database management, Problem solving|Adept at multitasking
+cody-cunningham|Cody|Cunningham|cody-cunningham@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Tasmania|Computer Science|UX/UI design, Leadership, Project management|Detail-oriented
+theresa-bauer|Theresa|Bauer|theresa-bauer@student.edu.au|Abcd1234!|Bachelor of Education|University of Canberra|Education|Digital marketing, UX/UI design, Leadership|Resourceful and creative
+joseph-mack|Joseph|Mack|joseph-mack@student.edu.au|Abcd1234!|Master of Science|University of Western Australia|Business Administration|Leadership, Problem solving, Software development|Profound coding abilities
+hannah-edwards|Hannah|Edwards|hannah-edwards@student.edu.au|Abcd1234!|Bachelor of Science|James Cook University|Business Administration|Database management, Problem solving, Networking|Strong analytical capabilities
+benjamin-herring|Benjamin|Herring|benjamin-herring@student.edu.au|Abcd1234!|Bachelor of Science|Macquarie University|Business Administration|UX/UI design, Teamwork, Networking|Adept at multitasking
+frank-mahoney|Frank|Mahoney|frank-mahoney@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Canberra|Literature|Public speaking, Data analysis, UX/UI design|Highly communicative and team-oriented
+stephen-maddox|Stephen|Maddox|stephen-maddox@student.edu.au|Abcd1234!|Bachelor of Information Technology|University of Queensland|History|Problem solving, Database management, Statistical analysis|Goal-driven
+erik-durham|Erik|Durham|erik-durham@student.edu.au|Abcd1234!|Master of Information Technology|University of Queensland|Education|Research, Digital marketing, Software development|Adaptable to change
+amanda-navarro|Amanda|Navarro|amanda-navarro@student.edu.au|Abcd1234!|Bachelor of Education|University of Tasmania|Biology|Data analysis, Statistical analysis, Public speaking|Adept at multitasking
+daniel-camacho|Daniel|Camacho|daniel-camacho@student.edu.au|Abcd1234!|Bachelor of Commerce|University of Western Australia|Psychology|Public speaking, Graphic design, Project management|Solid management skills
+robert-roman|Robert|Roman|robert-roman@student.edu.au|Abcd1234!|Bachelor of Arts|Monash University|Psychology|Data analysis, Software development, UX/UI design|Highly communicative and team-oriented
+beth-mitchell|Beth|Mitchell|beth-mitchell@student.edu.au|Abcd1234!|Bachelor of Education|University of Canberra|Education|Data analysis, Graphic design, Leadership|Highly communicative and team-oriented
+veronica-robinson|Veronica|Robinson|veronica-robinson@student.edu.au|Abcd1234!|Bachelor of Commerce|Macquarie University|Mathematics|Problem solving, Teamwork, Public speaking|Solid management skills
+julie-walker|Julie|Walker|julie-walker@student.edu.au|Abcd1234!|Bachelor of Education|James Cook University|Education|Project management, UX/UI design, Research|Highly communicative and team-oriented

@@ -1,0 +1,10 @@
+amy-stewart|Amy|Stewart|amy.stewart@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Sydney|UX/UI design, Graphic design, Statistical analysis, Research
+nicholas-bennett|Nicholas|Bennett|nicholas.bennett@school.edu.au|Abcd1234!|Master of Business Administration|Macquarie University|Problem solving, Project management, Digital marketing, Software development
+julia-woods|Julia|Woods|julia.woods@school.edu.au|Abcd1234!|PhD in Business Administration|University of Adelaide|Project management, Statistical analysis, Database management, Public speaking
+ryan-joseph|Ryan|Joseph|ryan.joseph@school.edu.au|Abcd1234!|Master of Information Technology|University of Western Australia|Teamwork, UX/UI design, Software development, Project management
+brittany-stanley|Brittany|Stanley|brittany.stanley@school.edu.au|Abcd1234!|Master of Information Technology|University of Melbourne|Networking, Public speaking, Project management, Leadership
+christina-dyer|Christina|Dyer|christina.dyer@school.edu.au|Abcd1234!|Master of Information Technology|University of Sydney|Teamwork, Statistical analysis, Leadership, Software development
+andrea-thompson|Andrea|Thompson|andrea.thompson@school.edu.au|Abcd1234!|PhD in Mechanical Engineering|University of Tasmania|Teamwork, Data analysis, Software development, Database management
+ethan-dickerson|Ethan|Dickerson|ethan.dickerson@school.edu.au|Abcd1234!|PhD in Computer Science|University of Sydney|Graphic design, Statistical analysis, Networking, Public speaking
+allen-shields|Allen|Shields|allen.shields@school.edu.au|Abcd1234!|Master of Arts|University of Western Australia|Teamwork, Problem solving, Leadership, Digital marketing
+charles-campbell|Charles|Campbell|charles.campbell@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Adelaide|Graphic design, Leadership, Project management, Software development
