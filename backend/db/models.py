@@ -16,6 +16,18 @@ class BaseModel(db.Model):
         for column in self.__table__.columns:
             if column.name == 'avatar':
                 result["avatar"] = base_url + getattr(self, column.name)
+            elif column.name == 'resume_url':
+                # can be empty
+                if getattr(self, column.name) is None:
+                    result["resume_url"] = None
+                else:
+                    result["resume_url"] = base_url + getattr(self, column.name)
+            elif column.name == 'file_url':
+                # can be empty
+                if getattr(self, column.name) is None:
+                    result["file_url"] = None
+                else:
+                    result["file_url"] = base_url + getattr(self, column.name)
             elif column.name == 'password':
                 continue
             else:

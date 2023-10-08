@@ -8,6 +8,7 @@ import random
 import base64
 from .util import *
 from config import app
+import time
 
 
 # check the attributes of the request
@@ -90,16 +91,15 @@ class Login(Resource):
             return jsonify(result_data)
 
 
-@api.route("/student_register_without_resume_file")
+@api.route("/student_register_no_resume")
 class StudentRegisterWithoutResume(Resource):
-    @api.doc(description="student register, all fields are required, but no file is upload, so resume_url will be None")
+    @api.doc(description="Student register, all fields are required, but no file is upload, so resume_url will be None")
     @api.response(200, 'success register, will return the user profile')
     @api.response(400, 'invalid inputs / username or email is duplicate')
     @api.expect(student_register_model)
     def post(self):
         # get the data from the request
-        # data = request.get_json()
-        data = request.get_data(as_text=True)
+        data = request.get_json()
         check_student_register_info(data)
         avatar_relative_path = get_random_avatar()
 
@@ -126,15 +126,16 @@ class StudentRegisterWithoutResume(Resource):
         return jsonify(new_student.as_dict())
 
 
-@api.route("/student_register_with_resume_file")
+@api.route("/student_register_with_resume")
 class StudentRegisterWithResumeFile(Resource):
-    @api.doc(description="student register, all fields are required, also require to submit a pdf, docx or doc file, and require < 5MB")
+    @api.doc(description="Student register with resume in pdf, doc, docs, require file < 5MB, "
+        + "The Content-Type is multipart/form-data, so the frontend need to use FormData to submit the file")
     @api.response(200, 'success register, will return the user profile')
     @api.response(400, 'invalid inputs / username or email is duplicate')
-    @api.expect(student_register_model)
+    @api.expect(student_register_with_resume_parser)
     def post(self):
         # get the data from the request
-        data = request.get_json()
+        data = request.form
         check_student_register_info(data)
         avatar_relative_path = get_random_avatar()
 
@@ -152,9 +153,16 @@ class StudentRegisterWithResumeFile(Resource):
         if len(file.read()) > 5 * 1024 * 1024:
             abort(400, 'file size cannot be larger than 5MB')
 
-        # save the resume file, first get the hash filename
-        new_filename = get_hash_filename(file)
+        # reset the file pointer to beginning
+        file.seek(0)
+
+        # no need to hash, simply add a timestamp at the beginning
+        # and replace \\ to /
+        new_filename = "{}-{}".format(int(time.time()), file.filename)
         new_full_filename = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
+        new_full_filename = new_full_filename.replace("\\", "/")
+
+        # save the file
         file.save(new_full_filename)
 
         # create a new student, without resume upload
