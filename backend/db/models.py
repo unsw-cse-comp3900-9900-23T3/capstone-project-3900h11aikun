@@ -1,5 +1,6 @@
 from config import db
 from datetime import datetime
+from flask import request
 
 
 # create a base model with as_dict method
@@ -8,7 +9,19 @@ class BaseModel(db.Model):
 
     def as_dict(self):
         # ignore password field
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns if c.name != 'password'}
+        # and return the absolute url for avatar
+        base_url = request.url_root
+
+        result = {}
+        for column in self.__table__.columns:
+            if column.name == 'avatar':
+                result["avatar"] = base_url + getattr(self, column.name)
+            elif column.name == 'password':
+                continue
+            else:
+                result[column.name] = getattr(self, column.name)
+
+        return result
 
 
 # 3 tables: student, supervisor, partner

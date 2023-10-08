@@ -50,6 +50,11 @@ class Register(Resource):
         # get the data from the request
         data = request.get_json()
 
+        # check if any attribtues are empty
+        for key, value in data.items():
+            if value == "":
+                abort(400, "empty value at {}".format(key))
+
         # check if the username is unique
         is_username_duplicate = Student.query.filter_by(username=data["username"]).first()
         if is_username_duplicate is not None:
@@ -60,55 +65,53 @@ class Register(Resource):
         if is_email_duplicate is not None:
             abort(400, "email is duplicate")
 
-        # check if any attribtues are empty
-        for key, value in data.items():
-            if value == "":
-                abort(400, "empty value at {}".format(key))
-
         # password needs to be 8 characters long, one uppercase, one lowercase, one number
         if len(data["password"]) < 8:
             abort(400, "password needs to be at least 8 characters long")
 
         # password pattern: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$
         # and allow special characters
-        pattern = re.compile(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$")
-        if not pattern.match(data["password"]):
+        password_pattern = re.compile(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$")
+        if not password_pattern.match(data["password"]):
             abort(400, "password needs to contain at least one uppercase, one lowercase and one number")
 
-        # assign a random avatar from the db folder
-        avatar_list = os.listdir("db/raw_data/avatars")
-        avatar_filename = random.choice(avatar_list)
-        avatar_full_path = "db/raw_data/avatars/{}".format(avatar_filename)
+        # the email should be a valid email
+        email_pattern = re.compile(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
+        if not email_pattern.match(data["email"]):
+            abort(400, "invalid email")
 
-        # get the current web app root url from the app
-        web_app_root_url = request.host_url
+        # assign a random avatar from the db folder, and save the full path to the database
+        # avatar_list = os.listdir("db/raw_data/avatars")
+        # avatar = random.choice(avatar_list)
+        # avatar_relative_path = os.path.join("db/raw_data/avatars", avatar)
+        base_dir = "db"
+        raw_data_dir = "raw_data"
+        avatars_dir = "avatars"
+        avatar_list = os.listdir(os.path.join(base_dir, raw_data_dir, avatars_dir))
+        avatar = random.choice(avatar_list)
+        avatar_relative_path = os.path.join(base_dir, raw_data_dir, avatars_dir, avatar)
 
-        # add to the avatar filename
-        full_path_url = web_app_root_url + "db/raw_data/avatars/{}".format(avatar_filename)
+        # replace \\ to /
+        avatar_relative_path = avatar_relative_path.replace("\\", "/")
 
-        # open the file and convert to base64
-        with open(avatar_full_path, "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read())
+        # create a new student, without resume upload
+        new_student = Student(
+            username=data["username"],
+            first_name=data["first_name"],
+            last_name=data["last_name"],
+            email=data["email"],
+            password=data["password"],
+            avatar=avatar_relative_path,
+            qualification=data["qualification"],
+            school_name=data["school_name"],
+            major=data["major"],
+            skills=data["skills"],
+            strength=data["strength"],
+            resume_url=None
+        )
 
-        print(full_path_url)
-        return
+        db.session.add(new_student)
+        db.session.commit()
 
-        # # create a new student, without resume upload
-        # new_student = Student(
-        #     username=data["username"],
-        #     first_name=data["first_name"],
-        #     last_name=data["last_name"],
-        #     email=data["email"],
-        #     password=data["password"],
-        #     avatar=full_path_url,
-        #     qualification=data["qualification"],
-        #     school_name=data["school_name"],
-        #     major=data["major"],
-        #     skills=data["skills"],
-        #     strength=data["strength"],
-        #     resume_url=None
-        # )
-
-
-
-
+        # return this student to the frontend
+        return jsonify(new_student.as_dict())
