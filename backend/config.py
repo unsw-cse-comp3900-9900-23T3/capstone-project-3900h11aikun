@@ -31,6 +31,9 @@ db_path = os.path.join(os.getcwd(), 'database.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# allow upload
+app.config['UPLOAD_FOLDER'] = './uploads'
+
 # finish the setup
 CORS(app)
 api.init_app(app)
