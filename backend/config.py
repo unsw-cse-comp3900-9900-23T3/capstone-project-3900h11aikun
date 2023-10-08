@@ -13,7 +13,7 @@ api = Api(
 )
 
 # create the app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='db/raw_data/avatars')
 app.url_map.strict_slashes = False
 
 # connect to database: ./database.db
