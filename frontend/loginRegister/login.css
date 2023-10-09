@@ -1,0 +1,94 @@
+.background {
+    width:1640px;
+    height: 820px;
+    background-color: rgb(0, 193, 193);
+    display: flex;
+}
+.RCrect {
+    width: 720px;
+    height: 565px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.650), white);
+    border-radius: 35px;
+    margin-left: 460px;
+    margin-top: 127px;
+    display: flex;
+}
+.left {
+    width: 240px;
+    border-radius: 35px;
+}
+.comment {
+    margin-top: 60px;
+    margin-left: 40px;
+    margin-right: 30px;
+    height: 50px;
+    font-size: 1.2em;
+    color: grey;
+}
+.right {
+    width: 480px;
+    border-radius: 35px;
+    background-color: white;
+}
+.title {
+    width: 135px;
+    height: 45px;
+    font-size: 2em;
+    margin-top: 40px;
+    margin-left: 172px;
+}
+.identities {
+    display: flex;
+    background-color: #F5F5F5;
+    margin-top: 40px;
+    height: 80px;
+    width: 400px;
+    margin-left: 35px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    border: 5px solid #F5F5F5;
+    justify-content: space-between;
+}
+.identity {
+    background-color: rgb(245, 245, 245);
+    width: 135px;
+    border: 0px;
+    border-radius: 15px;
+    font-size: 1.3em;
+    white-space: normal;
+}
+.logininfo {
+    width: 405px;
+    height: 50px;
+    margin-left: 35px;
+    border-radius: 8px;
+    border: 2px solid rgb(217, 217, 217);
+    font-size: 1em;
+}
+.error {
+    margin-left: 35px;
+    height: 25px;
+    color: red;
+    font-size: 0.85em;
+}
+.submit {
+    margin-left: 35px;
+    margin-top: 10px;
+    width: 410px;
+    height: 50px;
+    background-color: rgb(1, 173, 173);
+    color: white;
+    border: 0px;
+    font-size: 1.5em;
+    border-radius: 8px;
+}
+.register {
+    margin-top: 10px;
+    margin-left: 75px;
+    background-color: white;
+    border: 0px;
+    width: 180px;
+    height: 60px;
+    white-space: normal;
+    font-size: 0.9em;
+}
