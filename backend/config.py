@@ -13,7 +13,7 @@ api = Api(
 )
 
 # create the app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='db/raw_data/avatars')
 app.url_map.strict_slashes = False
 
 # connect to database: ./database.db
@@ -30,6 +30,9 @@ db_path = os.path.join(os.getcwd(), 'database.db')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# allow upload
+app.config['UPLOAD_FOLDER'] = 'uploads'
 
 # finish the setup
 CORS(app)
