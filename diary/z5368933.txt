@@ -1,0 +1,13 @@
+Week1 diary:
+Group formed. I read through all the project topics before our first meeting. I joined first group online meeting, 
+and discussed which project to choose with group mates.
+
+Week2 diary:
+We decided how to split proposal work in this week's lab meeting. 
+I am going to draw interface and flow diagrams.
+
+Week3 diary:
+We discussed user story in online meetings,I complete the definition of user story.
+Describes how some of the defined user stories to beimplemented provide novel functionality compared to existing systems.
+When I met some problem or considerations about user story, I chatted with groupmates in group chat, and did some modification to the 
+story boards.
