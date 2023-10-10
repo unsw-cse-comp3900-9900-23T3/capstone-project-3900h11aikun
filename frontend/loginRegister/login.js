@@ -7,6 +7,7 @@ const comment3 = document.getElementById('commentthree');
 const username = document.getElementById('username');
 const password = document.getElementById('password')
 const submit = document.getElementById('submit');
+
 const passerror = document.getElementById('passerror');
 const register = document.getElementById('register');
 
@@ -38,7 +39,7 @@ identityMouseDisplay(partner);
 infoMouseDisplay(username);
 infoMouseDisplay(password);
 
-
+let roleType = 'student';
 student.addEventListener('click', (event) => {
     student.style.color = `rgb(${0}, ${193}, ${193})`;
     student.style.background = 'white';
@@ -49,6 +50,7 @@ student.addEventListener('click', (event) => {
     comment1.innerHTML = 'Find & participate in projects';
     comment2.innerHTML = 'Professional guidance & help';
     comment3.innerHTML = 'Get accurate recommendations';
+    roleType = 'student';
 });
 supervisor.addEventListener('click', (event) => {
     supervisor.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -60,6 +62,7 @@ supervisor.addEventListener('click', (event) => {
     comment1.innerHTML = 'Find & participate in projects';
     comment2.innerHTML = 'Work with excelent students';
     comment3.innerHTML = 'Get accurate recommendations';
+    roleType = 'supervisor';
 });
 partner.addEventListener('click', (event) => {
     partner.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -71,6 +74,7 @@ partner.addEventListener('click', (event) => {
     comment1.innerHTML = 'Post projects more efficient';
     comment2.innerHTML = 'excellent students & supervisor';
     comment3.innerHTML = 'Get accurate recommendations';
+    roleType = 'partner';
 });
 
 
@@ -95,6 +99,33 @@ submit.addEventListener('click', (event) => {
     // email not exist
     // wrong password
     // wrong identity, click to create account
+
+    event.preventDefault();
+    const homePageLink = event.currentTarget.href;
+    const options = {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({
+            'username': username.value,
+            "password": password.value,
+            "type": roleType
+        })
+
+    };
+    console.log('hiii')
+    fetch('http://localhost:9998/auth/login', options).then(resp =>{
+        return resp.json();
+    }).then(data => {
+        console.log(data.message)
+        if (data.message) {
+            console.log(document.getElementById('backendError'));
+            backendError.textContent = 'Warning: ' + data.message;
+        } else {
+            window.location.href = homePageLink;
+        }
+    })
 });
 
 

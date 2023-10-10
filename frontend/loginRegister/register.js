@@ -10,6 +10,7 @@ const password = document.getElementById('password')
 const submit = document.getElementById('submit');
 const passerror = document.getElementById('passerror');
 const emailerror = document.getElementById('emalerr');
+const backendError = document.getElementById('backendError');
 
 student.style.background = 'white';
 student.style.color = `rgb(${0}, ${193}, ${193})`
@@ -40,7 +41,7 @@ infoMouseDisplay(username);
 infoMouseDisplay(email);
 infoMouseDisplay(password);
 
-
+let roleType = 'student';
 student.addEventListener('click', (event) => {
     student.style.color = `rgb(${0}, ${193}, ${193})`;
     student.style.background = 'white';
@@ -51,6 +52,7 @@ student.addEventListener('click', (event) => {
     comment1.innerHTML = 'Find & participate in projects';
     comment2.innerHTML = 'Professional guidance & help';
     comment3.innerHTML = 'Get accurate recommendations';
+    roleType = 'student';
 });
 supervisor.addEventListener('click', (event) => {
     supervisor.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -62,6 +64,7 @@ supervisor.addEventListener('click', (event) => {
     comment1.innerHTML = 'Find & participate in projects';
     comment2.innerHTML = 'Work with excelent students';
     comment3.innerHTML = 'Get accurate recommendations';
+    roleType = 'supervisor';
 });
 partner.addEventListener('click', (event) => {
     partner.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -73,6 +76,7 @@ partner.addEventListener('click', (event) => {
     comment1.innerHTML = 'Post projects more efficient';
     comment2.innerHTML = 'excellent students & supervisor';
     comment3.innerHTML = 'Get accurate recommendations';
+    roleType = 'partner';
 });
 
 
@@ -83,9 +87,11 @@ submit.addEventListener('mouseleave', (event) => {
     submit.style.background = `rgb(${1}, ${173}, ${173})`
 })
 
-
 submit.addEventListener('click', (event) => {
     event.preventDefault();
+    const homePageLink = event.currentTarget.href;
+    
+    backendError.textContent = '';
     if (email.value.length < 7 || email.value.includes('@') == false) {
         emailerror.innerHTML = 'Please input a valid email';
     } else {
@@ -123,31 +129,32 @@ submit.addEventListener('click', (event) => {
         passerror.innerHTML = 'password must contain symbol';
     } else {
         passerror.innerHTML = '';
-        console.log(username.value)
+        console.log(roleType);
+        const options = {
+            method:'POST',
+            headers: {
+                'Content-Type':'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify({
+                'username': username.value,
+                "password": password.value,
+                "email": email.value,
+                "type": roleType
+            })
 
-        const roleButtons = document.querySelectorAll('.identity');
-        console.log(roleButtons);
-        addDotSelectedClass()
-        // const options = {
-        //     method:'POST',
-        //     headers: {
-        //         'Content-Type':'application/json; charset=UTF-8'
-        //     },
-        //     body: JSON.stringify({
-        //         'username': username.value,
-        //         "password": password.value,
-        //         "email": email.value,
-        //         "type": "student"
-        //     })
+        };
 
-        // };
-
-
-        // fetch('http://localhost:8080/auth/register', options)
-        // window.location.href = event.currentTarget.href;
+        fetch('http://localhost:9998/auth/register', options).then(resp =>{
+            return resp.json();
+        }).then(data => {
+            console.log(data.message)
+            if (data.message) {
+                console.log(document.getElementById('backendError'));
+                backendError.textContent = 'Warning: ' + data.message;
+            } else {
+                window.location.href = homePageLink;
+            }
+        })
     }
-    
-
 });
-
 

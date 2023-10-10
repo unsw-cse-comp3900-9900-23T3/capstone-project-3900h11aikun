@@ -96,3 +96,6 @@
     white-space: normal;
     font-size: 0.9em;
 }
+.selected {
+    background-color: white;
+}
