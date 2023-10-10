@@ -91,15 +91,13 @@ submit.addEventListener('click', (event) => {
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
     
+    // email format checking
     backendError.textContent = '';
     if (email.value.length < 7 || email.value.includes('@') == false) {
         emailerror.innerHTML = 'Please input a valid email';
     } else {
         emailerror.innerHTML = '';
     }
-
-    // email has been registed
-    // username error
 
     let uperr = true;
     let lwerr = true;
@@ -129,7 +127,7 @@ submit.addEventListener('click', (event) => {
         passerror.innerHTML = 'password must contain symbol';
     } else {
         passerror.innerHTML = '';
-        console.log(roleType);
+        // detail information for fetch, contain data send to backend
         const options = {
             method:'POST',
             headers: {
@@ -143,15 +141,16 @@ submit.addEventListener('click', (event) => {
             })
 
         };
-
+        
         fetch('http://localhost:9998/auth/register', options).then(resp =>{
             return resp.json();
         }).then(data => {
-            console.log(data.message)
             if (data.message) {
-                console.log(document.getElementById('backendError'));
+                // if data have message key means something 
+                // wrong, we give user a warning to tell them try again
                 backendError.textContent = 'Warning: ' + data.message;
             } else {
+                // if there is no error, registeration successful, navigate to home page
                 window.location.href = homePageLink;
             }
         })
