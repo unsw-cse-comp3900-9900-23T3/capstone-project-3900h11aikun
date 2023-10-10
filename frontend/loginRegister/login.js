@@ -95,11 +95,7 @@ register.addEventListener('mouseleave', (event) => {
 
 
 submit.addEventListener('click', (event) => {
-    // username not exist
-    // email not exist
-    // wrong password
-    // wrong identity, click to create account
-
+    // detail information for fetch, contain data send to backend
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
     const options = {
@@ -114,15 +110,16 @@ submit.addEventListener('click', (event) => {
         })
 
     };
-    console.log('hiii')
+
     fetch('http://localhost:9998/auth/login', options).then(resp =>{
         return resp.json();
     }).then(data => {
-        console.log(data.message)
         if (data.message) {
-            console.log(document.getElementById('backendError'));
+            // if data have message key means something 
+            // wrong, we give user a warning to tell them try again
             backendError.textContent = 'Warning: ' + data.message;
         } else {
+            // if there is no error, registeration successful, navigate to home page
             window.location.href = homePageLink;
         }
     })
