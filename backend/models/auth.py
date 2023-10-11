@@ -10,6 +10,12 @@ login_model = api.model('login', {
     'password': fields.String(required=True, description='password', default='Abcd1234!')
 })
 
+login_model_with_email = api.model('login_with_email', {
+    'type': fields.String(required=True, enum=['student', 'supervisor', 'partner'], description='user type'),
+    'email': fields.String(required=True, description='email', default="danny-johnson@student.edu.au"),
+    'password': fields.String(required=True, description='password', default='Abcd1234!')
+})
+
 # register: requires username, password, email, type
 # and require unique username and password across every user type
 register_model = api.model('register', {
