@@ -90,14 +90,16 @@ submit.addEventListener('mouseleave', (event) => {
 submit.addEventListener('click', (event) => {
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
-    
+    passerror.innerHTML = '';
+    emailerror.innerHTML = '';
     // email format checking
     backendError.textContent = '';
+    let hasError = false;
     if (email.value.length < 7 || email.value.includes('@') == false) {
         emailerror.innerHTML = 'Please input a valid email';
-    } else {
-        emailerror.innerHTML = '';
+        hasError = true;
     }
+    console.log(hasError)
 
     let uperr = true;
     let lwerr = true;
@@ -113,10 +115,13 @@ submit.addEventListener('click', (event) => {
             nuerr = false;
         } else if ("[ *$&#/\t\n\f\”\'\\,.:;?!\[\](){}<>~\-_]".includes(char) == true) {
             syerr = false;    
+        } else {
+            hasError = true;
         }
     }
     if (password.value.length < 8) {
         passerror.innerHTML = 'Password can not be shorter than 8 characters';
+        hasError = true;
     } else if (uperr == true) {
         passerror.innerHTML = 'Password must contain upper case word';
     } else if(lwerr == true) {
@@ -125,8 +130,7 @@ submit.addEventListener('click', (event) => {
         passerror.innerHTML = 'password must contain number';
     } else if (syerr == true) {
         passerror.innerHTML = 'password must contain symbol';
-    } else {
-        passerror.innerHTML = '';
+    } else if (!hasError) {
         // detail information for fetch, contain data send to backend
         const options = {
             method:'POST',
