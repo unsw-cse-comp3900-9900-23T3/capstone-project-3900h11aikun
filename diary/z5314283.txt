@@ -13,3 +13,11 @@ After user story in proposal is written, I draw the rest of story boards,
 including user profile, home page, user projects page and so on.
 When I met some problem or considerations about user story, I chatted with groupmates in group chat,
 and did some modification to the story boards.
+
+Week4 diary:
+This week we start working on the code. we seperate works for frontend and backend.
+I wrote home page interface by using html css this week.
+
+week5 diary:
+This week we are going to finish sprint1 and demo our work in the lab.
+I modified the login and register code to make it can send data to backend and get data from backend, finally backend and frontend code works well.

@@ -1,0 +1,63 @@
+.theme-color {
+    color:#00b4b3 !important;
+}
+
+.hide{
+    display: none;
+}
+
+.navStyle{
+    height:50px;
+    width: 100%;
+    background-color: #202328;
+}
+
+#recommondJobs {
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+}
+.recommondJobsCard {
+    display: flex;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.navbar{
+    width: 100%
+}
+
+.material-symbols-outlined{
+    padding-top: 100px;
+    color:#00b4b3;
+}
+
+.card{
+    margin-right: 2%;
+}
+
+.btn.btn-success{
+    margin-top:2%;
+    background-color: #00b4b3 ;
+
+    border-color: #00b4b3
+}
+
+.centerButton{
+    display: flex;
+    justify-content: center;
+}
+
+#allJobs{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.nav-link:hover {
+    color: #00b4b3 !important;
+}
+.nav-link {
+    color: white !important;
+}
