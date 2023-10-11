@@ -98,31 +98,61 @@ submit.addEventListener('click', (event) => {
     // detail information for fetch, contain data send to backend
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
-    const options = {
-        method:'POST',
-        headers: {
-            'Content-Type':'application/json; charset=UTF-8'
-        },
-        body: JSON.stringify({
-            'username': username.value,
-            "password": password.value,
-            "type": roleType
+    console.log('yyyy');
+    if (username.value.includes('@')) {
+        const options = {
+            method:'POST',
+            headers: {
+                'Content-Type':'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify({
+                'email': username.value,
+                "password": password.value,
+                "type": roleType
+            })
+    
+        };
+    
+        fetch('http://localhost:9998/auth/login_with_email', options).then(resp =>{
+            return resp.json();
+        }).then(data => {
+            if (data.message) {
+                // if data have message key means something 
+                // wrong, we give user a warning to tell them try again
+                backendError.textContent = 'Warning: ' + data.message;
+            } else {
+                // if there is no error, registeration successful, navigate to home page
+                window.location.href = homePageLink;
+            }
         })
-
-    };
-
-    fetch('http://localhost:9998/auth/login', options).then(resp =>{
-        return resp.json();
-    }).then(data => {
-        if (data.message) {
-            // if data have message key means something 
-            // wrong, we give user a warning to tell them try again
-            backendError.textContent = 'Warning: ' + data.message;
-        } else {
-            // if there is no error, registeration successful, navigate to home page
-            window.location.href = homePageLink;
-        }
-    })
+    } else {
+        const options = {
+            method:'POST',
+            headers: {
+                'Content-Type':'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify({
+                'username': username.value,
+                "password": password.value,
+                "type": roleType
+            })
+    
+        };
+    
+        fetch('http://localhost:9998/auth/login', options).then(resp =>{
+            return resp.json();
+        }).then(data => {
+            if (data.message) {
+                // if data have message key means something 
+                // wrong, we give user a warning to tell them try again
+                backendError.textContent = 'Warning: ' + data.message;
+            } else {
+                // if there is no error, registeration successful, navigate to home page
+                window.location.href = homePageLink;
+            }
+        })
+    }
+    
 });
 
 
