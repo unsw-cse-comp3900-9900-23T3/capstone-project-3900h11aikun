@@ -17,6 +17,24 @@ class Login(Resource):
 
 @api.route("/project")
 class Projects(Resource):
+    @api.doc(description="List project")
+    @api.expect(project_get_model)
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        data = request.args
+
+        if 'partner_id' in data:
+            projects = Project.query.filter_by(partner_id=data['partner_id']).all()
+        else:
+            projects = Project.query.all()
+        res = []
+        for project in projects:
+            res.append(project.as_dict())
+
+        return jsonify(res)
+
     @api.doc(description="Create new project")
     @api.expect(project_create_model)
     @api.response(200, 'create success')
@@ -122,3 +140,94 @@ class ProjectAssignSupervisor(Resource):
 
         return jsonify(project.as_dict())
 
+
+@api.route("/project/apply/student")
+class StudentInterest(Resource):
+    @api.doc(description="Assign student for project")
+    @api.expect(project_apply_student_model)
+    @api.response(200, 'apply success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def post(self):
+        data = request.get_json()
+
+        if Student.query.filter_by(student_id=data["student_id"]).first() is None:
+            abort(401, 'unknown student id')
+        if Project.query.filter_by(project_id=data["project_id"]).first() is None:
+            abort(401, 'unknown project id')
+        new_student_interest = StudentInterestExpress(
+            student_id=data["student_id"],
+            project_id=data["project_id"],
+            reason=data["reason"],
+            last_updated_at=datetime.now(),
+        )
+
+        db.session.add(new_student_interest)
+        db.session.commit()
+
+        return jsonify(new_student_interest.as_dict())
+
+    @api.doc(description="Get student interest express")
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        data = request.args
+
+        if 'project_id' in data:
+            expresses = StudentInterestExpress.query.filter_by(partner_id=data['partner_id']).all()
+        elif 'student_id' in data:
+            expresses = StudentInterestExpress.query.filter_by(student_id=data['student_id']).all()
+        else:
+            expresses = StudentInterestExpress.query.all()
+        res = []
+        for express in expresses:
+            res.append(express.as_dict())
+
+        return jsonify(res)
+
+
+@api.route("/project/interest/supervisor")
+class SupervisorInterest(Resource):
+    @api.doc(description="Get supervisor interest express")
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        data = request.args
+
+        if 'project_id' in data:
+            expresses = SupervisorInterestExpress.query.filter_by(partner_id=data['partner_id']).all()
+        elif 'supervisor_id' in data:
+            expresses = SupervisorInterestExpress.query.filter_by(supervisor_id=data['supervisor_id']).all()
+        else:
+            expresses = SupervisorInterestExpress.query.all()
+        res = []
+        for express in expresses:
+            res.append(express.as_dict())
+
+        return jsonify(res)
+
+    @api.doc(description="Assign supervisor for project")
+    @api.expect(project_apply_supervisor_model)
+    @api.response(200, 'apply success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def post(self):
+        data = request.get_json()
+
+        if Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first() is None:
+            abort(401, 'unknown supervisor id')
+        if Project.query.filter_by(project_id=data["project_id"]).first() is None:
+            abort(401, 'unknown project id')
+        new_supervisor_interest = SupervisorInterestExpress(
+            supervisor_id=data["supervisor_id"],
+            project_id=data["project_id"],
+            reason=data["reason"],
+            last_updated_at=datetime.now(),
+        )
+
+        db.session.add(new_supervisor_interest)
+        db.session.commit()
+
+        return jsonify(new_supervisor_interest.as_dict())
