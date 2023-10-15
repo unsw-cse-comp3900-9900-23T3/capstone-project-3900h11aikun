@@ -18,7 +18,6 @@ class Login(Resource):
 @api.route("/project")
 class Projects(Resource):
     @api.doc(description="List project")
-    @api.expect(project_get_model)
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
@@ -231,3 +230,33 @@ class SupervisorInterest(Resource):
         db.session.commit()
 
         return jsonify(new_supervisor_interest.as_dict())
+
+
+@api.route("/student")
+class Students(Resource):
+    @api.doc(description="List students")
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        students = Student.query.all()
+        res = []
+        for student in students:
+            res.append(student.as_dict())
+
+        return jsonify(res)
+
+
+@api.route("/supervisor")
+class Students(Resource):
+    @api.doc(description="List supervisors")
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        supervisors = Supervisor.query.all()
+        res = []
+        for supervisor in supervisors:
+            res.append(supervisor.as_dict())
+
+        return jsonify(res)
