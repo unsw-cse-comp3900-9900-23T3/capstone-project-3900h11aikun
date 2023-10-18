@@ -144,6 +144,10 @@ class LoginWithEmailAndReturnToken(Resource):
 validate_token_description="""
 Validate the token, if valid, return the user profile, if not valid, return 401 !!!
 
+token example:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMSwidHlwZSI6InBhcnRuZXIifQ.FRuleKtucP9l6dky5o4baQrpm3niUaMJSwx1PogqQbg
+
+
     async function validateTokenAsync() {
         const token = document.getElementById('tokenInput').value;
         try {
@@ -184,6 +188,10 @@ class ValidateToken(Resource):
 
         # decode the token, and get the user data in a dictionary !!!
         user_data = decode_token_and_get_user_object(token)
+
+        # also include the token
+        user_data["token"] = token
+
         if user_data is None:
             abort(401, "invalid token")
         else:
