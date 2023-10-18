@@ -12,6 +12,7 @@ const passerror = document.getElementById('passerror');
 const emailerror = document.getElementById('emalerr');
 const backendError = document.getElementById('backendError');
 
+
 student.style.background = 'white';
 student.style.color = `rgb(${0}, ${193}, ${193})`
 
@@ -27,6 +28,7 @@ function identityMouseDisplay(identity) {
     });
 }
 function infoMouseDisplay(info) {
+    if (!info) return;
     info.addEventListener('mouseover', (event) => {
         info.style.borderColor = `rgb(${0}, ${193}, ${193})`;
     })
@@ -49,9 +51,9 @@ student.addEventListener('click', (event) => {
     supervisor.style.background = `rgb(${245}, ${245}, ${245})`
     partner.style.color = 'black';
     partner.style.background = `rgb(${245}, ${245}, ${245})`
-    comment1.innerHTML = 'Find & participate in projects';
-    comment2.innerHTML = 'Professional guidance & help';
-    comment3.innerHTML = 'Get accurate recommendations';
+    comment1.textContent = 'Find & participate in projects';
+    comment2.textContent = 'Professional guidance & help';
+    comment3.textContent = 'Get accurate recommendations';
     roleType = 'student';
 });
 supervisor.addEventListener('click', (event) => {
@@ -61,9 +63,9 @@ supervisor.addEventListener('click', (event) => {
     student.style.background = `rgb(${245}, ${245}, ${245})`
     partner.style.color = 'black';
     partner.style.background = `rgb(${245}, ${245}, ${245})`
-    comment1.innerHTML = 'Find & participate in projects';
-    comment2.innerHTML = 'Work with excelent students';
-    comment3.innerHTML = 'Get accurate recommendations';
+    comment1.textContent = 'Find & participate in projects';
+    comment2.textContent = 'Work with excelent students';
+    comment3.textContent = 'Get accurate recommendations';
     roleType = 'supervisor';
 });
 partner.addEventListener('click', (event) => {
@@ -73,9 +75,9 @@ partner.addEventListener('click', (event) => {
     student.style.background = `rgb(${245}, ${245}, ${245})`
     supervisor.style.color = 'black';
     supervisor.style.background = `rgb(${245}, ${245}, ${245})`
-    comment1.innerHTML = 'Post projects more efficient';
-    comment2.innerHTML = 'excellent students & supervisor';
-    comment3.innerHTML = 'Get accurate recommendations';
+    comment1.textContent = 'Post projects more efficient';
+    comment2.textContent = 'excellent students & supervisor';
+    comment3.textContent = 'Get accurate recommendations';
     roleType = 'partner';
 });
 
@@ -90,13 +92,13 @@ submit.addEventListener('mouseleave', (event) => {
 submit.addEventListener('click', (event) => {
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
-    passerror.innerHTML = '';
-    emailerror.innerHTML = '';
+    passerror.textContent = '';
+    emailerror.textContent = '';
     // email format checking
     backendError.textContent = '';
     let hasError = false;
     if (email.value.length < 7 || email.value.includes('@') == false) {
-        emailerror.innerHTML = 'Please input a valid email';
+        emailerror.textContent = 'Please input a valid email';
         hasError = true;
     }
     console.log(hasError)
@@ -106,7 +108,7 @@ submit.addEventListener('click', (event) => {
     let nuerr = true;
     let syerr = true;
     for (let i = 0; i < password.value.length; i++) {
-        char = password.value[i];
+        let char = password.value[i];
         if (char >= 'A' && char <= 'Z') {
             uperr = false;
         } else if (char >= 'a' && char <= 'z') {
@@ -120,34 +122,23 @@ submit.addEventListener('click', (event) => {
         }
     }
     if (password.value.length < 8) {
-        passerror.innerHTML = 'Password can not be shorter than 8 characters';
+        passerror.textContent = 'Password can not be shorter than 8 characters';
         hasError = true;
     } else if (uperr == true) {
-        passerror.innerHTML = 'Password must contain upper case word';
+        passerror.textContent = 'Password must contain upper case word';
     } else if(lwerr == true) {
-        passerror.innerHTML = 'password must contain lower case word';
+        passerror.textContent = 'password must contain lower case word';
     } else if (nuerr == true) {
-        passerror.innerHTML = 'password must contain number';
+        passerror.textContent = 'password must contain number';
     } else if (syerr == true) {
-        passerror.innerHTML = 'password must contain symbol';
+        passerror.textContent = 'password must contain symbol';
     } else if (!hasError) {
-        // detail information for fetch, contain data send to backend
-        const options = {
-            method:'POST',
-            headers: {
-                'Content-Type':'application/json; charset=UTF-8'
-            },
-            body: JSON.stringify({
-                'username': username.value,
-                "password": password.value,
-                "email": email.value,
-                "type": roleType
-            })
-
-        };
-        
-        fetch('http://localhost:9998/auth/register', options).then(resp =>{
-            return resp.json();
+        // no error, show home page
+        doFetch('/auth/register','POST', {
+            'username': username.value,
+            "password": password.value,
+            "email": email.value,
+            "type": roleType
         }).then(data => {
             if (data.message) {
                 // if data have message key means something 
@@ -160,4 +151,23 @@ submit.addEventListener('click', (event) => {
         })
     }
 });
+
+export function doFetch(url, method, body) {
+    
+    let options = {};
+    options.method = method;
+    // body contains detail information for fetch, data will be sent to backend
+    if (body) {
+        options.headers = {
+            'Content-Type':'application/json; charset=UTF-8'
+        };
+        options.body = JSON.stringify(body);
+    }
+    
+    return fetch('http://localhost:9998' + url, options).then(resp =>{
+        console.log('http://localhost:9998' + url)
+        return resp.json();
+    })
+
+}
 
