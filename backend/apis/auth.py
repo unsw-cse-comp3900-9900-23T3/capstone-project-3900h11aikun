@@ -141,9 +141,39 @@ class LoginWithEmailAndReturnToken(Resource):
             return jsonify(result_data)
 
 
+validate_token_description="""
+Validate the token, if valid, return the user profile, if not valid, return 401 !!!
+
+    async function validateTokenAsync() {
+        const token = document.getElementById('tokenInput').value;
+        try {
+            const response = await fetch('/validate_token', {
+                method: 'GET',
+                headers: {
+                    'Authorization': token
+                }
+            });
+
+            if (response.status === 200) {
+                const data = await response.json();
+                console.log(data);
+            } else if (response.status === 401) {
+                console.log('Token is invalid.');
+            } else {
+                const errorText = await response.text();
+                throw new Error(errorText);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+"""
+
+
 @api.route("/validate_token")
 class ValidateToken(Resource):
-    @api.doc(description="Validate the token, if valid, return the user profile, if not valid, return 401")
+    @api.doc(description=validate_token_description)
     @api.expect(token_parser)
     @api.response(200, 'success validate, will return the user profile')
     @api.response(401, 'invalid token')
@@ -167,6 +197,7 @@ class Register(Resource):
     @api.response(200, 'success register, will return the user profile')
     @api.response(400, 'invalid inputs / username or email is duplicate')
     def post(self):
+        """register with username + email + password + type, and return profile and token"""
         data = request.get_json()
 
         # check if the username exists anywhere
@@ -192,7 +223,7 @@ class Register(Resource):
 
         # use the type to register
         if data["type"] == 'student':
-            new_student = Student(
+            new_user = Student(
                 username=data["username"],
                 first_name='',
                 last_name='',
@@ -207,12 +238,12 @@ class Register(Resource):
                 resume_url=''
             )
 
-            db.session.add(new_student)
+            db.session.add(new_user)
             db.session.commit()
-            return jsonify(new_student.as_dict())
+            token = generate_token(new_user.student_id, data["type"])
 
         elif data["type"] == 'partner':
-            new_partner = Partner(
+            new_user = Partner(
                 username=data["username"],
                 first_name='',
                 last_name='',
@@ -224,13 +255,13 @@ class Register(Resource):
                 description=''
             )
 
-            db.session.add(new_partner)
+            db.session.add(new_user)
             db.session.commit()
-            return jsonify(new_partner.as_dict())
+            token = generate_token(new_user.partner_id, data["type"])
 
         else:
             # supervisor
-            new_supervisor = Supervisor(
+            new_user = Supervisor(
                 username=data["username"],
                 first_name='',
                 last_name='',
@@ -242,6 +273,13 @@ class Register(Resource):
                 skills=''
             )
 
-            db.session.add(new_supervisor)
+            db.session.add(new_user)
             db.session.commit()
-            return jsonify(new_supervisor.as_dict())
+            token = generate_token(new_user.supervisor_id, data["type"])
+
+        # convert the data into a dictionary
+        # add type, and token
+        new_user_data = new_user.as_dict()
+        new_user_data["type"] = data["type"]
+        new_user_data["token"] = token
+        return jsonify(new_user_data)

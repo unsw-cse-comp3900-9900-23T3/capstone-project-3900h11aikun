@@ -28,7 +28,7 @@ def decode_token_and_get_user_object(token):
     user_id = data["user_id"]
     type = data["type"]
 
-    if type == "stduent":
+    if type == "student":
         student = Student.query.filter_by(student_id=user_id).first()
         return student.as_dict()
     elif type == "supervisor":
