@@ -25,7 +25,9 @@ function identityMouseDisplay(identity) {
         }
     });
 }
+
 function infoMouseDisplay(info) {
+    if (!info) return;
     info.addEventListener('mouseover', (event) => {
         info.style.borderColor = `rgb(${0}, ${193}, ${193})`;
     })
@@ -47,9 +49,9 @@ student.addEventListener('click', (event) => {
     supervisor.style.background = `rgb(${245}, ${245}, ${245})`
     partner.style.color = 'black';
     partner.style.background = `rgb(${245}, ${245}, ${245})`
-    comment1.innerHTML = 'Find & participate in projects';
-    comment2.innerHTML = 'Professional guidance & help';
-    comment3.innerHTML = 'Get accurate recommendations';
+    comment1.textContent = 'Find & participate in projects';
+    comment2.textContent = 'Professional guidance & help';
+    comment3.textContent = 'Get accurate recommendations';
     roleType = 'student';
 });
 supervisor.addEventListener('click', (event) => {
@@ -59,9 +61,9 @@ supervisor.addEventListener('click', (event) => {
     student.style.background = `rgb(${245}, ${245}, ${245})`
     partner.style.color = 'black';
     partner.style.background = `rgb(${245}, ${245}, ${245})`
-    comment1.innerHTML = 'Find & participate in projects';
-    comment2.innerHTML = 'Work with excelent students';
-    comment3.innerHTML = 'Get accurate recommendations';
+    comment1.textContent = 'Find & participate in projects';
+    comment2.textContent = 'Work with excelent students';
+    comment3.textContent = 'Get accurate recommendations';
     roleType = 'supervisor';
 });
 partner.addEventListener('click', (event) => {
@@ -71,9 +73,9 @@ partner.addEventListener('click', (event) => {
     student.style.background = `rgb(${245}, ${245}, ${245})`
     supervisor.style.color = 'black';
     supervisor.style.background = `rgb(${245}, ${245}, ${245})`
-    comment1.innerHTML = 'Post projects more efficient';
-    comment2.innerHTML = 'excellent students & supervisor';
-    comment3.innerHTML = 'Get accurate recommendations';
+    comment1.textContent = 'Post projects more efficient';
+    comment2.textContent = 'excellent students & supervisor';
+    comment3.textContent = 'Get accurate recommendations';
     roleType = 'partner';
 });
 
@@ -100,59 +102,47 @@ submit.addEventListener('click', (event) => {
     const homePageLink = event.currentTarget.href;
     console.log('yyyy');
     if (username.value.includes('@')) {
-        const options = {
-            method:'POST',
-            headers: {
-                'Content-Type':'application/json; charset=UTF-8'
-            },
-            body: JSON.stringify({
-                'email': username.value,
-                "password": password.value,
-                "type": roleType
-            })
     
-        };
-    
-        fetch('http://localhost:9998/auth/login_with_email', options).then(resp =>{
-            return resp.json();
-        }).then(data => {
-            if (data.message) {
-                // if data have message key means something 
-                // wrong, we give user a warning to tell them try again
-                backendError.textContent = 'Warning: ' + data.message;
-            } else {
-                // if there is no error, registeration successful, navigate to home page
-                window.location.href = homePageLink;
-            }
-        })
+        fetchInLogin('/auth/login_with_email', 'email', homePageLink);
     } else {
-        const options = {
-            method:'POST',
-            headers: {
-                'Content-Type':'application/json; charset=UTF-8'
-            },
-            body: JSON.stringify({
-                'username': username.value,
-                "password": password.value,
-                "type": roleType
-            })
-    
-        };
-    
-        fetch('http://localhost:9998/auth/login', options).then(resp =>{
-            return resp.json();
-        }).then(data => {
-            if (data.message) {
-                // if data have message key means something 
-                // wrong, we give user a warning to tell them try again
-                backendError.textContent = 'Warning: ' + data.message;
-            } else {
-                // if there is no error, registeration successful, navigate to home page
-                window.location.href = homePageLink;
-            }
-        })
+        fetchInLogin('/auth/login', 'username', homePageLink);
     }
     
 });
 
+function fetchInLogin(url, emailOrUsername, homePageLink) {
+    options = {
+        "password": password.value,
+        "type": roleType
+    }
+    options[emailOrUsername] = username.value;
+    doFetch(url, 'POST', options).then(data => {
+        if (data.message) {
+            // if data have message key means something 
+            // wrong, we give user a warning to tell them try again
+            backendError.textContent = 'Warning: ' + data.message;
+        } else {
+            // if there is no error, registeration successful, navigate to home page
+            window.location.href = homePageLink;
+        }
+    })
+}
 
+function doFetch(url, method, body) {
+    
+    let options = {};
+    options.method = method;
+    // body contains detail information for fetch, data will be sent to backend
+    if (body) {
+        options.headers = {
+            'Content-Type':'application/json; charset=UTF-8'
+        };
+        options.body = JSON.stringify(body);
+    }
+    
+    return fetch('http://localhost:9998' + url, options).then(resp =>{
+        console.log('http://localhost:9998' + url)
+        return resp.json();
+    })
+
+}
