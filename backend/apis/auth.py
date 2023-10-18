@@ -141,6 +141,25 @@ class LoginWithEmailAndReturnToken(Resource):
             return jsonify(result_data)
 
 
+@api.route("/validate_token")
+class ValidateToken(Resource):
+    @api.doc(description="Validate the token, if valid, return the user profile, if not valid, return 401")
+    @api.expect(token_parser)
+    @api.response(200, 'success validate, will return the user profile')
+    @api.response(401, 'invalid token')
+    def get(self):
+        """a route to show how the token works"""
+        args = token_parser.parse_args()
+        token = args["Authorization"]
+
+        # decode the token, and get the user data in a dictionary !!!
+        user_data = decode_token_and_get_user_object(token)
+        if user_data is None:
+            abort(401, "invalid token")
+        else:
+            return user_data
+
+
 @api.route("/register")
 class Register(Resource):
     @api.doc(description="Register require: username, email, password, type")

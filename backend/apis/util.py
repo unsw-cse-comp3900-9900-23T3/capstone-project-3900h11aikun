@@ -30,13 +30,13 @@ def decode_token_and_get_user_object(token):
 
     if type == "stduent":
         student = Student.query.filter_by(student_id=user_id).first()
-        return student
+        return student.as_dict()
     elif type == "supervisor":
         supervisor = Supervisor.query.filter_by(supervisor_id=user_id).first()
-        return supervisor
+        return supervisor.as_dict()
     elif type == "partner":
         partner = Partner.query.filter_by(partner_id=user_id).first()
-        return partner
+        return partner.as_dict()
     else:
         return None
 
