@@ -1,3 +1,4 @@
+import { doFetch } from './register.js'
 const student = document.getElementById('student');
 const supervisor = document.getElementById('supervisor');
 const partner = document.getElementById('partner');
@@ -111,7 +112,7 @@ submit.addEventListener('click', (event) => {
 });
 
 function fetchInLogin(url, emailOrUsername, homePageLink) {
-    options = {
+    let options = {
         "password": password.value,
         "type": roleType
     }
@@ -128,21 +129,3 @@ function fetchInLogin(url, emailOrUsername, homePageLink) {
     })
 }
 
-function doFetch(url, method, body) {
-    
-    let options = {};
-    options.method = method;
-    // body contains detail information for fetch, data will be sent to backend
-    if (body) {
-        options.headers = {
-            'Content-Type':'application/json; charset=UTF-8'
-        };
-        options.body = JSON.stringify(body);
-    }
-    
-    return fetch('http://localhost:9998' + url, options).then(resp =>{
-        console.log('http://localhost:9998' + url)
-        return resp.json();
-    })
-
-}

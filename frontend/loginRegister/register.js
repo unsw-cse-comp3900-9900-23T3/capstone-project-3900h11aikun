@@ -12,7 +12,6 @@ const passerror = document.getElementById('passerror');
 const emailerror = document.getElementById('emalerr');
 const backendError = document.getElementById('backendError');
 
-console.log(emailerror)
 
 student.style.background = 'white';
 student.style.color = `rgb(${0}, ${193}, ${193})`
@@ -153,7 +152,7 @@ submit.addEventListener('click', (event) => {
     }
 });
 
-function doFetch(url, method, body) {
+export function doFetch(url, method, body) {
     
     let options = {};
     options.method = method;
