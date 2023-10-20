@@ -90,6 +90,7 @@ submit.addEventListener('mouseleave', (event) => {
 })
 
 submit.addEventListener('click', (event) => {
+    console.log('yuyuyu')
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
     passerror.textContent = '';
@@ -146,6 +147,7 @@ submit.addEventListener('click', (event) => {
                 backendError.textContent = 'Warning: ' + data.message;
             } else {
                 // if there is no error, registeration successful, navigate to home page
+                localStorage.setItem('token', data.token);
                 window.location.href = homePageLink;
             }
         })

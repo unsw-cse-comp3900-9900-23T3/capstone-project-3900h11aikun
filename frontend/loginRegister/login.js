@@ -101,12 +101,12 @@ submit.addEventListener('click', (event) => {
     // detail information for fetch, contain data send to backend
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
-    console.log('yyyy');
+    console.log('yyyyooo');
     if (username.value.includes('@')) {
     
-        fetchInLogin('/auth/login_with_email', 'email', homePageLink);
+        fetchInLogin('/auth/login_with_email_and_return_token', 'email', homePageLink);
     } else {
-        fetchInLogin('/auth/login', 'username', homePageLink);
+        fetchInLogin('/auth/login_with_username_and_return_token', 'username', homePageLink);
     }
     
 });
@@ -124,6 +124,8 @@ function fetchInLogin(url, emailOrUsername, homePageLink) {
             backendError.textContent = 'Warning: ' + data.message;
         } else {
             // if there is no error, registeration successful, navigate to home page
+            console.log(data.token);
+            localStorage.setItem('token', data.token);
             window.location.href = homePageLink;
         }
     })
