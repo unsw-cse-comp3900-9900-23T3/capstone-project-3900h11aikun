@@ -140,7 +140,7 @@ class ProjectAssignSupervisor(Resource):
         return jsonify(project.as_dict())
 
 
-@api.route("/project/apply/student")
+@api.route("/project/interest/student")
 class StudentInterest(Resource):
     @api.doc(description="Assign student for project")
     @api.expect(project_apply_student_model)
@@ -173,15 +173,27 @@ class StudentInterest(Resource):
     def get(self):
         data = request.args
 
+        session = StudentInterestExpress.query
         if 'project_id' in data:
-            expresses = StudentInterestExpress.query.filter_by(partner_id=data['partner_id']).all()
-        elif 'student_id' in data:
-            expresses = StudentInterestExpress.query.filter_by(student_id=data['student_id']).all()
-        else:
-            expresses = StudentInterestExpress.query.all()
+            session = session.filter_by(project_id=data['project_id'])
+        if 'student_id' in data:
+            session = session.filter_by(student_id=data['student_id']).all()
+        session = session.join(Student, Student.student_id == StudentInterestExpress.student_id)
+        session = session.join(Project, Project.project_id == StudentInterestExpress.project_id)
+        session = session.add_columns(Student.first_name, Student.last_name, Student.skills,
+                                      Student.school_name, Student.qualification, Project.title)
+
+        expresses = session.all()
         res = []
         for express in expresses:
-            res.append(express.as_dict())
+            temp = express[0].as_dict()
+            temp['first_name'] = express[1]
+            temp['last_name'] = express[2]
+            temp['skills'] = express[3]
+            temp['school_name'] = express[4]
+            temp['qualification'] = express[5]
+            temp['title'] = express[6]
+            res.append(temp)
 
         return jsonify(res)
 
@@ -195,19 +207,31 @@ class SupervisorInterest(Resource):
     def get(self):
         data = request.args
 
+        session = SupervisorInterestExpress.query
         if 'project_id' in data:
-            expresses = SupervisorInterestExpress.query.filter_by(partner_id=data['partner_id']).all()
-        elif 'supervisor_id' in data:
-            expresses = SupervisorInterestExpress.query.filter_by(supervisor_id=data['supervisor_id']).all()
-        else:
-            expresses = SupervisorInterestExpress.query.all()
+            session = session.filter_by(project_id=data['project_id'])
+        if 'supervisor_id' in data:
+            session = session.filter_by(supervisor_id=data['supervisor_id'])
+        session = session.join(Supervisor, Supervisor.supervisor_id == SupervisorInterestExpress.supervisor_id)
+        session = session.join(Project, Project.project_id == SupervisorInterestExpress.project_id)
+        session = session.add_columns(Supervisor.first_name, Supervisor.last_name, Supervisor.skills,
+                                      Supervisor.school_name, Supervisor.qualification, Project.title)
+
+        expresses = session.all()
         res = []
         for express in expresses:
-            res.append(express.as_dict())
+            temp = express[0].as_dict()
+            temp['first_name'] = express[1]
+            temp['last_name'] = express[2]
+            temp['skills'] = express[3]
+            temp['school_name'] = express[4]
+            temp['qualification'] = express[5]
+            temp['title'] = express[6]
+            res.append(temp)
 
         return jsonify(res)
 
-    @api.doc(description="Assign supervisor for project")
+    @api.doc(description="Apply for project")
     @api.expect(project_apply_supervisor_model)
     @api.response(200, 'apply success')
     @api.response(400, 'invalid params')
@@ -239,7 +263,16 @@ class Students(Resource):
     @api.response(400, 'invalid params')
     @api.response(401, '')
     def get(self):
-        students = Student.query.all()
+        data = request.args
+
+        session = Student.query
+        if 'skills' in data:
+            session = session.filter(Student.skills.like('%%%s%%' % data['skills']))
+        if 'qualification' in data:
+            session = session.filter(Student.qualification.like('%%%s%%' % data['qualification']))
+        if 'school_name' in data:
+            session = session.filter(Student.school_name.like('%%%s%%' % data['school_name']))
+        students = session.all()
         res = []
         for student in students:
             res.append(student.as_dict())
@@ -248,13 +281,22 @@ class Students(Resource):
 
 
 @api.route("/supervisor")
-class Students(Resource):
+class Supervisors(Resource):
     @api.doc(description="List supervisors")
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
     def get(self):
-        supervisors = Supervisor.query.all()
+        data = request.args
+
+        session = Supervisor.query
+        if 'skills' in data:
+            session = session.filter(Supervisor.skills.like('%%%s%%' % data['skills']))
+        if 'qualification' in data:
+            session = session.filter(Supervisor.qualification.like('%%%s%%' % data['qualification']))
+        if 'school_name' in data:
+            session = session.filter(Supervisor.school_name.like('%%%s%%' % data['school_name']))
+        supervisors = session.all()
         res = []
         for supervisor in supervisors:
             res.append(supervisor.as_dict())
