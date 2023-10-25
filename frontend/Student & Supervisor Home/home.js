@@ -100,7 +100,6 @@ function newPro () {
     projects.appendChild(project);
 }
 
-
 newPro();
 newPro();
 newPro();
