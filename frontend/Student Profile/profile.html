@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="profile.css" />
+    </head>
+
+    <body>
+        <div class="navigate">
+            <div class="studentName">Student Name</div>
+            <input id="home" class="left" type="button" value="Home" />
+            <input id="mypro" class="left" type="button" value="My Project" />
+            <input id="apply" class="left" type="button" value="Applications" />
+            <input id="profile" class="left" type="button" value="Profile" />
+            <input id="logout" class="logout" type="button" value="Log out" />
+        </div>
+        <div class="main">
+            <div class="info">
+                <div class="title">My online profile</div>
+                <div class="perInfo">
+                    <div class="p1">
+                        <div class="edit">Edit personal information</div>
+                        <div class="name">Name</div>
+                        <input id="name" class="inputName" name="name" type="text" placeholder="Please input your name" />
+                        <div class="name">Gender</div>
+                        <div class="inputGender">
+                            <input class="g1" type="button" value="Male" />
+                            <input class="g1" type="button" value="Female" />
+                        </div>
+                        <div class="name">Age</div>
+                        <input id="age" class="inputName" type="text" placeholder="Please input your age" />
+                        <div class="name">Email</div>
+                        <input id="email" class="inputName" type="text" placeholder="Please input your email" />
+                        <div class="name">Education Background</div>
+                        <select id="edu" class="inputEdu">
+                            <option>Undergraduate</option>
+                            <option>Postgraduate</option>
+                            <option>Doctorate</option>
+                        </select>
+                        <div class="name">School</div>
+                        <input id="school" class="inputName" type="text" placeholder="Please input your school" />
+                    </div>
+                    <div class="p1">
+                        <div class="edit">Edit personal skills</div>
+                            <div id="java" class="skill">Java</div>
+                            <div id="python" class="skill">Python</div>
+                            <div id="js" class="skill">Javascript</div>
+                            <div id="c" class="skill">C/C++</div>
+                            <div id="ml" class="skill">Machine Learning</div>
+                            <div id="dl" class="skill">Deep Learning</div>
+                            <div id="sd" class="skill">Software Develop</div>
+                            <div id="net" class="skill">Networking</div>
+                            <div id="data" class="skill">Database/Big Data</div>
+                    </div>
+                </div>
+                <div id="strength" class="extra">
+                    <div class="extraTitle">
+                        <div class="line"></div>
+                        <div class="lineTitle">Personal Strength</div>
+                    </div>
+                    <input id="strengthInput" class="extraInput" type="text" placeholder="Please input your strength" />
+                </div>
+                <div id="experience" class="extra">
+                    <div class="extraTitle">
+                        <div class="line"></div>
+                        <div class="lineTitle">Project Experience</div>
+                    </div>
+                    <input id="experienceInput" class="extraInput" type="text" placeholder="Please input your experience" />
+                </div>
+                <input id="submit" class="submit" type="submit" value="Submit" />
+            </div>
+            <div class="section2">
+                <div class="side">
+                    <img class="Hi" src="Hi.png" alt="Image Lost" width="50" height="50" />
+                    <div class="tipTitle">Tips:</div>
+                    <div class="tips">Please fill in or modify your personal information according to the prompts as soon as possible. Real personal information is easier to help you find the right projects.</div>
+                </div>
+                <div class="side">
+                    <div class="resume">Resume</div>
+                    <label>
+                        <div id="upload" class="upload">Upload Resume</div>
+                        <input hidden type="file" />
+                    </label>
+                    <div id="delete" class="upload">Delete Resume</div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="profile.js"></script>
+    </body>
+</html>
