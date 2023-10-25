@@ -7,19 +7,25 @@
     
     <body>
         <div class="navigate">
-            <div class="studentName">Student Name</div>
-            <input id="home" class="left" type="button" value="Home" />
-            <input id="mypro" class="left" type="button" value="My Project" />
-            <input id="apply" class="left" type="button" value="Applications" />
-            <input id="profile" class="left" type="button" value="Profile" />
-            <a id="logout" class="logout" href="../index.html">Log out</a>
+            <div class="leftPart">
+                <div class="studentName">Student Name</div>
+                <a id="home" class="left">Home</a>
+                <a id="mypro" class="left">My project</a>
+                <a id="apply" class="left">Applications</a>
+                <a id="profile" class="left">Profile</a>
+            </div>
+
+            <div class="rightPart">
+                <a id="logout" class="logout" href="../index.html">Log out</a>
+            </div>
+            
         </div>
         <div class="advertise">Find Projects ! <br> Get Recommandation !</div>
         <div class="main">
             <div class="title">Popular Projects</div>
             <input id="all" class="all" type="button" value="All" />
             <input id="recommand" class="recommand" type="button" value="Recommandation" />
-            <div class="line">___________</div>
+            <div class="line"></div>
             <div id="projects" class="projects"></div>
         </div>
         <script type="module" src="./home.js"></script>
