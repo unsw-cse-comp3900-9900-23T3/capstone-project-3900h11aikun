@@ -5,6 +5,7 @@ from werkzeug.datastructures import FileStorage
 
 project_get_model = api.model('project_get', {
     'partner_id': fields.Integer(required=False, description='partner id of project owner'),
+    'project_id': fields.Integer(required=False, description='project id'),
 })
 
 # project create requires project id, partner id and the detail information of project
@@ -51,16 +52,25 @@ project_assign_supervisor_model = api.model('project_assign_student', {
 
 
 # project apply student requires project id, partner id of the project owner and student id to be assigned
-project_apply_student_model = api.model('project_assign_student', {
+project_apply_student_model = api.model('student_apply_project', {
     'project_id': fields.Integer(required=True, description='project id'),
     'student_id': fields.Integer(required=True, description='student id'),
     'reason': fields.String(required=True, description='apply reason'),
 })
 
+project_cancel_apply_student_model = api.model('student_cancel_apply_project', {
+    'project_id': fields.Integer(required=True, description='project id'),
+    'student_id': fields.Integer(required=True, description='student id'),
+})
 
 # project apply supervisor requires project id, partner id of the project owner and supervisor id to be assigned
 project_apply_supervisor_model = api.model('project_assign_student', {
     'project_id': fields.Integer(required=True, description='project id'),
     'supervisor_id': fields.Integer(required=True, description='supervisor id'),
     'reason': fields.String(required=True, description='apply reason'),
+})
+
+project_cancel_apply_supervisor_model = api.model('supervisor_cancel_apply_project', {
+    'project_id': fields.Integer(required=True, description='project id'),
+    'supervisor_id': fields.Integer(required=True, description='supervisor id'),
 })

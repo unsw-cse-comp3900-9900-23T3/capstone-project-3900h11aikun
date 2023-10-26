@@ -17,14 +17,17 @@ class Login(Resource):
 
 @api.route("/project")
 class Projects(Resource):
-    @api.doc(description="List project")
+    @api.doc(description="List project",
+             params={'project_id': 'id of project', 'partner_id': 'partner id of project owner'})
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
     def get(self):
         data = request.args
 
-        if 'partner_id' in data:
+        if 'project_id' in data:
+            projects = Project.query.filter_by(project_id=data['project_id']).all()
+        elif 'partner_id' in data:
             projects = Project.query.filter_by(partner_id=data['partner_id']).all()
         else:
             projects = Project.query.all()
@@ -142,7 +145,7 @@ class ProjectAssignSupervisor(Resource):
 
 @api.route("/project/interest/student")
 class StudentInterest(Resource):
-    @api.doc(description="Assign student for project")
+    @api.doc(description="Student apply for project")
     @api.expect(project_apply_student_model)
     @api.response(200, 'apply success')
     @api.response(400, 'invalid params')
@@ -166,7 +169,8 @@ class StudentInterest(Resource):
 
         return jsonify(new_student_interest.as_dict())
 
-    @api.doc(description="Get student interest express")
+    @api.doc(description="Get student interest express",
+             params={"project_id": "id of project", "student_id": "id of student"}, )
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
@@ -197,10 +201,27 @@ class StudentInterest(Resource):
 
         return jsonify(res)
 
+    @api.doc(description="Student cancel apply for project")
+    @api.expect(project_cancel_apply_student_model)
+    @api.response(200, 'apply success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def delete(self):
+        data = request.get_json()
+
+        item = StudentInterestExpress.query.filter_by(project_id=data["project_id"],
+                                                      student_id=data["student_id"]).first()
+        if item is None:
+            abort(401, 'project_id or student_id incorrect')
+        db.session().delete(item)
+        db.session.commit()
+        return 200, "delete success"
+
 
 @api.route("/project/interest/supervisor")
 class SupervisorInterest(Resource):
-    @api.doc(description="Get supervisor interest express")
+    @api.doc(description="Get supervisor interest express",
+             params={"project_id": "id of project", "supervisor_id": "id of supervisor"}, )
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
@@ -255,10 +276,29 @@ class SupervisorInterest(Resource):
 
         return jsonify(new_supervisor_interest.as_dict())
 
+    @api.doc(description="Supervisor cancel apply for project")
+    @api.expect(project_cancel_apply_supervisor_model)
+    @api.response(200, 'apply success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def delete(self):
+        data = request.get_json()
+
+        item = SupervisorInterestExpress.query.filter_by(project_id=data["project_id"],
+                                                         supervisor_id=data["supervisor_id"]).first()
+        if item is None:
+            abort(401, 'project_id or supervisor_id incorrect')
+        db.session().delete(item)
+        db.session.commit()
+        return 200, "delete success"
+
 
 @api.route("/student")
 class Students(Resource):
-    @api.doc(description="List students")
+    @api.doc(description="List students",
+             params={"skills": "skills of student",
+                     "qualification": "qualification of student",
+                     "school_name": "school name of student"})
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
@@ -282,7 +322,10 @@ class Students(Resource):
 
 @api.route("/supervisor")
 class Supervisors(Resource):
-    @api.doc(description="List supervisors")
+    @api.doc(description="List supervisors",
+             params={"skills": "skills of supervisor",
+                     "qualification": "qualification of supervisor",
+                     "school_name": "school name of supervisor"})
     @api.response(200, 'get success')
     @api.response(400, 'invalid params')
     @api.response(401, '')
