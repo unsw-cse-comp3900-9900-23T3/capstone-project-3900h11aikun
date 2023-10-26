@@ -14,13 +14,13 @@ def get_db():
         db = g._database = sqlite3.connect(DATABASE)
     return db
 
-@app.teardown_appcontext
+@api.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
 
-@app.route('/db/raw_data/avatars/<path:filename>', methods=['GET'])
+@api.route('/db/raw_data/avatars/<path:filename>', methods=['GET'])
 def get_avatar(filename):
     """
     从'static/avatars'The endpoint to get the avatar image from the directory.
@@ -29,7 +29,7 @@ def get_avatar(filename):
 
 
 
-@app.route('/students/<int:student_id>/profile', methods=['PUT'])
+@api.route('/students/<int:student_id>/profile', methods=['PUT'])
 def update_student_profile(student_id):
     """
     Endpoint for updating student profile information.
@@ -49,7 +49,7 @@ def update_student_profile(student_id):
     return jsonify({"message": "Student profile updated successfully"})
 
 
-@app.route('/mentors/<int:mentor_id>/upload_resume', methods=['POST'])
+@api.route('/mentors/<int:mentor_id>/upload_resume', methods=['POST'])
 def upload_mentor_resume(mentor_id):
     """
     Endpoint for academic tutors to upload resumes.
@@ -82,7 +82,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'pdf'
 
 
-@app.route('/projects', methods=['GET'])
+@api.route('/projects', methods=['GET'])
 def get_project_list():
     """
     Endpoint to get the list of items.
@@ -103,7 +103,7 @@ def get_project_list():
 
     return jsonify(project_list)
 
-@app.route('/projects/<int:project_id>', methods=['GET'])
+@api.route('/projects/<int:project_id>', methods=['GET'])
 def get_project_details(project_id):
     """
     Endpoint to get project details.
@@ -128,7 +128,7 @@ def get_project_details(project_id):
     return jsonify(project_details)
 
 
-@app.route('/projects/<int:project_id>/apply', methods=['POST'])
+@api.route('/projects/<int:project_id>/apply', methods=['POST'])
 def apply_for_project(project_id):
     """
     The endpoint of the application project.
@@ -137,7 +137,7 @@ def apply_for_project(project_id):
     # ...
 
     return jsonify({"message": "Application has been submitted"})
-@app.route('/students/<int:student_id>/recommended_projects', methods=['GET'])
+@api.route('/students/<int:student_id>/recommended_projects', methods=['GET'])
 def get_recommended_projects(student_id):
     """
     Get the endpoint for recommended items.
@@ -207,7 +207,7 @@ def skills_match(student_skills, required_skills):
 from flask import request
 
 
-@app.route('/projects/<int:project_id>/apply', methods=['POST'])
+@api.route('/projects/<int:project_id>/apply', methods=['POST'])
 def apply_for_project(project_id):
     """
     The endpoint of applying to a program, where students submit their resume to the program.
@@ -251,7 +251,7 @@ def save_resume(resume_file, project_id):
 
     # Other processing logic, such as saving the file path to the database
 
-@app.route('/students/<int:student_id>/applied_projects', methods=['GET'])
+@api.route('/students/<int:student_id>/applied_projects', methods=['GET'])
 def get_applied_projects(student_id):
     """
     Other processing logic, such as saving the file path to the database
@@ -273,7 +273,7 @@ def get_applied_projects(student_id):
     return jsonify(project_list)
 
 
-@app.route('/students/<int:student_id>/applied_projects/<int:project_id>', methods=['DELETE'])
+@api.route('/students/<int:student_id>/applied_projects/<int:project_id>', methods=['DELETE'])
 def delete_applied_project(student_id, project_id):
     """
     Delete the endpoint for projects that students have applied for.
@@ -290,7 +290,7 @@ def delete_applied_project(student_id, project_id):
 including fields such as student ID, project ID, and application status.
 # When students submit project applications, the corresponding records need to be inserted into the "applications" table.
 
-@app.route('/advisors/<int:advisor_id>/projects', methods=['GET'])
+@api.route('/advisors/<int:advisor_id>/projects', methods=['GET'])
 def get_projects_for_advisor(advisor_id):
     """
     Endpoint to get the academic tutor's project list.
