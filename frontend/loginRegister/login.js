@@ -1,4 +1,4 @@
-import { doFetch } from './register.js'
+import { doFetch } from '../helper.js'
 const student = document.getElementById('student');
 const supervisor = document.getElementById('supervisor');
 const partner = document.getElementById('partner');
@@ -110,7 +110,7 @@ submit.addEventListener('click', (event) => {
     }
     
 });
-
+console.log('ioio')
 function fetchInLogin(url, emailOrUsername, homePageLink) {
     let options = {
         "password": password.value,
@@ -124,8 +124,8 @@ function fetchInLogin(url, emailOrUsername, homePageLink) {
             backendError.textContent = 'Warning: ' + data.message;
         } else {
             // if there is no error, registeration successful, navigate to home page
-            console.log(data.token);
             localStorage.setItem('token', data.token);
+            localStorage.setItem('role', roleType);
             window.location.href = homePageLink;
         }
     })

@@ -1,3 +1,5 @@
+import { doFetch, cutStringBeforeSpace } from "../helper.js";
+
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
@@ -6,8 +8,10 @@ const logout = document.getElementById('logout');
 const all = document.getElementById('all');
 const recommand = document.getElementById('recommand');
 const projects = document.getElementById('projects');
-
-
+let userRole = localStorage.getItem('role');
+if (userRole === 'partner') {
+    recommand.value = 'Post a project'
+}
 // Interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -30,13 +34,18 @@ function optDisplay (item) {
 recommand.addEventListener('click', (event) => {
     recommand.style.background = `rgb(${0}, ${193}, ${193})`;
     all.style.background = `rgb(${232}, ${235}, ${238})`;
+    if (userRole === 'partner') {
+        alert('post project have not implemented');
+    } else {
+        showAllOrRecomandProjects(false);
+    }
 });
 
 all.addEventListener('click', (event) => {
     all.style.background = `rgb(${0}, ${193}, ${193})`;
     recommand.style.background = `rgb(${232}, ${235}, ${238})`;
+    showAllOrRecomandProjects(true);
 });
-
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
@@ -47,7 +56,7 @@ optDisplay(recommand);
 
 
 // Example of post a project
-function newPro () {
+function newPro (projectName, projectRequirements) {
     const project = document.createElement('div');
     project.style.width = '370px';
     project.style.height = '130px';
@@ -56,7 +65,7 @@ function newPro () {
     project.style.borderRadius = '20px';
 
     const name = document.createElement('div');
-    name.textContent = 'Project Name';
+    name.textContent = projectName;
     name.style.width = '350px';
     name.style.height = '30px';
     name.style.marginLeft = '10px';
@@ -67,7 +76,7 @@ function newPro () {
     project.appendChild(name);
 
     const require = document.createElement('div');
-    require.textContent = 'Project requirements';
+    require.textContent = projectRequirements;
     require.style.width = '350px';
     require.style.height = '30px';
     require.style.marginLeft = '10px';
@@ -100,13 +109,28 @@ function newPro () {
     projects.appendChild(project);
 }
 
-newPro();
-newPro();
-newPro();
-newPro();
-newPro();
-newPro();
-newPro();
-newPro();
-newPro();
-newPro();
+newPro('Project Name', 'Project re');
+function showAllOrRecomandProjects(isAll) {
+    let url = '/profile/project';
+    if (!isAll) {
+        projects.textContent = '';
+        alert('change thiis url when backend is ready!!!');
+        url = 'change thiis!!!';
+    }
+    doFetch(url, 'GET').then((projects)=>{
+        console.log(projects);
+        projects.forEach(project => {
+            let descriptionString = project.description;
+            if (descriptionString.length > 80) {
+                descriptionString = cutStringBeforeSpace(descriptionString, 80) + ' ...';
+            } 
+            newPro(project.title, descriptionString);
+        });
+    })
+}
+showAllOrRecomandProjects(true);
+
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+})
