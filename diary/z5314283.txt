@@ -21,3 +21,11 @@ I wrote home page interface by using html css this week.
 week5 diary:
 This week we are going to finish sprint1 and demo our work in the lab.
 I modified the login and register code to make it can send data to backend and get data from backend, finally backend and frontend code works well.
+I done the demo of sprint1 in lab time
+
+week6 diary:
+I recorded a vedio of demoing sprint1.
+
+week7 diary:
+I tried to link all pages together.
+I modified the homepage code to make it can send data to backend and get data from backend.
