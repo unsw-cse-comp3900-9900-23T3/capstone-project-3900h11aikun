@@ -1,0 +1,150 @@
+body {
+    background-color: rgb(230, 244, 245);
+}
+.navigate {
+    height: 50px;
+    width: 1691px;
+    background-color: black;
+    display: flex;
+}
+.studentName {
+    margin-left: 250px;
+    color: rgb(0, 193, 193);
+    font-size: 1.3em;
+    line-height: 50px;
+    width: 160px;
+}
+.leftPart {
+    display: flex;
+    width: 906px;
+}
+.left {
+    background-color: black;
+    color: white;
+    margin-left: 30px;
+    font-size: 1em;
+    border: 0px;
+}
+.logout {
+    background-color: black;
+    width: 100px;
+    color: white;
+    font-size: 1em;
+    border: 0px;
+}
+.mainTitle {
+    width: 1691px;
+    height: 200px;
+    background-color: #415669;
+    display: flex;
+}
+.titleLeft {
+    margin-left: 250px;
+    width: 700px;
+}
+.nameNper {
+    display: flex;
+    height: 65px;
+}
+.proName {
+    margin-top: 20px;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+.period {
+    margin-top: 20px;
+    margin-left: 40px;
+    color: #D87355;
+    font-size: 2em;
+}
+.eduBack {
+    color: white;
+    margin-top: 15px;
+    margin-left: 30px;
+    height: 21px;
+}
+.img {
+    position: absolute;
+    top: 140px;
+    left: 258px;
+}
+.find {
+    font-size: 1.3em;
+    margin-top: 20px;
+    border: 0px;
+    background-color: rgb(0, 193, 193);
+    color: white;
+    width: 200px;
+    height: 60px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.titleRight {
+    width: 445px;
+}
+.contact {
+    margin-top: 10px;
+    margin-left: 140.5px;
+    background-color: #415669;
+    font-size: 1.1em;
+    color: white;
+    border: 0px;
+    color: rgb(0, 193, 193);
+}
+.revise {
+    margin-top: 120px;
+    margin-left: 134px;
+    background-color: #415669;
+    font-size: 1.2em;
+    color: white;
+    border: 0px;
+    color: rgb(0, 193, 193);
+}
+.img1 {
+    position: absolute;
+    top: 182px;
+    left: 1070px;
+}
+.img2 {
+    position: absolute;
+    top: 216px;
+    left: 1070px;
+}
+.proInfo {
+    background-color: white;
+    height: 990px;
+    margin-left: 250px;
+    margin-top: 20px;
+    width: 1050px;
+    border-radius: 30px;
+}
+.require {
+    font-weight: bold;
+    margin-left: 50px;
+    padding-top: 25px;
+    font-size: 1.2em;
+    height: 25px;
+}
+.skills {
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: rgba(128, 128, 128, 0.1);
+    height: 30px;
+    margin-top: 15px;
+    line-height: 30px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.problem {
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: rgba(128, 128, 128, 0.1);
+    height: 200px;
+    margin-top: 15px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    padding: 10px;
+    line-height: 30px;
+}
+

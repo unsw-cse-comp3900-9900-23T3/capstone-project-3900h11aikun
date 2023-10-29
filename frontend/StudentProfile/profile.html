@@ -19,16 +19,18 @@
                 <div class="perInfo">
                     <div class="p1">
                         <div class="edit">Edit personal information</div>
-                        <div class="name">Name</div>
-                        <input id="name" class="inputName" name="name" type="text" placeholder="Please input your name" />
+                        <div class="name">First Name</div>
+                        <input id="name" class="inputName" name="name" type="text" placeholder="Please input your first name" />
+                        <div class="name">Last Name</div>
+                        <input id="name2" class="inputName" type="text" placeholder="Please input your last name" />
                         <div class="name">Gender</div>
                         <div class="inputGender">
-                            <input class="g1" type="button" value="Male" />
-                            <input class="g1" type="button" value="Female" />
+                            <input id="male" class="g1" type="button" value="Male" />
+                            <input id="female" class="g1" type="button" value="Female" />
                         </div>
                         <div class="name">Age</div>
                         <input id="age" class="inputName" type="text" placeholder="Please input your age" />
-                        <div class="name">Email</div>
+                        <div class="name">Contact Email</div>
                         <input id="email" class="inputName" type="text" placeholder="Please input your email" />
                         <div class="name">Education Background</div>
                         <select id="edu" class="inputEdu">
@@ -36,8 +38,6 @@
                             <option>Postgraduate</option>
                             <option>Doctorate</option>
                         </select>
-                        <div class="name">School</div>
-                        <input id="school" class="inputName" type="text" placeholder="Please input your school" />
                     </div>
                     <div class="p1">
                         <div class="edit">Edit personal skills</div>
@@ -58,13 +58,6 @@
                         <div class="lineTitle">Personal Strength</div>
                     </div>
                     <input id="strengthInput" class="extraInput" type="text" placeholder="Please input your strength" />
-                </div>
-                <div id="experience" class="extra">
-                    <div class="extraTitle">
-                        <div class="line"></div>
-                        <div class="lineTitle">Project Experience</div>
-                    </div>
-                    <input id="experienceInput" class="extraInput" type="text" placeholder="Please input your experience" />
                 </div>
                 <input id="submit" class="submit" type="submit" value="Submit" />
             </div>

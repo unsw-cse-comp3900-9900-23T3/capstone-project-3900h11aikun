@@ -1,7 +1,8 @@
 body {
-    background-color: rgb(232, 235, 238);
+    background-color: rgb(230, 244, 245);
 }
 .navigate {
+    width: 1691px;
     height: 50px;
     background-color: black;
     display: flex;
@@ -28,6 +29,7 @@ body {
     margin-left: 505px;
 }
 .mainTitle {
+    width: 1691px;
     height: 200px;
     background-color: #415669;
     display: flex;

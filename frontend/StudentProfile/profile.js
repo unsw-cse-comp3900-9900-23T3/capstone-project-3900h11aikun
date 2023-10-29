@@ -4,10 +4,9 @@ const apply = document.getElementById('apply');
 const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 const name = document.getElementById('name');
-const age = document.getElementById('age');
+const name2 = document.getElementById('name2');
 const email = document.getElementById('email');
 const edu = document.getElementById('edu');
-const school = document.getElementById('school');
 const java = document.getElementById('java');
 const python = document.getElementById('python');
 const js = document.getElementById('js');
@@ -19,14 +18,18 @@ const net = document.getElementById('net');
 const data = document.getElementById('data');
 const strength = document.getElementById('strength');
 const strengthInput = document.getElementById('strengthInput');
-const experience = document.getElementById('experience');
-const experienceInput = document.getElementById('experienceInput');
 const upload = document.getElementById('upload');
 const dele = document.getElementById('delete');
 const submit = document.getElementById('submit');
+const male = document.getElementById('male');
+const female = document.getElementById('female');
+const age = document.getElementById('age');
 
 
 // Interaction display
+male.style.background = `rgb(${0}, ${193}, ${193})`;
+male.style.color = 'white';
+
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
         item.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -87,16 +90,31 @@ function resumeDisplay (item) {
     })
 };
 
+male.addEventListener('click', (event) => {
+    male.style.background = `rgb(${0}, ${193}, ${193})`;
+    male.style.color = 'white';
+    female.style.background = 'white';
+    female.style.color = 'grey';
+});
+female.addEventListener('click', (event) => {
+    female.style.background = `rgb(${0}, ${193}, ${193})`;
+    female.style.color = 'white';
+    male.style.background = 'white';
+    male.style.color = 'grey';
+});
+
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
 naviDisplay(profile);
 naviDisplay(logout);
 inputDisplay(name);
-inputDisplay(age);
+inputDisplay(male);
+inputDisplay(female);
+inputDisplay(name2);
 inputDisplay(email);
 inputDisplay(edu);
-inputDisplay(school);
+inputDisplay(age);
 skillDisplay(java);
 skillDisplay(python);
 skillDisplay(js);
@@ -107,7 +125,6 @@ skillDisplay(sd);
 skillDisplay(net);
 skillDisplay(data);
 extraDisplay(strength, strengthInput);
-extraDisplay(experience, experienceInput);
 resumeDisplay(upload);
 resumeDisplay(dele);
 resumeDisplay(submit);

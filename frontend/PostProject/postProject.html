@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="postProject.css" />
+    </head>
+
+    <body>
+        <div class="navigate">
+            <div class="studentName">Partner Name</div>
+            <div class="leftPart">
+                <input id="home" class="left" type="button" value="Home" />
+                <input id="mypro" class="left" type="button" value="Post Projects" />
+                <input id="profile" class="left" type="button" value="Profile" />
+            </div>
+            <input id="logout" class="logout" type="button" value="Log out" />
+        </div>
+
+        <div class="main">
+            <div class="info">
+                <div class="title">Create New Project</div>
+                <div class="proInfo">
+                    <div class="p1">
+                        <div class="edit">Edit project information</div>
+                        <div class="name">Project Name</div>
+                        <input id="name" class="inputName" type="text" placeholder="Please input the project name" />
+                        <div class="name">Period</div>
+                        <input id="period" class="inputName" type="text" placeholder="Please input as * months" />
+                        <div class="name">Contact Email</div>
+                        <input id="email" class="inputName" type="text" placeholder="Please input your email" />
+                        <div class="name">Required Education Background</div>
+                        <select id="edu" class="inputEdu">
+                            <option>Undergraduate</option>
+                            <option>Postgraduate</option>
+                            <option>Doctorate</option>
+                        </select>
+                    </div>
+                    <div class="p1">
+                        <div class="edit">Edit skills requirement</div>
+                            <div id="java" class="skill">Java</div>
+                            <div id="python" class="skill">Python</div>
+                            <div id="js" class="skill">Javascript</div>
+                            <div id="c" class="skill">C/C++</div>
+                            <div id="ml" class="skill">Machine Learning</div>
+                            <div id="dl" class="skill">Deep Learning</div>
+                            <div id="sd" class="skill">Software Develop</div>
+                            <div id="net" class="skill">Networking</div>
+                            <div id="data" class="skill">Database/Big Data</div>
+                    </div>
+                </div>
+                <div id="problem" class="extra">
+                    <div class="extraTitle">
+                        <div class="line"></div>
+                        <div class="lineTitle">Problem Statement</div>
+                    </div>
+                    <input id="problemInput" class="extraInput" type="text" placeholder="Please input problem statement" />
+                </div>
+                <div id="outcome" class="extra">
+                    <div class="extraTitle">
+                        <div class="line"></div>
+                        <div class="lineTitle">Desired Outcome</div>
+                    </div>
+                    <input id="outcomeInput" class="extraInput" type="text" placeholder="Please input desired outcome" />
+                </div>
+                <div id="deliverable" class="extra">
+                    <div class="extraTitle">
+                        <div class="line"></div>
+                        <div class="lineTitle">Potential Deliverables</div>
+                    </div>
+                    <input id="deliverableInput" class="extraInput" type="text" placeholder="Please input Potential Deliverables" />
+                </div>
+                <input id="submit" class="submit" type="button" value="Submit" />
+            </div>
+            
+            <div class="side">
+                <img class="Hi" src="Hi.png" alt="Image Lost" width="50" height="50" />
+                <div class="tipTitle">Tips:</div>
+                <div class="tips">Please fill in or modify your personal information according to the prompts as soon as possible. Accurate information is easier to help you find the right student and supervisor.</div>
+            </div>
+            
+        </div>
+
+        <script type="module" src="postProject.js"></script>
+    </body>
+</html>

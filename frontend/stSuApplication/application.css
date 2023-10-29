@@ -1,7 +1,8 @@
 body {
-    background-color: rgb(232, 235, 238);
+    background-color: rgb(230, 244, 245);
 }
 .navigate {
+    width: 1691px;
     height: 50px;
     background-color: black;
     display: flex;
@@ -26,7 +27,6 @@ body {
     font-size: 1em;
     border: 0px;
     margin-left: 505px;
-    padding-top: 25px;
 }
 .title {
     display: flex;
@@ -63,6 +63,8 @@ body {
     overflow: auto;
 }
 .main {
+    width: 1691px;
+    height: 709px;
     display: flex;
 }
 .tip {
