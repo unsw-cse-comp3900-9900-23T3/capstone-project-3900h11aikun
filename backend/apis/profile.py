@@ -160,9 +160,11 @@ class StudentInterest(Resource):
         new_student_interest = StudentInterestExpress(
             student_id=data["student_id"],
             project_id=data["project_id"],
-            reason=data["reason"],
+            reason="",
             last_updated_at=datetime.now(),
         )
+        if 'reason' in data:
+            new_student_interest.reason = data['reason']
 
         db.session.add(new_student_interest)
         db.session.commit()
@@ -181,7 +183,7 @@ class StudentInterest(Resource):
         if 'project_id' in data:
             session = session.filter_by(project_id=data['project_id'])
         if 'student_id' in data:
-            session = session.filter_by(student_id=data['student_id']).all()
+            session = session.filter_by(student_id=data['student_id'])
         session = session.join(Student, Student.student_id == StudentInterestExpress.student_id)
         session = session.join(Project, Project.project_id == StudentInterestExpress.project_id)
         session = session.add_columns(Student.first_name, Student.last_name, Student.skills,
@@ -268,9 +270,11 @@ class SupervisorInterest(Resource):
         new_supervisor_interest = SupervisorInterestExpress(
             supervisor_id=data["supervisor_id"],
             project_id=data["project_id"],
-            reason=data["reason"],
+            reason="",
             last_updated_at=datetime.now(),
         )
+        if 'reason' in data:
+            new_supervisor_interest.reason = data['reason']
 
         db.session.add(new_supervisor_interest)
         db.session.commit()
