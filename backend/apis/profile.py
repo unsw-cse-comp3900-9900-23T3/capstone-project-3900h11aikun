@@ -185,7 +185,7 @@ class StudentInterest(Resource):
         session = session.join(Student, Student.student_id == StudentInterestExpress.student_id)
         session = session.join(Project, Project.project_id == StudentInterestExpress.project_id)
         session = session.add_columns(Student.first_name, Student.last_name, Student.skills,
-                                      Student.school_name, Student.qualification, Project.title)
+                                      Student.school_name, Student.qualification, Project.title, Student.resume_url)
 
         expresses = session.all()
         res = []
@@ -197,6 +197,7 @@ class StudentInterest(Resource):
             temp['school_name'] = express[4]
             temp['qualification'] = express[5]
             temp['title'] = express[6]
+            temp['resume_url'] = express[7]
             res.append(temp)
 
         return jsonify(res)
