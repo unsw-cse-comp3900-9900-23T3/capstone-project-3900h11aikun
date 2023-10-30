@@ -1,3 +1,5 @@
+import { doFetch } from "../helper.js";
+
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
@@ -129,7 +131,16 @@ function createAppllication () {
 }
 
 createAppllication();
-createAppllication();
-createAppllication();
-createAppllication();
-createAppllication();
+let roleString = '';
+const roleId = localStorage.getItem('roleId');
+let role = localStorage.getItem('role');
+if (role === 'student') {
+    roleString = 'student_id';
+} else if (role === 'supervisor') {
+    roleString = 'supervisor_id';
+} else {
+    alert('in valid role using this function');
+}
+doFetch(`/profile/project/interest/${role}?${roleString}=${roleId}`, 'GET').then((data)=>{
+    console.log(data);
+});

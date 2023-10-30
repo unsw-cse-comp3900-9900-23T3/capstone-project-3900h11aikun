@@ -1,5 +1,5 @@
 export function doFetch(url, method, body) {
-    
+    console.log(body)
     const headers = {};
     const options = {};
     if (body) {

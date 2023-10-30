@@ -110,7 +110,7 @@ submit.addEventListener('click', (event) => {
     }
     
 });
-console.log('ioio')
+
 function fetchInLogin(url, emailOrUsername, homePageLink) {
     let options = {
         "password": password.value,
@@ -124,10 +124,23 @@ function fetchInLogin(url, emailOrUsername, homePageLink) {
             backendError.textContent = 'Warning: ' + data.message;
         } else {
             // if there is no error, registeration successful, navigate to home page
+            
+            let roleIdName = 'null';
+            if (roleType === 'partner') {
+                roleIdName = 'partner_id';
+            } else if (roleType === 'supervisor') {
+                roleIdName = 'supervisor_id';
+            } else if (roleType === 'student') {
+                roleIdName ='student_id';
+            } else {
+                alert('no this kind of role');
+            }
+            localStorage.setItem('password', password.value);
+            localStorage.setItem('roleId', data[roleIdName]);
+            localStorage.setItem('username', data.username);
             localStorage.setItem('token', data.token);
             localStorage.setItem('role', roleType);
             window.location.href = homePageLink;
         }
     })
 }
-

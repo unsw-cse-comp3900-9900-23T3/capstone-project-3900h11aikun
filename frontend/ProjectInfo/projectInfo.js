@@ -10,8 +10,8 @@ const improve = document.getElementById('improve');
 const requireSkills = document.getElementById('requireSkills');
 const problemStatement = document.getElementById('problemStatement');
 const desiredOutcome = document.getElementById('desiredOutcome');
-const potentialDeliverable = document.getElementById('potentialDeliverable');
-
+const projectName = document.getElementById('projectName');
+const contact = document.getElementById('contact');
 // interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -21,6 +21,8 @@ function naviDisplay (item) {
         item.style.color = 'white';
     });
 };
+
+
 
 applyButton.addEventListener('mouseover', (event) => {
     applyButton.style.background = `rgb(${0}, ${220}, ${220})`;
@@ -50,5 +52,21 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     problemStatement.textContent = currProj.problem_statement;
     desiredOutcome.textContent = currProj.desired_outcomes;
     potentialDeliverable.textContent = currProj.deliverables;
+    projectName.textContent = currProj.title;
 })
 
+let roleString = '';
+let role = localStorage.getItem('role');
+if (role === 'student') {
+    roleString = 'student_id';
+} else if (role === 'supervisor') {
+    roleString = 'supervisor_id';
+} else {
+    alert('in valid role using this function');
+}
+applyButton.addEventListener('click', ()=>{
+    doFetch('/profile/project/interest/' + role, 'POST', {'project_id': Number(project_id), [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
+        console.log(data);
+    });
+    window.location.href = "../stSuApplication/stSuApplication.html";
+})

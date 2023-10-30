@@ -150,6 +150,19 @@ submit.addEventListener('click', (event) => {
                 // if there is no error, registeration successful, navigate to home page
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('role', roleType);
+                let roleIdName = 'null';
+                if (roleType === 'partner') {
+                    roleIdName = 'partner_id';
+                } else if (roleType === 'supervisor') {
+                    roleIdName = 'supervisor_id';
+                } else if (roleType === 'student') {
+                    roleIdName ='student_id';
+                } else {
+                    alert('no this kind of role');
+                }
+                localStorage.setItem('roleId', data[roleIdName]);
+                localStorage.setItem('password', password.value);
+                localStorage.setItem('username', data.username);
                 window.location.href = homePageLink;
             }
         })
