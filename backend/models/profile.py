@@ -36,7 +36,7 @@ project_update_model = api.model('project_update', {
 
 
 # project assign student requires project id, partner id of the project owner and student id to be assigned
-project_assign_student_model = api.model('project_assign_student', {
+project_assign_student_model = api.model('project assign student', {
     'project_id': fields.Integer(required=True, description='project id'),
     'partner_id': fields.Integer(required=True, description='partner id of project owner'),
     'student_id': fields.Integer(required=True, description='student id to be assigned'),
@@ -44,7 +44,7 @@ project_assign_student_model = api.model('project_assign_student', {
 
 
 # project assign supervisor requires project id, partner id of the project owner and supervisor id to be assigned
-project_assign_supervisor_model = api.model('project_assign_student', {
+project_assign_supervisor_model = api.model('project assign supervisor', {
     'project_id': fields.Integer(required=True, description='project id'),
     'partner_id': fields.Integer(required=True, description='partner id of project owner'),
     'supervisor_id': fields.Integer(required=True, description='supervisor id to be assigned'),
@@ -55,7 +55,7 @@ project_assign_supervisor_model = api.model('project_assign_student', {
 project_apply_student_model = api.model('student_apply_project', {
     'project_id': fields.Integer(required=True, description='project id'),
     'student_id': fields.Integer(required=True, description='student id'),
-    'reason': fields.String(required=True, description='apply reason'),
+    'reason': fields.String(required=False, description='apply reason'),
 })
 
 project_cancel_apply_student_model = api.model('student_cancel_apply_project', {
@@ -67,10 +67,33 @@ project_cancel_apply_student_model = api.model('student_cancel_apply_project', {
 project_apply_supervisor_model = api.model('project_assign_student', {
     'project_id': fields.Integer(required=True, description='project id'),
     'supervisor_id': fields.Integer(required=True, description='supervisor id'),
-    'reason': fields.String(required=True, description='apply reason'),
+    'reason': fields.String(required=False, description='apply reason'),
 })
 
 project_cancel_apply_supervisor_model = api.model('supervisor_cancel_apply_project', {
     'project_id': fields.Integer(required=True, description='project id'),
     'supervisor_id': fields.Integer(required=True, description='supervisor id'),
+})
+
+student_update_model = api.model('student update', {
+    'student_id': fields.Integer(required=True, description='student id'),
+    'qualification': fields.String(required=False, description='qualification'),
+    'school_name': fields.String(required=False, description='school name'),
+    'major': fields.String(required=False, description='major'),
+    'skills': fields.String(required=False, description='skills'),
+    'strength': fields.String(required=False, description='strength'),
+})
+
+supervisor_update_model = api.model('supervisor update', {
+    'supervisor_id': fields.Integer(required=True, description='supervisor id'),
+    'qualification': fields.String(required=False, description='qualification'),
+    'school_name': fields.String(required=False, description='school name'),
+    'skills': fields.String(required=False, description='skills'),
+})
+
+partner_update_model = api.model('partner update', {
+    'partner_id': fields.Integer(required=True, description='partner id'),
+    'company': fields.String(required=False, description='company'),
+    'position': fields.String(required=False, description='position'),
+    'description': fields.String(required=False, description='description'),
 })
