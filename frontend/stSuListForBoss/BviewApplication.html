@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="application.css" />
+        <link rel="stylesheet" type="text/css" href="./BviewApplication.css" />
     </head>
 
     <body>
         <div class="navigate">
-            <div class="studentName">Partner Name</div>
-            <div class="leftPart">
-                <input id="home" class="left" type="button" value="Home" />
-                <input id="mypro" class="left" type="button" value="Post Projects" />
-                <input id="profile" class="left" type="button" value="Profile" />
-            </div>
-            <input id="logout" class="logout" type="button" value="Log out" />
+            <div class="studentName">Student Name</div>
+            <a id="home" class="left" href="../BossHome/bossHome.html">Home</a>
+            <a id="mypro" class="left" href="../PostProject/postProject.html">Post projects</a>
+            <a id="profile" class="left" href="../StudentProfile/StProfile.html">Profile</a>
+            <a id="logout" class="logout" href="../index.html">Log out</a>
         </div>
 
         <div class="title">
@@ -31,6 +29,6 @@
             <img class="hi" src="Hi.png" alt="Image lost" width="45" height="45" />
         </div>
 
-        <script type="module" src="application.js"></script>
+        <script type="module" src="./BviewApplication.js"></script>
     </body>
 </html>
