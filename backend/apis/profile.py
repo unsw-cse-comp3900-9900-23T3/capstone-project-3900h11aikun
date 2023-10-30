@@ -439,3 +439,49 @@ class Partners(Resource):
         db.session.commit()
 
         return jsonify(partner.as_dict())
+
+
+# skills must split by ','
+def skill_matched(skill1, skill2):
+    skills1 = skill1.split(', ')
+    skills2 = skill2.split(', ')
+    for s1 in skills1:
+        s1 = s1.strip().strip('.')
+        for s2 in skills2:
+            s2 = s2.strip().strip('.')
+            if s1 == s2:
+                return True
+    return False
+
+
+@api.route("/recommend")
+class RecommendProject(Resource):
+    @api.doc(description="Get recommend project for student or supervisor",
+             params={"student_id": "student id",
+                     "supervisor_id": "supervisor id"})
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        data = request.args
+
+        if ('student_id' not in data) and ('supervisor_id' not in data):
+            abort(401, 'student id or supervisor id not found')
+        item = Student()
+        if 'student_id' in data:
+            item = Student.query.filter_by(student_id=data["student_id"]).first()
+        else:
+            item = Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first()
+
+        if item is None:
+            abort(401, 'student id or supervisor id not found')
+
+        skills = item.skills
+
+        projects = Project.query.all()
+        res = []
+        for project in projects:
+            if project.required_skills:
+                if skill_matched(skills, project.required_skills):
+                    res.append(project.as_dict())
+        return jsonify(res)
