@@ -1,5 +1,4 @@
 import { doFetch, cutStringBeforeSpace } from "../helper.js";
-
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
@@ -54,9 +53,9 @@ naviDisplay(logout);
 optDisplay(all);
 optDisplay(recommand);
 
-
+let viewMoreId = 0;
 // Example of post a project
-function newPro (projectName, projectRequirements) {
+function newPro (projectName, projectRequirements, project_id) {
     const project = document.createElement('div');
     project.style.width = '370px';
     project.style.height = '130px';
@@ -86,6 +85,11 @@ function newPro (projectName, projectRequirements) {
     project.appendChild(require);
 
     const more = document.createElement('input');
+    more.id = 'viewMoreButton' + viewMoreId; 
+    viewMoreId += 1;
+    more.addEventListener('click', ()=>{
+        window.location.href = '../ProjectInfo/projectInfo.html' + '?id=' + project_id;
+    })
     more.type = 'button';
     more.value = 'View More';
     more.style.height = '30px';
@@ -124,7 +128,7 @@ function showAllOrRecomandProjects(isAll) {
             if (descriptionString.length > 80) {
                 descriptionString = cutStringBeforeSpace(descriptionString, 80) + ' ...';
             } 
-            newPro(project.title, descriptionString);
+            newPro(project.title, descriptionString, project.project_id);
         });
     })
 }
