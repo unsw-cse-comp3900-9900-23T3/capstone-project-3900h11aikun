@@ -296,7 +296,8 @@ class SupervisorInterest(Resource):
 @api.route("/student")
 class Students(Resource):
     @api.doc(description="List students",
-             params={"skills": "skills of student",
+             params={"student_id": "student id",
+                     "skills": "skills of student",
                      "qualification": "qualification of student",
                      "school_name": "school name of student"})
     @api.response(200, 'get success')
@@ -306,6 +307,8 @@ class Students(Resource):
         data = request.args
 
         session = Student.query
+        if 'student_id' in data:
+            session = session.filter(Student.student_id == data['student_id'])
         if 'skills' in data:
             session = session.filter(Student.skills.like('%%%s%%' % data['skills']))
         if 'qualification' in data:
@@ -319,11 +322,37 @@ class Students(Resource):
 
         return jsonify(res)
 
+    @api.doc(description="Update student detail information")
+    @api.expect(student_update_model)
+    @api.response(200, 'update success')
+    @api.response(400, 'invalid params')
+    @api.response(401, 'student id not found')
+    def put(self):
+        data = request.get_json()
+
+        student = Student.query.filter_by(student_id=data["student_id"]).first()
+        if student is None:
+            abort(401, 'unknown student id')
+        if 'qualification' in data:
+            student.qualification = data['qualification']
+        if 'school_name' in data:
+            student.school_name = data['school_name']
+        if 'major' in data:
+            student.major = data['major']
+        if 'skills' in data:
+            student.skills = data['skills']
+        if 'strength' in data:
+            student.strength = data['strength']
+        db.session.commit()
+
+        return jsonify(student.as_dict())
+
 
 @api.route("/supervisor")
 class Supervisors(Resource):
     @api.doc(description="List supervisors",
-             params={"skills": "skills of supervisor",
+             params={"supervisor_id": "supervisor id",
+                     "skills": "skills of supervisor",
                      "qualification": "qualification of supervisor",
                      "school_name": "school name of supervisor"})
     @api.response(200, 'get success')
@@ -333,6 +362,8 @@ class Supervisors(Resource):
         data = request.args
 
         session = Supervisor.query
+        if 'supervisor_id' in data:
+            session = session.filter(Supervisor.supervisor_id == data['supervisor_id'])
         if 'skills' in data:
             session = session.filter(Supervisor.skills.like('%%%s%%' % data['skills']))
         if 'qualification' in data:
@@ -345,3 +376,66 @@ class Supervisors(Resource):
             res.append(supervisor.as_dict())
 
         return jsonify(res)
+
+    @api.doc(description="Update supervisor detail information")
+    @api.expect(supervisor_update_model)
+    @api.response(200, 'update success')
+    @api.response(400, 'invalid params')
+    @api.response(401, 'supervisor id not found')
+    def put(self):
+        data = request.get_json()
+
+        supervisor = Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first()
+        if supervisor is None:
+            abort(401, 'unknown supervisor id')
+        if 'qualification' in data:
+            supervisor.qualification = data['qualification']
+        if 'school_name' in data:
+            supervisor.school_name = data['school_name']
+        if 'skills' in data:
+            supervisor.skills = data['skills']
+        db.session.commit()
+
+        return jsonify(supervisor.as_dict())
+
+
+@api.route("/partner")
+class Partners(Resource):
+    @api.doc(description="List partners",
+             params={"partner_id": "partner id"})
+    @api.response(200, 'get success')
+    @api.response(400, 'invalid params')
+    @api.response(401, '')
+    def get(self):
+        data = request.args
+
+        session = Partner.query
+        if 'partner_id' in data:
+            session = session.filter(Partner.partner_id == data['partner_id'])
+        partners = session.all()
+        res = []
+        for partner in partners:
+            res.append(partner.as_dict())
+
+        return jsonify(res)
+
+    @api.doc(description="Update partner detail information")
+    @api.expect(partner_update_model)
+    @api.response(200, 'update success')
+    @api.response(400, 'invalid params')
+    @api.response(401, 'partner id not found')
+    def put(self):
+        data = request.get_json()
+
+        partner = Partner.query.filter_by(partner_id=data["partner_id"]).first()
+        if partner is None:
+            abort(401, 'unknown partner id')
+        if 'company' in data:
+            partner.company = data['company']
+        if 'position' in data:
+            partner.position = data['position']
+        if 'description' in data:
+            partner.description = data['description']
+        db.session.commit()
+
+        return jsonify(partner.as_dict())

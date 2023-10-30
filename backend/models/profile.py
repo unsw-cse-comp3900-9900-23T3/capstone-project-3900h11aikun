@@ -74,3 +74,26 @@ project_cancel_apply_supervisor_model = api.model('supervisor_cancel_apply_proje
     'project_id': fields.Integer(required=True, description='project id'),
     'supervisor_id': fields.Integer(required=True, description='supervisor id'),
 })
+
+student_update_model = api.model('student update', {
+    'student_id': fields.Integer(required=True, description='student id'),
+    'qualification': fields.String(required=False, description='qualification'),
+    'school_name': fields.String(required=False, description='school name'),
+    'major': fields.String(required=False, description='major'),
+    'skills': fields.String(required=False, description='skills'),
+    'strength': fields.String(required=False, description='strength'),
+})
+
+supervisor_update_model = api.model('supervisor update', {
+    'supervisor_id': fields.Integer(required=True, description='supervisor id'),
+    'qualification': fields.String(required=False, description='qualification'),
+    'school_name': fields.String(required=False, description='school name'),
+    'skills': fields.String(required=False, description='skills'),
+})
+
+partner_update_model = api.model('partner update', {
+    'partner_id': fields.Integer(required=True, description='partner id'),
+    'company': fields.String(required=False, description='company'),
+    'position': fields.String(required=False, description='position'),
+    'description': fields.String(required=False, description='description'),
+})
