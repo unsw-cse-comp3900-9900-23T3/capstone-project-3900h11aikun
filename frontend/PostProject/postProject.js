@@ -1,10 +1,9 @@
+import { doFetch } from "../helper.js";
+
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
-const name = document.getElementById('name');
-const period = document.getElementById('period');
-const email = document.getElementById('email');
 const edu = document.getElementById('edu');
 const java = document.getElementById('java');
 const python = document.getElementById('python');
@@ -22,7 +21,10 @@ const outcome = document.getElementById('outcome');
 const outcomeInput = document.getElementById('outcomeInput');
 const deliverable = document.getElementById('deliverable');
 const deliverableInput = document.getElementById('deliverableInput');
-
+const editOrCreate = document.getElementById('editOrCreate');
+const projName = document.getElementById('projName');
+const projStatus = document.getElementById('projStatus');
+const projNameInput = document.getElementById('projNameInput');
 
 // Interaction display
 function naviDisplay (item) {
@@ -89,9 +91,7 @@ naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(profile);
 naviDisplay(logout);
-inputDisplay(name);
-inputDisplay(period);
-inputDisplay(email);
+inputDisplay(projName);
 inputDisplay(edu);
 skillDisplay(java);
 skillDisplay(python);
@@ -107,6 +107,22 @@ extraDisplay(outcome, outcomeInput);
 extraDisplay(deliverable,deliverableInput);
 resumeDisplay(submit);
 
+const urlParams = new URLSearchParams(window.location.search);
+const edit = urlParams.has('projectId');
+const project_id = urlParams.get('projectId');
+if (edit) {
+    editOrCreate.textContent = 'Edit project';
+    doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
+        console.log(data)
+        const projContent =  data[0];
+        projNameInput.placeholder = projContent.title;
+        console.log(projName)
+        projStatus.placeholder = projContent.status;
+        problemInput.placeholder = projContent.problem_statement;
+        outcomeInput.placeholder = projContent.desired_outcomes;
+        deliverableInput.placeholder = projContent.deliverables;
+    })
+}
 
 submit.addEventListener('click', (event) => {
     

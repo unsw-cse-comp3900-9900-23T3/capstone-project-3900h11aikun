@@ -41,6 +41,11 @@ revise.addEventListener('mouseleave', (event) => {
 
 const urlParams = new URLSearchParams(window.location.search);
 const project_id = urlParams.get('id');
+
+revise.addEventListener('click', (event) => {
+    window.location.href = "../PostProject/postProject.html?projectId=" + project_id;
+});
+
 doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     console.log(data)
     const currProj = data[0];

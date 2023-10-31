@@ -15,21 +15,16 @@
 
         <div class="main">
             <div class="info">
-                <div class="title">Create New Project</div>
+                <div class="title" id="editOrCreate">Create New Project</div>
                 <div class="proInfo">
                     <div class="p1">
                         <div class="edit">Edit project information</div>
-                        <div class="name">Project Name</div>
-                        <input id="name" class="inputName" type="text" placeholder="Please input the project name" />
-                        <div class="name">Period</div>
-                        <input id="period" class="inputName" type="text" placeholder="Please input as * months" />
-                        <div class="name">Contact Email</div>
-                        <input id="email" class="inputName" type="text" placeholder="Please input your email" />
-                        <div class="name">Required Education Background</div>
+                        <div class="name" id="projName">Project Name</div>
+                        <input id="projNameInput" class="inputName" type="text" placeholder="Please enter project name" />
+                        <div class="name" id="projStatus">Project Status</div>
                         <select id="edu" class="inputEdu">
-                            <option>Undergraduate</option>
-                            <option>Postgraduate</option>
-                            <option>Doctorate</option>
+                            <option>Close</option>
+                            <option>Open</option>
                         </select>
                     </div>
                     <div class="p1">
