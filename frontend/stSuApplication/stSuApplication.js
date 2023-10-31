@@ -19,13 +19,6 @@ function naviDisplay (item) {
     });
 };
 
-ret.addEventListener('mouseover', (event) => {
-    ret.style.color = `rgb(${0}, ${193}, ${193})`;
-});
-ret.addEventListener('mouseleave', (event) => {
-    ret.style.color = 'black';
-});
-
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
@@ -34,7 +27,7 @@ naviDisplay(logout);
 
 
 // Example of applied projects
-function createAppllication () {
+function createAppllication (pStatus, updateTime, pTitle, contacter, project_id) {
     const project = document.createElement('div');
     project.style.background = 'white';
     project.style.height = '150px';
@@ -53,7 +46,7 @@ function createAppllication () {
 
     const partner = document.createElement('div');
     partner.style.width = '560px';
-    partner.textContent = 'Industry partner name | Company name';
+    partner.textContent = `Status: ${pStatus} | Updated at: ${updateTime}`;
     partner.style.fontSize = '1.1em';
     partner.style.lineHeight = '50px';
     partner.style.marginLeft = '25px';
@@ -78,10 +71,15 @@ function createAppllication () {
         viewMore.style.background = `rgb(${0}, ${193}, ${193})`;
         viewMore.style.color = 'white';
     });
+
+    viewMore.addEventListener('click', (event) => {
+        window.location.href = '../ProjectInfo/projectInfo.html' + '?id=' + project_id;
+    });
+
     partnerInfo.appendChild(viewMore);
 
     const proTitle = document.createElement('div');
-    proTitle.textContent = 'Project name [project type]';
+    proTitle.textContent = pTitle;
     proTitle.style.marginLeft = '25px';
     proTitle.style.marginTop = '15px';
     proTitle.style.fontSize = '1.2em';
@@ -92,38 +90,15 @@ function createAppllication () {
     proInfo.style.marginLeft = '25px';
     project.appendChild(proInfo);
 
-    const period = document.createElement('div');
-    period.style.background = `rgb(${232}, ${235}, ${238})`;
-    period.style.height = '30px';
-    period.style.width = '100px';
-    period.textContent = '18 months';
-    period.style.fontSize = '0.8em';
-    period.style.lineHeight = '30px';
-    period.style.textAlign = 'center';
-    period.style.marginTop = '15px';
-    proInfo.appendChild(period);
-
-    const eduBack = document.createElement('div');
-    eduBack.style.background = `rgb(${232}, ${235}, ${238})`;
-    eduBack.style.height = '30px';
-    eduBack.style.width = '120px';
-    eduBack.textContent = 'Postgraduate';
-    eduBack.style.fontSize = '0.8em';
-    eduBack.style.lineHeight = '30px';
-    eduBack.style.textAlign = 'center';
-    eduBack.style.marginLeft = '30px';
-    eduBack.style.marginTop = '15px';
-    proInfo.appendChild(eduBack);
-
     const contact = document.createElement('div');
     contact.textContent = 'Contact:';
-    contact.style.marginLeft = '200px';
+    contact.style.marginLeft = '0px';
     contact.style.marginTop = '15px';
     contact.style.fontWeight = 'bold';
     proInfo.appendChild(contact);
 
     const email = document.createElement('div');
-    email.textContent = 'lyuhongqing@163.com';
+    email.textContent = contacter;
     email.style.marginLeft = '20px';
     email.style.marginTop = '15px';
     email.style.fontSize = '0.9em';
@@ -141,6 +116,19 @@ if (role === 'student') {
 } else {
     alert('in valid role using this function');
 }
+
 doFetch(`/profile/project/interest/${role}?${roleString}=${roleId}`, 'GET').then((data)=>{
-    console.log(data);
+
+    data.forEach(proj => {
+        doFetch('/profile/project?project_id=' + proj.project_id, 'GET').then((currProjLi)=>{
+            const projInfo = currProjLi[0];
+            console.log(projInfo)
+            doFetch('/profile/partner?partner_id=' + projInfo.partner_id, 'GET').then((partnerInfo) => {
+                console.log(partnerInfo[0]);
+                createAppllication(projInfo.status, projInfo.project_last_updated_at, projInfo.title, partnerInfo[0].email, proj.project_id);
+            })
+            
+        })
+    });
+    
 });

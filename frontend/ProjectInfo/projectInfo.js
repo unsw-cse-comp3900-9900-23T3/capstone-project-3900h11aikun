@@ -53,6 +53,10 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     desiredOutcome.textContent = currProj.desired_outcomes;
     potentialDeliverable.textContent = currProj.deliverables;
     projectName.textContent = currProj.title;
+    doFetch('/profile/partner?partner_id=' + currProj.partner_id, 'GET').then((partnerInfo) => {
+        console.log(partnerInfo[0]);
+        contact.textContent = partnerInfo[0].email;
+    })
 })
 
 let roleString = '';
@@ -64,9 +68,35 @@ if (role === 'student') {
 } else {
     alert('in valid role using this function');
 }
+let applied = false;
+const roleId = localStorage.getItem('roleId');
+doFetch(`/profile/project/interest/${role}?project_id=${project_id}&${roleString}=${roleId}`, 'GET').then((data) => {
+    console.log(data)
+    if (data.length === 0) {
+        applyButton.value = 'Apply now';
+
+    } else {
+        applyButton.value = 'Cancel application';
+        applyButton.style.width = '250px';
+        applied = true;
+    }
+})
 applyButton.addEventListener('click', ()=>{
-    doFetch('/profile/project/interest/' + role, 'POST', {'project_id': Number(project_id), [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
-        console.log(data);
-    });
+    console.log(applied)
+    if (applied) {
+        doFetch('/profile/project/interest/' + role, 'DELETE', {'project_id': Number(project_id), [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
+            console.log(data)
+            applyButton.value = 'Apply now';
+            applied = false;
+            applyButton.style.width = '200px';
+        })
+    } else {
+        doFetch('/profile/project/interest/' + role, 'POST', {'project_id': Number(project_id), [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
+            console.log(data);
+            applyButton.value = 'Cancel application';
+            applyButton.style.width = '250px';
+            applied = true;
+        });
+    }
     window.location.href = "../stSuApplication/stSuApplication.html";
 })
