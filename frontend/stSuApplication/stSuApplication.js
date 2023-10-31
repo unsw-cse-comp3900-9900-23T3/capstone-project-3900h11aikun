@@ -105,7 +105,6 @@ function createAppllication (pStatus, updateTime, pTitle, contacter, project_id)
     proInfo.appendChild(email);
 }
 
-createAppllication();
 let roleString = '';
 const roleId = localStorage.getItem('roleId');
 let role = localStorage.getItem('role');

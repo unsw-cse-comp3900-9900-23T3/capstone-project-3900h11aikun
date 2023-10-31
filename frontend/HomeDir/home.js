@@ -9,7 +9,7 @@ const recommand = document.getElementById('recommand');
 const projects = document.getElementById('projects');
 let userRole = localStorage.getItem('role');
 if (userRole === 'partner') {
-    recommand.value = 'Post a project'
+    window.location.href = "../BossHome/bossHome.html";
 }
 // Interaction display
 function naviDisplay (item) {
