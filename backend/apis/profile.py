@@ -9,12 +9,6 @@ api = Namespace(
 )
 
 
-@api.route("/profile")
-class Login(Resource):
-    def get(self):
-        pass
-
-
 @api.route("/project")
 class Projects(Resource):
     @api.doc(description="List project",
@@ -47,6 +41,7 @@ class Projects(Resource):
 
         if Partner.query.filter_by(partner_id=data["partner_id"]).first() is None:
             abort(401, 'unknown partner id')
+
         new_project = Project(
             partner_id=data['partner_id'],
             title=data['title'],
@@ -58,6 +53,7 @@ class Projects(Resource):
             project_last_updated_at=datetime.now(),
             status='is_open',
         )
+        
         db.session.add(new_project)
         db.session.commit()
 
