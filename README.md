@@ -1,10 +1,10 @@
 # Backend 进展
 
-**backend的auth api里面已经加入了token的返回，同时也加了一个 `PyJWT`的新的dependency。请follow下面的instruction重新在backend的folder位置`pip install -r requirements.txt`,或者直接在你的任意terminal里面`pip3 install PyJWT==2.8.0` 或者 windows的话是 `pip install PyJWT==2.8.0`即可.**
+## 2023-11-01 更新了数据库， supervisor也有了 resume url
 
-**数据库的话，请复制黏贴 backend/db/default_database.db 文件，黏贴到 backend 里面，就等于是和app.py, config.py 这些文件是同一个backend folder里面，同时重命名成database.db**
+## 每个人，pull 过最新的master 之后，都要！！重新！！复制黏贴 backend/db/default_database.db 文件，黏贴到 backend 里面，就等于是和 app.py, config.py 这些文件是同一个backend folder里面，同时重命名成*database.db*
 
-这样做的好处是，当大家在调试数据库的时候，不会影响我们的基础数据库，同时你调试的database.db 也不会被push到这个github仓库里面。
+## 注意，每个人的uploads里面，有两个文件，resume-1.pdf， resume-2.pdf，这两个文件是新的数据库里面，已有的student和supervisor每个人都被assign的resume。同时，uploads文件夹做了gitignore任何额外的文件的设置，这样子的话，你自己在本地test这个uploads的功能，你上传的文件，不会被传到github上。（在最终的版本的database里面，我们可以引入更多的resume的文件之类的。对于这方面如果有需要欢迎和backend组员说）
 
 backend的运行方法：
 ```
