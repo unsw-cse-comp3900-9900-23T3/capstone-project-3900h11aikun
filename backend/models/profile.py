@@ -24,7 +24,6 @@ project_create_model = api.model('project_create', {
 # only the owner can update project information
 project_update_model = api.model('project_update', {
     'project_id': fields.Integer(required=True, description='project id'),
-    'partner_id': fields.Integer(required=True, description='partner id of project owner'),
     'title': fields.String(required=False, description='title of project'),
     'description': fields.String(required=False, description='description of project'),
     'problem_statement': fields.String(required=False, description='problem statement of project'),

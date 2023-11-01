@@ -63,13 +63,13 @@ class Projects(Resource):
     @api.expect(project_update_model)
     @api.response(200, 'update success')
     @api.response(400, 'invalid params')
-    @api.response(401, 'only owner partner of project can update project')
+    @api.response(401, '')
     def put(self):
         data = request.get_json()
 
-        project = Project.query.filter_by(project_id=data["project_id"], partner_id=data["partner_id"]).first()
+        project = Project.query.filter_by(project_id=data["project_id"]).first()
         if project is None:
-            abort(401, 'unknown project id or partner id is not owner')
+            abort(401, 'unknown project id')
         if 'title' in data:
             project.title = data['title']
         if 'description' in data:
