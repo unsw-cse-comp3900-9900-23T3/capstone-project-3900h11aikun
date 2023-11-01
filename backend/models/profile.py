@@ -86,14 +86,17 @@ student_update_model = api.model('student update', {
 
 supervisor_update_model = api.model('supervisor update', {
     'supervisor_id': fields.Integer(required=True, description='supervisor id'),
-    'qualification': fields.String(required=False, description='qualification'),
-    'school_name': fields.String(required=False, description='school name'),
+    'first_name': fields.String(required=False, description='first name'),
+    'last_name': fields.String(required=False, description='last name'),
+    'email': fields.String(required=False, description='email'),
     'skills': fields.String(required=False, description='skills'),
+    'qualification': fields.String(required=False, description='qualification'),    
 })
 
 partner_update_model = api.model('partner update', {
     'partner_id': fields.Integer(required=True, description='partner id'),
+    'first_name': fields.String(required=False, description='first name'),
+    'last_name': fields.String(required=False, description='last name'),
+    'email': fields.String(required=False, description='email'),
     'company': fields.String(required=False, description='company'),
-    'position': fields.String(required=False, description='position'),
-    'description': fields.String(required=False, description='description'),
 })

@@ -146,4 +146,7 @@ showAllOrRecomandProjects(true);
 logout.addEventListener('click', ()=>{
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
 })

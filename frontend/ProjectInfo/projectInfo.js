@@ -136,3 +136,11 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
 improve.addEventListener("click", function() {
     document.getElementById("pdfUploader").click();
 });
+
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

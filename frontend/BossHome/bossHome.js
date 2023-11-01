@@ -60,3 +60,10 @@ doFetch(`/profile/project?partner_id=${partnerId}`, 'GET').then((projs)=>{
         newPro(proj.title, proj.status, proj.project_id);
     })
 })
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

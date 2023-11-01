@@ -55,10 +55,15 @@ console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
 let url = `/studentInfo/getStudentInfo/${student_id}`;
 const role = localStorage.getItem('role');
 if (role === "supervisor") {
-    stOrSu.value = "Supervisor Information";
+    console.log('hii')
+    stOrSu.textContent = "Supervisor Information";
     url=`/profile/supervisor?supervisor_id=${student_id}`;
 }
 let resumeURL = null;
+let quaOrStrength = "strength";
+    if(role === 'supervisor') {
+        quaOrStrength = "qualification";
+    }
 doFetch(url, 'GET').then((data1)=>{
     console.log(data1);
     let data = data1;
@@ -68,7 +73,7 @@ doFetch(url, 'GET').then((data1)=>{
     skill.textContent = data.skills;
     name.textContent = data.first_name + ' ' + data.last_name;
     email.textContent = data.email;
-    strength.textContent = data.qualification;
+    strength.textContent = data[quaOrStrength];
     resumeURL = data.resume_url;
 })
 
@@ -76,3 +81,10 @@ view.addEventListener('click', ()=>{
     window.open(resumeURL, '_blank');
 })
 
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

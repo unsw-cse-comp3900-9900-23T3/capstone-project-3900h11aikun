@@ -210,13 +210,29 @@ submit.addEventListener('click', (event) => {
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_update';
     }
+    if (selectedSkillvalue === null) {
+        selectedSkillvalue = '';
+    }
+    let quaOrStrength = "strength";
+    let stOrSu = "student_id";
+    if(role === 'supervisor') {
+        quaOrStrength = "qualification";
+        stOrSu = "supervisor_id"
+    }
     doFetch(stSuUrl, 'PUT', {
-        "student_id": roleId,
+        [stOrSu]: Number(roleId),
         "first_name": name1.value,
         "last_name": name2.value,
         "email": email.value,
         "skills": selectedSkillvalue,
-        "strength": strengthInput.value,
+        [quaOrStrength]: strengthInput.value,
     })
 })
 
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

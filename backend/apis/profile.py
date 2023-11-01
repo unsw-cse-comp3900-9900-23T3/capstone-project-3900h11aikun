@@ -393,12 +393,17 @@ class Supervisors(Resource):
         supervisor = Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first()
         if supervisor is None:
             abort(401, 'unknown supervisor id')
-        if 'qualification' in data:
-            supervisor.qualification = data['qualification']
-        if 'school_name' in data:
-            supervisor.school_name = data['school_name']
+        
+        if 'first_name' in data:
+            supervisor.first_name = data['first_name']
+        if 'last_name' in data:
+            supervisor.last_name = data['last_name']
+        if 'email' in data:
+            supervisor.email = data['email']
         if 'skills' in data:
             supervisor.skills = data['skills']
+        if 'qualification' in data:
+            supervisor.qualification = data['qualification']
         db.session.commit()
 
         return jsonify(supervisor.as_dict())
@@ -435,12 +440,15 @@ class Partners(Resource):
         partner = Partner.query.filter_by(partner_id=data["partner_id"]).first()
         if partner is None:
             abort(401, 'unknown partner id')
+        
+        if 'first_name' in data:
+            partner.first_name = data['first_name']
+        if 'last_name' in data:
+            partner.last_name = data['last_name']
+        if 'email' in data:
+            partner.email = data['email']
         if 'company' in data:
             partner.company = data['company']
-        if 'position' in data:
-            partner.position = data['position']
-        if 'description' in data:
-            partner.description = data['description']
         db.session.commit()
 
         return jsonify(partner.as_dict())

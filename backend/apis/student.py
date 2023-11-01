@@ -35,18 +35,10 @@ class StudentUpdate(Resource):
         if student is None:
             return {"message": "unknown student id"}, 401
 
-        if 'username' in data:
-            student.username = data['username']
         if 'first_name' in data:
-            student.username = data['first_name']
+            student.first_name = data['first_name']
         if 'last_name' in data:
             student.last_name = data['last_name']
-        if 'major' in data:
-            student.major = data['major']
-        if 'password' in data:
-            student.password = data['password']
-        if 'school_name' in data:
-            student.school_name = data['school_name']
         if 'skills' in data:
             student.skills = data['skills']
         if 'resume_url' in data:
