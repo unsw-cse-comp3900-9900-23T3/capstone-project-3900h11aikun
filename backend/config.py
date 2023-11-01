@@ -4,6 +4,11 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+# if the "uploads" folder does not exist,
+# then create one
+if not os.path.exists('uploads'):
+    os.makedirs('uploads')
+
 # create the api
 api = Api(
     version='1.0',
