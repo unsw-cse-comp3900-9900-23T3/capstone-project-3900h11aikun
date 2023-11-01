@@ -1,4 +1,4 @@
-import { doFetch } from './register.js'
+import { doFetch } from '../helper.js'
 const student = document.getElementById('student');
 const supervisor = document.getElementById('supervisor');
 const partner = document.getElementById('partner');
@@ -101,12 +101,12 @@ submit.addEventListener('click', (event) => {
     // detail information for fetch, contain data send to backend
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
-    console.log('yyyy');
+    console.log('yyyyooo');
     if (username.value.includes('@')) {
     
-        fetchInLogin('/auth/login_with_email', 'email', homePageLink);
+        fetchInLogin('/auth/login_with_email_and_return_token', 'email', homePageLink);
     } else {
-        fetchInLogin('/auth/login', 'username', homePageLink);
+        fetchInLogin('/auth/login_with_username_and_return_token', 'username', homePageLink);
     }
     
 });
@@ -124,8 +124,23 @@ function fetchInLogin(url, emailOrUsername, homePageLink) {
             backendError.textContent = 'Warning: ' + data.message;
         } else {
             // if there is no error, registeration successful, navigate to home page
+            
+            let roleIdName = 'null';
+            if (roleType === 'partner') {
+                roleIdName = 'partner_id';
+            } else if (roleType === 'supervisor') {
+                roleIdName = 'supervisor_id';
+            } else if (roleType === 'student') {
+                roleIdName ='student_id';
+            } else {
+                alert('no this kind of role');
+            }
+            localStorage.setItem('password', password.value);
+            localStorage.setItem('roleId', data[roleIdName]);
+            localStorage.setItem('username', data.username);
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('role', roleType);
             window.location.href = homePageLink;
         }
     })
 }
-

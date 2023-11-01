@@ -1,3 +1,4 @@
+import { doFetch } from "../helper.js";
 const student = document.getElementById('student');
 const supervisor = document.getElementById('supervisor');
 const partner = document.getElementById('partner');
@@ -90,6 +91,7 @@ submit.addEventListener('mouseleave', (event) => {
 })
 
 submit.addEventListener('click', (event) => {
+    
     event.preventDefault();
     const homePageLink = event.currentTarget.href;
     passerror.textContent = '';
@@ -101,7 +103,7 @@ submit.addEventListener('click', (event) => {
         emailerror.textContent = 'Please input a valid email';
         hasError = true;
     }
-    console.log(hasError)
+    
 
     let uperr = true;
     let lwerr = true;
@@ -146,28 +148,26 @@ submit.addEventListener('click', (event) => {
                 backendError.textContent = 'Warning: ' + data.message;
             } else {
                 // if there is no error, registeration successful, navigate to home page
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('role', roleType);
+                let roleIdName = 'null';
+                if (roleType === 'partner') {
+                    roleIdName = 'partner_id';
+                } else if (roleType === 'supervisor') {
+                    roleIdName = 'supervisor_id';
+                } else if (roleType === 'student') {
+                    roleIdName ='student_id';
+                } else {
+                    alert('no this kind of role');
+                }
+                localStorage.setItem('roleId', data[roleIdName]);
+                localStorage.setItem('password', password.value);
+                localStorage.setItem('username', data.username);
                 window.location.href = homePageLink;
             }
         })
     }
 });
 
-export function doFetch(url, method, body) {
-    
-    let options = {};
-    options.method = method;
-    // body contains detail information for fetch, data will be sent to backend
-    if (body) {
-        options.headers = {
-            'Content-Type':'application/json; charset=UTF-8'
-        };
-        options.body = JSON.stringify(body);
-    }
-    
-    return fetch('http://localhost:9998' + url, options).then(resp =>{
-        console.log('http://localhost:9998' + url)
-        return resp.json();
-    })
 
-}
 

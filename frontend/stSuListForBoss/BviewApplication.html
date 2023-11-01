@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./BviewApplication.css" />
+    </head>
+
+    <body>
+        <div class="navigate">
+            <div class="studentName">Student Name</div>
+            <a id="home" class="left" href="../BossHome/bossHome.html">Home</a>
+            <a id="mypro" class="left" href="../PostProject/postProject.html">Post projects</a>
+            <a id="profile" class="left" href="../StudentProfile/StProfile.html">Profile</a>
+            <a id="logout" class="logout" href="../index.html">Log out</a>
+        </div>
+
+        <div class="title">
+            <input id="return" class="return" type="button" value="< Return" />
+            <div class="subtitle">Recommand Students</div>
+            <div class="subtitle">Applied Students</div>
+        </div>
+
+        <div class="main">
+            <div id="recommand" class="students"></div>
+            <div id="applied" class="students"></div>
+            <div class="tip">
+                Tips: You can select a tutor only
+                <div class="tip2">after you have completed the selection of student.</div>
+            </div>
+            <img class="hi" src="Hi.png" alt="Image lost" width="45" height="45" />
+        </div>
+
+        <script type="module" src="./BviewApplication.js"></script>
+    </body>
+</html>

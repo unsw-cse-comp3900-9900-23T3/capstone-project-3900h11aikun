@@ -1,0 +1,193 @@
+.navigate {
+    height: 50px;
+    background-color: black;
+    display: flex;
+    width: 1691px;
+}
+body {
+    width: 100%;
+    margin: 0px;
+    height: 100%;
+    background-color: rgb(230, 244, 245);
+}
+.studentName {
+    margin-left: 250px;
+    color: rgb(0, 193, 193);
+    font-size: 1.3em;
+    line-height: 50px;
+    width: 160px;
+}
+.left {
+    background-color: black;
+    color: white;
+    margin: 14px 15px;
+    font-size: 1em;
+    border: 0px;
+    text-decoration: none;
+}
+.logout {
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    border: 0px;
+    margin-left: 505px;
+    margin-top: 14px;
+    text-decoration: none;
+}
+
+
+.main {
+    width: 1691px;
+    display: flex;
+}
+.info {
+    background-color: white;
+    height: 1160px;
+    width: 800px;
+    margin-left: 250px;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+.title {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.proInfo {
+    background-color: rgba(128,128,128,0.1);
+    height: 615px;
+    display: flex;
+}
+.p1 {
+    margin-left: 40px;
+    width: 340px;
+}
+.edit {
+    text-align: center;
+    color: rgb(0, 193, 193);
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 1.2em;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.name {
+    margin-top: 20px;
+}
+.inputName {
+    padding-left: 20px;
+    margin-top: 5px;
+    width: 316.5px;
+    height: 40px;
+    border: 1px solid rgba(128,128,128,0.3);
+    font-size: 1em;
+}
+.inputEdu {
+    padding-left: 20px;
+    margin-top: 5px;
+    width: 340px;
+    height: 45px;
+    border: 1px solid rgba(128,128,128,0.3);
+    font-size: 1em;
+}
+.edu {
+    margin-top: 80px;
+}
+.skill {
+    margin-left: 45px;
+    margin-top: 20px;
+    background-color: rgba(128,128,128,0.3);
+    font-size: 1em;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+}
+.extra {
+    padding-top: 30px;
+    height: 100px;
+}
+.extraTitle {
+    height: 25px;
+    margin-left: 40px;
+    display: flex;
+}
+.line {
+    background-color: rgb(0, 193, 193);
+    width: 5px;
+    height: 25px;
+    border-radius: 5px;
+}
+.lineTitle {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+.extraInput {
+    background-color: rgba(128,128,128,0.1);
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 720px;
+    height: 40px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.side {
+    margin-left: 25px;
+    margin-top: 50px;
+    width: 325px;
+    background-color: white;
+    height: 240px;
+    border-radius: 30px;
+}
+.resume {
+    margin-left: 35px;
+    margin-right: 35px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    font-size: 1.2em;
+    text-align: center;
+    border-bottom: 1px solid rgba(128,128,128,0.3);
+}
+.upload {
+    color: white;
+    background-color: rgb(0, 193, 193);
+    width: 255px;
+    margin-left: 35px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1em;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    border: 0px;
+}
+.Hi {
+    position: absolute;
+    left: 1110px;
+    top: 130px;
+}
+.tipTitle {
+    margin-left: 85px;
+    padding-top: 35px;
+    font-size: 1.2em;
+}
+.tips {
+    margin: 30px;
+}
+.submit {
+    background-color: rgb(0, 193, 193);
+    color: white;
+    border: 0px;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    margin-left: 300px;
+    margin-top: 20px;
+    font-size: 1.1em;
+}

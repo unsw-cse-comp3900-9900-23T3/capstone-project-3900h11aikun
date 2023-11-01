@@ -1,0 +1,83 @@
+.navigate {
+    height: 50px;
+    background-color: black;
+    display: flex;
+    width: 1691px;
+}
+body {
+    width: 100%;
+    margin: 0px;
+    height: 100%;
+    background-color: rgb(230, 244, 245);
+}
+.studentName {
+    margin-left: 250px;
+    color: rgb(0, 193, 193);
+    font-size: 1.3em;
+    line-height: 50px;
+    width: 160px;
+}
+.left {
+    background-color: black;
+    color: white;
+    margin: 14px 15px;
+    font-size: 1em;
+    border: 0px;
+    text-decoration: none;
+}
+.logout {
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    border: 0px;
+    margin-left: 505px;
+    margin-top: 14px;
+    text-decoration: none;
+}
+
+.main {
+    margin-left: 590px;
+    margin-top: 50px;
+    width: 500px;
+    height: 590px;
+    background-color: white;
+    border-radius: 50px;
+}
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    height: 50px;
+    line-height: 50px;
+}
+.infoPart {
+    width: 500px;
+    height: 420px;
+    background-color: rgba(128, 128, 128, 0.1);
+    padding-top: 15px;
+}
+.inputName {
+    margin-left: 47px;
+    font-size: 1.2em;
+}
+.input {
+    margin-top: 5px;
+    margin-left: 47px;
+    width: 390px;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 1em;
+}
+.submit {
+    border: 0px;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(0, 193, 193);
+    color: white;
+    margin-left: 150px;
+    margin-top: 20px;
+    font-size: 1.2em;
+    border-radius: 15px;
+}
