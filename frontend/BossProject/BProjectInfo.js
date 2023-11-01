@@ -11,7 +11,8 @@ const desiredOutcome = document.getElementById('desiredOutcome');
 const projectName = document.getElementById('projectName');
 console.log(projectName);
 const contact = document.getElementById('contact');
-
+const urlParams = new URLSearchParams(window.location.search);
+const project_id = urlParams.get('id');
 // interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -29,7 +30,7 @@ findSt.addEventListener('mouseleave', (event) => {
     findSt.style.background = `rgb(${0}, ${193}, ${193})`;
 });
 findSt.addEventListener('click', (event) => {
-    window.location.href = "../stSuListForBoss/BviewApplication.html";
+    window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
 
 });
 const roleId = Number(localStorage.getItem('roleId'));
@@ -41,8 +42,7 @@ revise.addEventListener('mouseleave', (event) => {
     revise.style.color = `rgb(${0}, ${193}, ${193})`;
 });
 
-const urlParams = new URLSearchParams(window.location.search);
-const project_id = urlParams.get('id');
+
 
 revise.addEventListener('click', (event) => {
     window.location.href = "../PostProject/postProject.html?projectId=" + project_id;

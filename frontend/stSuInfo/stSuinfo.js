@@ -11,8 +11,16 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const strength = document.getElementById('strength');
 const stOrSu = document.getElementById('stOrSu');
+const urlParams = new URLSearchParams(window.location.search);
+const bossView = urlParams.has('studentId');
+const bossViewSId = urlParams.get('studentId');
 
-
+if (bossView) {
+    console.log('yoo')
+    ret.addEventListener('click', function() {
+        window.history.back();
+    });
+}
 // Interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -51,13 +59,17 @@ naviDisplay(logout);
 buttonDisplay(view);
 
 const student_id = Number(localStorage.getItem('roleId'));
-console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
-let url = `/studentInfo/getStudentInfo/${student_id}`;
+let sendSid = student_id;
+if (bossView) {
+    sendSid = bossViewSId;
+}
+console.log(`/studentInfo/getStudentInfo/{${sendSid}}`);
+let url = `/studentInfo/getStudentInfo/${sendSid}`;
 const role = localStorage.getItem('role');
 if (role === "supervisor") {
     console.log('hii')
     stOrSu.textContent = "Supervisor Information";
-    url=`/profile/supervisor?supervisor_id=${student_id}`;
+    url=`/profile/supervisor?supervisor_id=${sendSid}`;
 }
 let resumeURL = null;
 let quaOrStrength = "strength";
