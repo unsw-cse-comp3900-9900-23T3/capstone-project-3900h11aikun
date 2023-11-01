@@ -119,7 +119,7 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
     let formData = new FormData();
     formData.append("file", file, file.name);
 
-    let stSuUrl = 'change this';
+    let stSuUrl = '/supervisorInfo/supervisor_upload_resume';
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_upload_resume/';
     }

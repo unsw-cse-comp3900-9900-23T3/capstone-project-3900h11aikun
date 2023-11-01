@@ -53,17 +53,22 @@ buttonDisplay(view);
 const student_id = localStorage.getItem('roleId');
 console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
 let url = `/studentInfo/getStudentInfo/${student_id}`;
-if (localStorage.getItem('role') === "supervisor") {
-    stOrSu = "Supervisor Information";
-    url="change this";
+const role = localStorage.getItem('role');
+if (role === "supervisor") {
+    stOrSu.value = "Supervisor Information";
+    url=`/profile/supervisor?supervisor_id=${student_id}`;
 }
 let resumeURL = null;
-doFetch(url, 'GET').then((data)=>{
-    console.log(data);
+doFetch(url, 'GET').then((data1)=>{
+    console.log(data1);
+    let data = data1;
+    if(role === 'supervisor') {
+        data = data1[0];
+    }
     skill.textContent = data.skills;
     name.textContent = data.first_name + ' ' + data.last_name;
     email.textContent = data.email;
-    strength.textContent = data.strength;
+    strength.textContent = data.qualification;
     resumeURL = data.resume_url;
 })
 
