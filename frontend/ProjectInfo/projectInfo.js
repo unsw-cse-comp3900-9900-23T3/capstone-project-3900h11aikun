@@ -100,3 +100,39 @@ applyButton.addEventListener('click', ()=>{
     }
     window.location.href = "../stSuApplication/stSuApplication.html";
 })
+let userRole = localStorage.getItem('role');
+document.getElementById('pdfUploader').addEventListener('change', (event)=> {
+    let file = event.target.files[0];
+
+    if (!file) {
+        console.log("No file selected.");
+        return;
+    }
+
+    // Check if the file is a PDF
+    if (file.type !== "application/pdf") {
+        console.log("Please select a PDF file.");
+        return;
+    }
+
+    // Create FormData and append the file
+    let formData = new FormData();
+    formData.append("file", file, file.name);
+
+    let stSuUrl = 'change this';
+    if (userRole === 'student') {
+        stSuUrl = '/studentInfo/student_upload_resume/';
+    }
+    let roleId = localStorage.getItem('roleId');
+    // doFetch(stSuUrl + roleId, 'POST', formData);
+    fetch('http://localhost:9998' + stSuUrl + roleId, {
+        method: "POST",
+        body: formData,
+      })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+});
+improve.addEventListener("click", function() {
+    document.getElementById("pdfUploader").click();
+});

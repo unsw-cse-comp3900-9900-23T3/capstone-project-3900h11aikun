@@ -112,18 +112,27 @@ function newPro (projectName, projectRequirements, project_id) {
 
     projects.appendChild(project);
 }
-
+const roleId = localStorage.getItem('roleId');
 newPro('Project Name', 'Project re');
 function showAllOrRecomandProjects(isAll) {
     let url = '/profile/project';
+    let stOrSuID = "supervisor_id";
+    if (userRole === 'student') {
+        stOrSuID = "student_id";
+    }
     if (!isAll) {
         projects.textContent = '';
-        alert('change thiis url when backend is ready!!!');
-        url = 'change thiis!!!';
+        url = `/profile/recommend?`+ stOrSuID +`=${roleId}`;
     }
+    console.log(url)
     doFetch(url, 'GET').then((projects)=>{
         console.log(projects);
-        projects.forEach(project => {
+        let pList = projects;
+        // if (!isAll){
+        //     pList = projects.matched_projects;
+        // }
+        console.log(pList)
+        pList.forEach(project => {
             let descriptionString = project.description;
             if (descriptionString.length > 80) {
                 descriptionString = cutStringBeforeSpace(descriptionString, 80) + ' ...';

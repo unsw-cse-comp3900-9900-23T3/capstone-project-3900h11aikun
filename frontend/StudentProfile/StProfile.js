@@ -1,12 +1,12 @@
+import { doFetch } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
 const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
-const name = document.getElementById('name');
+const name1 = document.getElementById('name');
 const name2 = document.getElementById('name2');
 const email = document.getElementById('email');
-const edu = document.getElementById('edu');
 const java = document.getElementById('java');
 const python = document.getElementById('python');
 const js = document.getElementById('js');
@@ -19,16 +19,10 @@ const data = document.getElementById('data');
 const strength = document.getElementById('strength');
 const strengthInput = document.getElementById('strengthInput');
 const upload = document.getElementById('upload');
-const dele = document.getElementById('delete');
 const submit = document.getElementById('submit');
-const male = document.getElementById('male');
-const female = document.getElementById('female');
-const age = document.getElementById('age');
 
 
 // Interaction display
-male.style.background = `rgb(${0}, ${193}, ${193})`;
-male.style.color = 'white';
 
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -59,15 +53,7 @@ function skillDisplay (item) {
             item.style.background = `rgba(${128}, ${128}, ${128}, ${0.3})`;
         }
     });
-    item.addEventListener('click', (event) => {
-        if (item.style.color == 'black') {
-            item.style.color = 'white';
-            item.style.background = `rgb(${0}, ${193}, ${193})`;
-        } else {
-            item.style.color = 'black';
-            item.style.background = `rgb(${0}, ${193}, ${193})`;
-        };
-    });
+    
 };
 
 function extraDisplay (item1, item2) {
@@ -90,31 +76,14 @@ function resumeDisplay (item) {
     })
 };
 
-male.addEventListener('click', (event) => {
-    male.style.background = `rgb(${0}, ${193}, ${193})`;
-    male.style.color = 'white';
-    female.style.background = 'white';
-    female.style.color = 'grey';
-});
-female.addEventListener('click', (event) => {
-    female.style.background = `rgb(${0}, ${193}, ${193})`;
-    female.style.color = 'white';
-    male.style.background = 'white';
-    male.style.color = 'grey';
-});
-
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
 naviDisplay(profile);
 naviDisplay(logout);
-inputDisplay(name);
-inputDisplay(male);
-inputDisplay(female);
+inputDisplay(name1);
 inputDisplay(name2);
 inputDisplay(email);
-inputDisplay(edu);
-inputDisplay(age);
 skillDisplay(java);
 skillDisplay(python);
 skillDisplay(js);
@@ -126,12 +95,115 @@ skillDisplay(net);
 skillDisplay(data);
 extraDisplay(strength, strengthInput);
 resumeDisplay(upload);
-resumeDisplay(dele);
 resumeDisplay(submit);
+const skillList = ['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data'];
+const student_id = localStorage.getItem('roleId');
+doFetch(`/studentInfo/getStudentInfo/${student_id}`, 'GET').then((data)=>{
+    console.log(data);
+    name1.value = data.first_name;
+    name2.value = data.last_name;
+    email.value = data.email;
+    strengthInput.value = data.strength;
+    if (skillList.includes(data.skill)) {
+        const selectedEle = findSelectedEle(data.skill);
+        selectedEle.classList.add('selected');
+    }
 
+})
+function findSelectedEle(selectedString) {
+    if (selectedString === 'Java') {
+        return java;
+    } else if (selectedString === 'Pthon') {
+        return python;
+    } else if (selectedString === 'Javascript') {
+        return js;
+    } else if (selectedString === 'C/C++') {
+        return c;
+    } else if (selectedString === 'Machine Learning') {
+        return ml;
+    } else if (selectedString === 'Deep Learning') {
+        return dl;
+    } else if (selectedString === 'Software Develop') {
+        return sd;
+    } else if (selectedString === 'Networking') {
+        return net;
+    } else if (selectedString === 'Database/Big Data') {
+        return data;
+    } 
+} 
 
+let userRole = localStorage.getItem('role');
+let roleId = localStorage.getItem('roleId');
+
+function selectSkill(selectedSkillElement) {
+    document.querySelectorAll('.skill').forEach(skill => {
+        skill.classList.remove('selected');
+    });
+
+    selectedSkillElement.classList.add('selected');
+}
+
+// Add event listeners to each skill
+document.querySelectorAll('.skill').forEach(skill => {
+    skill.addEventListener('click', function() {
+        selectSkill(this);
+
+        
+    });
+});
 // Can not use Form to submit
+
+document.getElementById('pdfUploader').addEventListener('change', (event)=> {
+    let file = event.target.files[0];
+
+    if (!file) {
+        console.log("No file selected.");
+        return;
+    }
+
+    // Check if the file is a PDF
+    if (file.type !== "application/pdf") {
+        console.log("Please select a PDF file.");
+        return;
+    }
+
+    // Create FormData and append the file
+    let formData = new FormData();
+    formData.append("file", file, file.name);
+
+    let stSuUrl = 'change this';
+    if (userRole === 'student') {
+        stSuUrl = '/studentInfo/student_upload_resume/';
+    }
+    let roleId = localStorage.getItem('roleId');
+    // doFetch(stSuUrl + roleId, 'POST', formData);
+    fetch('http://localhost:9998' + stSuUrl + roleId, {
+        method: "POST",
+        body: formData,
+      })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+});
+
+
 submit.addEventListener('click', (event) => {
-    
+    let selectedSkillvalue = '';
+    selectedSkillvalue = document.querySelector('.skill.selected');
+    if (selectedSkillvalue !== null) {
+        selectedSkillvalue = selectedSkillvalue.textContent;
+    }
+    let stSuUrl = '/profile/supervisor';
+    if (userRole === 'student') {
+        stSuUrl = '/studentInfo/student_update';
+    }
+    doFetch(stSuUrl, 'PUT', {
+        "student_id": roleId,
+        "first_name": name1.value,
+        "last_name": name2.value,
+        "email": email.value,
+        "skills": selectedSkillvalue,
+        "strength": strengthInput.value,
+    })
 })
 

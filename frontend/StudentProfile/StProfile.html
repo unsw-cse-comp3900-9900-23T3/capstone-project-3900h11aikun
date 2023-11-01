@@ -6,7 +6,7 @@
 
     <body>
         <div class="navigate">
-            <div class="studentName">Student Name</div>
+            <a class="studentName" href="../stSuInfo/stSuinfo.html">Student Name</a>
             <a id="home" class="left" href="../HomeDir/home.html">Home</a>
             <a id="mypro" class="left" href="../PostProject/postProject.html">My project</a>
             <a id="apply" class="left" href="../stSuApplication/stSuApplication.html">Applications</a>
@@ -23,21 +23,10 @@
                         <input id="name" class="inputName" name="name" type="text" placeholder="Please input your first name" />
                         <div class="name">Last Name</div>
                         <input id="name2" class="inputName" type="text" placeholder="Please input your last name" />
-                        <div class="name">Gender</div>
-                        <div class="inputGender">
-                            <input id="male" class="g1" type="button" value="Male" />
-                            <input id="female" class="g1" type="button" value="Female" />
-                        </div>
-                        <div class="name">Age</div>
-                        <input id="age" class="inputName" type="text" placeholder="Please input your age" />
+                        
                         <div class="name">Contact Email</div>
                         <input id="email" class="inputName" type="text" placeholder="Please input your email" />
-                        <div class="name">Education Background</div>
-                        <select id="edu" class="inputEdu">
-                            <option>Undergraduate</option>
-                            <option>Postgraduate</option>
-                            <option>Doctorate</option>
-                        </select>
+                        
                     </div>
                     <div class="p1">
                         <div class="edit">Edit personal skills</div>
@@ -67,13 +56,12 @@
                     <div class="tipTitle">Tips:</div>
                     <div class="tips">Please fill in or modify your personal information according to the prompts as soon as possible. Real personal information is easier to help you find the right projects.</div>
                 </div>
-                <div class="side">
+                <div class="side2">
                     <div class="resume">Resume</div>
                     <label>
-                        <div id="upload" class="upload">Upload Resume</div>
-                        <input hidden type="file" />
+                        <div id="upload" class="upload">Upload New Resume</div>
+                        <input type="file" id="pdfUploader" accept="application/pdf" hidden/>
                     </label>
-                    <div id="delete" class="upload">Delete Resume</div>
                 </div>
             </div>
         </div>

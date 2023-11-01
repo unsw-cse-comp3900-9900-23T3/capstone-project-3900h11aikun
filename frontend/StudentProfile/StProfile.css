@@ -16,6 +16,7 @@ body {
     font-size: 1.3em;
     line-height: 50px;
     width: 160px;
+    text-decoration: none;
 }
 .left {
     background-color: black;
@@ -160,6 +161,13 @@ body {
     border-radius: 30px;
     margin-bottom: 30px;
 }
+
+.side2 {
+    background-color: white;
+    height: 150px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
 .resume {
     margin-left: 35px;
     margin-right: 35px;
@@ -205,4 +213,9 @@ body {
     margin-left: 300px;
     margin-top: 20px;
     font-size: 1.1em;
+}
+
+.skill.selected {
+    color: white;
+    background-color: #02c1c1 !important; 
 }

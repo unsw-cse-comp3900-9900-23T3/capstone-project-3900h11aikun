@@ -1,10 +1,16 @@
+import { doFetch } from "../helper.js";
+
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 const ret = document.getElementById('return');
 const view = document.getElementById('view');
-const download = document.getElementById('download');
+const skill = document.getElementById('skill');
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const strength = document.getElementById('strength');
+const stOrSu = document.getElementById('stOrSu');
 
 
 // Interaction display
@@ -25,6 +31,9 @@ ret.addEventListener('mouseleave', (event) => {
     ret.style.background = 'white';
     ret.style.color = 'black';
 });
+ret.addEventListener('click', (event) => {
+    window.location.href = "../HomeDir/home.html";
+});
 
 function buttonDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -40,8 +49,25 @@ naviDisplay(myPro);
 naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(view);
-buttonDisplay(download);
 
+const student_id = localStorage.getItem('roleId');
+console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
+let url = `/studentInfo/getStudentInfo/${student_id}`;
+if (localStorage.getItem('role') === "supervisor") {
+    stOrSu = "Supervisor Information";
+    url="change this";
+}
+let resumeURL = null;
+doFetch(url, 'GET').then((data)=>{
+    console.log(data);
+    skill.textContent = data.skills;
+    name.textContent = data.first_name + ' ' + data.last_name;
+    email.textContent = data.email;
+    strength.textContent = data.strength;
+    resumeURL = data.resume_url;
+})
 
-
+view.addEventListener('click', ()=>{
+    window.open(resumeURL, '_blank');
+})
 
