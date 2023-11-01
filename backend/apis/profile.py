@@ -334,6 +334,16 @@ class Students(Resource):
         student = Student.query.filter_by(student_id=data["student_id"]).first()
         if student is None:
             abort(401, 'unknown student id')
+        if 'username' in data:
+            student.username = data['username']
+        if 'first_name' in data:
+            student.first_name = data['first_name']
+        if 'last_name' in data:
+            student.last_name = data['last_name']
+        if 'email' in data:
+            student.email = data['email']
+        if 'avatar' in data:
+            student.avatar = data['avatar']
         if 'qualification' in data:
             student.qualification = data['qualification']
         if 'school_name' in data:
@@ -344,6 +354,8 @@ class Students(Resource):
             student.skills = data['skills']
         if 'strength' in data:
             student.strength = data['strength']
+        if 'resume_url' in data:
+            student.resume_url = data['resume_url']
         db.session.commit()
 
         return jsonify(student.as_dict())
@@ -389,12 +401,24 @@ class Supervisors(Resource):
         supervisor = Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first()
         if supervisor is None:
             abort(401, 'unknown supervisor id')
+        if 'username' in data:
+            supervisor.username = data['username']
+        if 'first_name' in data:
+            supervisor.first_name = data['first_name']
+        if 'last_name' in data:
+            supervisor.last_name = data['last_name']
+        if 'email' in data:
+            supervisor.email = data['email']
+        if 'avatar' in data:
+            supervisor.avatar = data['avatar']
         if 'qualification' in data:
             supervisor.qualification = data['qualification']
         if 'school_name' in data:
             supervisor.school_name = data['school_name']
         if 'skills' in data:
             supervisor.skills = data['skills']
+        if 'resume_url' in data:
+            supervisor.resume_url = data['resume_url']
         db.session.commit()
 
         return jsonify(supervisor.as_dict())
