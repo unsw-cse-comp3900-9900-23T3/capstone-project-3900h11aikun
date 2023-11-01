@@ -53,6 +53,8 @@ class Projects(Resource):
             project_last_updated_at=datetime.now(),
             status='is_open',
         )
+        if 'status' in data:
+            new_project.status = data['status']
         
         db.session.add(new_project)
         db.session.commit()

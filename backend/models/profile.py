@@ -17,6 +17,7 @@ project_create_model = api.model('project_create', {
     'desired_outcomes': fields.String(required=True, description='desired outcomes of project'),
     'required_skills': fields.String(required=True, description='required skills of project'),
     'deliverables': fields.String(required=True, description='deliverables of project'),
+    'status': fields.String(required=False, description='status of project'),
 })
 
 
