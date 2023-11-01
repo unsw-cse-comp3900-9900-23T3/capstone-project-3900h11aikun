@@ -10,7 +10,6 @@ const skill = document.getElementById('skill');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const strength = document.getElementById('strength');
-const download = document.getElementById('download');
 const stOrSu = document.getElementById('stOrSu');
 
 
@@ -50,18 +49,25 @@ naviDisplay(myPro);
 naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(view);
-buttonDisplay(download);
+
 const student_id = localStorage.getItem('roleId');
 console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
+let url = `/studentInfo/getStudentInfo/${student_id}`;
 if (localStorage.getItem('role') === "supervisor") {
     stOrSu = "Supervisor Information";
+    url="change this";
 }
-doFetch(`/studentInfo/getStudentInfo/${student_id}`, 'GET').then((data)=>{
+let resumeURL = null;
+doFetch(url, 'GET').then((data)=>{
     console.log(data);
     skill.textContent = data.skills;
     name.textContent = data.first_name + ' ' + data.last_name;
     email.textContent = data.email;
     strength.textContent = data.strength;
+    resumeURL = data.resume_url;
 })
 
+view.addEventListener('click', ()=>{
+    window.open(resumeURL, '_blank');
+})
 

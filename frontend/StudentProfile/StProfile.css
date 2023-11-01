@@ -161,6 +161,13 @@ body {
     border-radius: 30px;
     margin-bottom: 30px;
 }
+
+.side2 {
+    background-color: white;
+    height: 150px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
 .resume {
     margin-left: 35px;
     margin-right: 35px;

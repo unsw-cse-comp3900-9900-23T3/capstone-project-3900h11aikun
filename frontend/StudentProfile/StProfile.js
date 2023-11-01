@@ -19,7 +19,6 @@ const data = document.getElementById('data');
 const strength = document.getElementById('strength');
 const strengthInput = document.getElementById('strengthInput');
 const upload = document.getElementById('upload');
-const dele = document.getElementById('delete');
 const submit = document.getElementById('submit');
 
 
@@ -96,7 +95,6 @@ skillDisplay(net);
 skillDisplay(data);
 extraDisplay(strength, strengthInput);
 resumeDisplay(upload);
-resumeDisplay(dele);
 resumeDisplay(submit);
 const skillList = ['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data'];
 const student_id = localStorage.getItem('roleId');
@@ -154,14 +152,51 @@ document.querySelectorAll('.skill').forEach(skill => {
     });
 });
 // Can not use Form to submit
+
+document.getElementById('pdfUploader').addEventListener('change', (event)=> {
+    let file = event.target.files[0];
+
+    if (!file) {
+        console.log("No file selected.");
+        return;
+    }
+
+    // Check if the file is a PDF
+    if (file.type !== "application/pdf") {
+        console.log("Please select a PDF file.");
+        return;
+    }
+
+    // Create FormData and append the file
+    let formData = new FormData();
+    formData.append("file", file, file.name);
+
+    let stSuUrl = 'change this';
+    if (userRole === 'student') {
+        stSuUrl = '/studentInfo/student_upload_resume/';
+    }
+    let roleId = localStorage.getItem('roleId');
+    // doFetch(stSuUrl + roleId, 'POST', formData);
+    fetch('http://localhost:9998' + stSuUrl + roleId, {
+        method: "POST",
+        body: formData,
+      })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+});
+
+
 submit.addEventListener('click', (event) => {
     let selectedSkillvalue = '';
-    selectedSkillvalue = document.querySelector('.skill.selected').textContent;
+    selectedSkillvalue = document.querySelector('.skill.selected');
+    if (selectedSkillvalue !== null) {
+        selectedSkillvalue = selectedSkillvalue.textContent;
+    }
     let stSuUrl = '/profile/supervisor';
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_update';
     }
-
     doFetch(stSuUrl, 'PUT', {
         "student_id": roleId,
         "first_name": name1.value,
