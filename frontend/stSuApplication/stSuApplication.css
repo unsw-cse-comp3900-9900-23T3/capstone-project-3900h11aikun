@@ -16,6 +16,7 @@ body {
     font-size: 1.3em;
     line-height: 50px;
     width: 160px;
+    text-decoration: none;
 }
 .left {
     background-color: black;
