@@ -45,11 +45,11 @@ api.init_app(app)
 db.init_app(app)
 
 # import the routes
-from apis import auth, profile, student, project, supervisor
+from apis import auth, profile, student, project, supervisor, progress
 
 api.add_namespace(auth.api)
 api.add_namespace(profile.api)
 api.add_namespace(student.api)
 api.add_namespace(project.api)
 api.add_namespace(supervisor.api)
-
+api.add_namespace(progress.api)
