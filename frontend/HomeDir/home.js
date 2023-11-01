@@ -112,7 +112,7 @@ function newPro (projectName, projectRequirements, project_id) {
 
     projects.appendChild(project);
 }
-const roleId = localStorage.getItem('roleId');
+const roleId = Number(localStorage.getItem('roleId'));
 newPro('Project Name', 'Project re');
 function showAllOrRecomandProjects(isAll) {
     let url = '/profile/project';

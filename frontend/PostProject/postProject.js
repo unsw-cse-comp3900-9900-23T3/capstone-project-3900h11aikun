@@ -25,6 +25,7 @@ const editOrCreate = document.getElementById('editOrCreate');
 const projName = document.getElementById('projName');
 const projStatus = document.getElementById('projStatus');
 const projNameInput = document.getElementById('projNameInput');
+let roleId = Number(localStorage.getItem('roleId'));
 
 // Interaction display
 function naviDisplay (item) {
@@ -165,8 +166,31 @@ document.querySelectorAll('.skill').forEach(skill => {
     });
 });
 
-submit.addEventListener('click', (event) => {
-    
+if (!edit) {
+
+}
+
+submit.addEventListener('click', (event) => { 
+    let selectedSkillvalue = document.querySelector('.skill.selected');
+    if (selectedSkillvalue !== null) {
+        selectedSkillvalue = selectedSkillvalue.textContent;
+    } else {
+        selectedSkillvalue = '';
+    }
+    let sta = 'is_open';
+    if (edu.value === 'Close') {
+        sta = 'closed';
+    }
+    doFetch('/profile/project', 'POST', {
+        "project_id": roleId,
+        "title": projNameInput.value,
+        "description": "",
+        "problem_statement": problemInput.value,
+        "desired_outcomes": outcomeInput.value,
+        "required_skills": selectedSkillvalue,
+        "deliverables": deliverableInput.value,
+        "status": sta
+    })
 });
 
 logout.addEventListener('click', ()=>{

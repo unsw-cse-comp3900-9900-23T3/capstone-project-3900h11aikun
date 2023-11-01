@@ -201,17 +201,15 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
 
 
 submit.addEventListener('click', (event) => {
-    let selectedSkillvalue = '';
-    selectedSkillvalue = document.querySelector('.skill.selected');
+    let selectedSkillvalue = document.querySelector('.skill.selected');
     if (selectedSkillvalue !== null) {
         selectedSkillvalue = selectedSkillvalue.textContent;
+    } else {
+        selectedSkillvalue = '';
     }
     let stSuUrl = '/profile/supervisor';
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_update';
-    }
-    if (selectedSkillvalue === null) {
-        selectedSkillvalue = '';
     }
     let quaOrStrength = "strength";
     let stOrSu = "student_id";

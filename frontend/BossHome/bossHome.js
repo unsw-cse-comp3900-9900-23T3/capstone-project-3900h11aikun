@@ -54,7 +54,7 @@ function newPro (title, proStatus, project_id) {
     project.appendChild(more);
 }
 
-const partnerId = localStorage.getItem('roleId');
+const partnerId = Number(localStorage.getItem('roleId'));
 doFetch(`/profile/project?partner_id=${partnerId}`, 'GET').then((projs)=>{
     projs.forEach((proj)=>{
         newPro(proj.title, proj.status, proj.project_id);

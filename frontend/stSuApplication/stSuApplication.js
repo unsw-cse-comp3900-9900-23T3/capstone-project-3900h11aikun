@@ -106,7 +106,7 @@ function createAppllication (pStatus, updateTime, pTitle, contacter, project_id)
 }
 
 let roleString = '';
-const roleId = localStorage.getItem('roleId');
+const roleId = Number(localStorage.getItem('roleId'));
 let role = localStorage.getItem('role');
 if (role === 'student') {
     roleString = 'student_id';

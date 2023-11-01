@@ -50,7 +50,7 @@ naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(view);
 
-const student_id = localStorage.getItem('roleId');
+const student_id = Number(localStorage.getItem('roleId'));
 console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
 let url = `/studentInfo/getStudentInfo/${student_id}`;
 const role = localStorage.getItem('role');
