@@ -150,8 +150,9 @@ class StudentRegisterWithResumeFile(Resource):
         db.session.commit()
 
         # return the resume_url for that student id
+        base_url = request.url_root
         response = {
-            "resume_url": new_full_filename,
+            "resume_url": base_url + new_full_filename,
             "student_id": student_id
         }
 
