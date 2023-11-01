@@ -56,15 +56,7 @@ function skillDisplay (item) {
             item.style.background = `rgba(${128}, ${128}, ${128}, ${0.3})`;
         }
     });
-    item.addEventListener('click', (event) => {
-        if (item.style.color == 'black') {
-            item.style.color = 'white';
-            item.style.background = `rgb(${0}, ${193}, ${193})`;
-        } else {
-            item.style.color = 'black';
-            item.style.background = `rgb(${0}, ${193}, ${193})`;
-        };
-    });
+    
 };
 
 function extraDisplay (item1, item2) {
@@ -110,19 +102,68 @@ resumeDisplay(submit);
 const urlParams = new URLSearchParams(window.location.search);
 const edit = urlParams.has('projectId');
 const project_id = urlParams.get('projectId');
+
+const skillList = ['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data'];
+
+function findSelectedEle(selectedString) {
+    if (selectedString === 'Java') {
+        return java;
+    } else if (selectedString === 'Pthon') {
+        return python;
+    } else if (selectedString === 'Javascript') {
+        return js;
+    } else if (selectedString === 'C/C++') {
+        return c;
+    } else if (selectedString === 'Machine Learning') {
+        return ml;
+    } else if (selectedString === 'Deep Learning') {
+        return dl;
+    } else if (selectedString === 'Software Develop') {
+        return sd;
+    } else if (selectedString === 'Networking') {
+        return net;
+    } else if (selectedString === 'Database/Big Data') {
+        return data;
+    } 
+} 
+
 if (edit) {
     editOrCreate.textContent = 'Edit project';
     doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
         console.log(data)
         const projContent =  data[0];
-        projNameInput.placeholder = projContent.title;
+        projNameInput.value = projContent.title;
         console.log(projName)
-        projStatus.placeholder = projContent.status;
-        problemInput.placeholder = projContent.problem_statement;
-        outcomeInput.placeholder = projContent.desired_outcomes;
-        deliverableInput.placeholder = projContent.deliverables;
+        let defaultValue = 'Close';
+        if (projContent.status === 'is_open') {
+            defaultValue = 'Open';
+        }
+        edu.value = defaultValue;
+        problemInput.value = projContent.problem_statement;
+        outcomeInput.value = projContent.desired_outcomes;
+        deliverableInput.value = projContent.deliverables;
+        if (skillList.includes(projContent.required_skills)) {
+            const selectedEle = findSelectedEle(data.skill);
+            selectedEle.classList.add('selected');
+        }
     })
 }
+function selectSkill(selectedSkillElement) {
+    document.querySelectorAll('.skill').forEach(skill => {
+        skill.classList.remove('selected');
+    });
+
+    selectedSkillElement.classList.add('selected');
+}
+
+// Add event listeners to each skill
+document.querySelectorAll('.skill').forEach(skill => {
+    skill.addEventListener('click', function() {
+        selectSkill(this);
+
+        
+    });
+});
 
 submit.addEventListener('click', (event) => {
     

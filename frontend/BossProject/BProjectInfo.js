@@ -32,6 +32,8 @@ findSt.addEventListener('click', (event) => {
     window.location.href = "../stSuListForBoss/BviewApplication.html";
 
 });
+const roleId = Number(localStorage.getItem('roleId'));
+
 revise.addEventListener('mouseover', (event) => {
     revise.style.color = `rgb(${0}, ${230}, ${230})`;
 });
