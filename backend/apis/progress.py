@@ -30,11 +30,11 @@ class GetAllProgress(Resource):
         all_progress = ProjectProgress.query.filter_by(project_id=project_id).all()
 
         # create a list to store all the progress dicts
-        all_progress_list = [p.to_dict() for p in all_progress]
+        all_progress_list = [p.as_dict() for p in all_progress]
 
         # response
         response = {
-            "project": project.to_dict(),
+            "project": project.as_dict(),
             "all_progress": all_progress_list,
         }
 
@@ -81,7 +81,7 @@ class CreateNewProgress(Resource):
         # add to the database and return
         db.session.add(new_progress)
         db.session.commit()
-        return jsonify(new_progress.to_dict())
+        return jsonify(new_progress.as_dict())
 
 
 @api.route("/<int:progress_id>")
@@ -102,6 +102,19 @@ class ProgressDeleteAction(Resource):
         return jsonify({})
 
 
+    @api.doc(description="Get a progress by progress_id")
+    @api.response(200, "Success, return the new progress dict")
+    @api.response(400, "Progress id not found / other error")
+    def get(self, progress_id):
+        """anyone can get a progress by progress_id"""
+
+        progress = ProjectProgress.query.get(progress_id)
+        if not progress:
+            abort(400, "Progress id {} not found".format(progress_id))
+
+        return jsonify(progress.as_dict())
+
+
 @api.route("/file/<int:progress_id>")
 class ProgressFile(Resource):
     @api.doc(description="Delete the file from the progress")
@@ -119,12 +132,13 @@ class ProgressFile(Resource):
         progress.file_url = None
         progress.student_last_updated_at = datetime.now()
         db.session.commit()
-        return jsonify(progress.to_dict())
+        return jsonify(progress.as_dict())
 
 
     @api.doc(description="put a new file for that progress")
     @api.response(200, "Success, return the new progress dict")
     @api.response(400, "Progress id not found / No file selected / other error")
+    @api.expect(progress_file_parser)
     def put(self, progress_id):
         """student, after posting a new project, now upload a file to the progress, if file already exist, the new file will replace the old one"""
 
@@ -150,8 +164,7 @@ class ProgressFile(Resource):
         progress.file_url = new_full_filename
         progress.student_last_updated_at = datetime.now()
         db.session.commit()
-        return jsonify(progress.to_dict())
-
+        return jsonify(progress.as_dict())
 
 
 @api.route("/text/<int:progress_id>")
@@ -175,20 +188,7 @@ class ProgressAction(Resource):
         progress.content = new_content
         progress.student_last_updated_at = datetime.now()
         db.session.commit()
-        return jsonify(progress.to_dict())
-
-
-    @api.doc(description="Get a progress by progress_id")
-    @api.response(200, "Success, return the new progress dict")
-    @api.response(400, "Progress id not found / other error")
-    def get(self, progress_id):
-        """anyone can get a progress by progress_id"""
-
-        progress = ProjectProgress.query.get(progress_id)
-        if not progress:
-            abort(400, "Progress id {} not found".format(progress_id))
-
-        return jsonify(progress.to_dict())
+        return jsonify(progress.as_dict())
 
 
 @api.route("/partner_feedback/<int:progress_id>")
@@ -218,7 +218,7 @@ class PartnerFeedbackAction(Resource):
         progress.partner_feedback = data["partner_feedback"]
         progress.partner_last_updated_at = datetime.now()
         db.session.commit()
-        return jsonify(progress.to_dict())
+        return jsonify(progress.as_dict())
 
 
     @api.doc(description="Partner delete the feedback to the progress, " +
@@ -236,5 +236,5 @@ class PartnerFeedbackAction(Resource):
         progress.partner_feedback = None
         progress.partner_last_updated_at = None
         db.session.commit()
-        return jsonify(progress.to_dict())
+        return jsonify(progress.as_dict())
 
