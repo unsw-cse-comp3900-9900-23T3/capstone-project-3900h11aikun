@@ -4,6 +4,11 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+# if the "uploads" folder does not exist,
+# then create one
+if not os.path.exists('uploads'):
+    os.makedirs('uploads')
+
 # create the api
 api = Api(
     version='1.0',
@@ -40,10 +45,11 @@ api.init_app(app)
 db.init_app(app)
 
 # import the routes
-from apis import auth, profile, student, project
+from apis import auth, profile, student, project, supervisor
 
 api.add_namespace(auth.api)
 api.add_namespace(profile.api)
 api.add_namespace(student.api)
 api.add_namespace(project.api)
+api.add_namespace(supervisor.api)
 
