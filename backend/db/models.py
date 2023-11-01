@@ -55,7 +55,6 @@ class Student(BaseModel):
     skills = db.Column(db.String, nullable=False)
     strength = db.Column(db.String, nullable=False)
 
-    # !!!!
     resume_url = db.Column(db.String, nullable=True, default=None)
 
 
@@ -74,6 +73,8 @@ class Supervisor(BaseModel):
     qualification = db.Column(db.String, nullable=False)
     school_name = db.Column(db.String, nullable=False)
     skills = db.Column(db.String, nullable=False)
+
+    resume_url = db.Column(db.String, nullable=True, default=None)
 
 
 class Partner(BaseModel):

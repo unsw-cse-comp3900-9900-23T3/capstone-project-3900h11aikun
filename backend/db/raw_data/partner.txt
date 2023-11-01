@@ -1,10 +1,10 @@
-rhonda-murray|Rhonda|Murray|rhonda.murray@business.au|Abcd1234!|Hansen Group|HR|Pioneered the adoption of AI and ML techniques for business optimization in the company.
-donna-riley|Donna|Riley|donna.riley@business.au|Abcd1234!|Salinas and Sons|Director of Operations|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
-dana-hurst|Dana|Hurst|dana.hurst@business.au|Abcd1234!|Bishop-Brown|HR|Broad experience in setting company vision, strategy, and successfully executing it.
-sharon-rice|Sharon|Rice|sharon.rice@business.au|Abcd1234!|Chaney, Mcintosh and Johnson|COO|Over 20 years of experience leading technology teams.
-david-curtis|David|Curtis|david.curtis@business.au|Abcd1234!|Vega Inc|COO|Proven track record in scaling startups to multi-million user bases.
-michael-petersen|Michael|Petersen|michael.petersen@business.au|Abcd1234!|Park-Macdonald|Director of Sales|Played a pivotal role in expanding the company's footprint in Asia and Europe.
-tiffany-hall|Tiffany|Hall|tiffany.hall@business.au|Abcd1234!|Morgan, Gonzalez and Cross|Chief Officer|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
-linda-mcintosh|Linda|Mcintosh|linda.mcintosh@business.au|Abcd1234!|Johnson LLC|Director of Operations|Passionate about innovative marketing strategies and their execution in the global market.
-connor-hernandez|Connor|Hernandez|connor.hernandez@business.au|Abcd1234!|Reynolds LLC|CEO|Has spearheaded numerous green initiatives, pushing for sustainability in the industry.
-samantha-adams|Samantha|Adams|samantha.adams@business.au|Abcd1234!|Chen-Underwood|Chief Officer|Strong advocate for diversity and inclusion, implementing company-wide programs.
+jennifer-may|Jennifer|May|jennifer.may@business.au|Abcd1234!|Harding-Weaver|CTO|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
+shelby-martinez|Shelby|Martinez|shelby.martinez@business.au|Abcd1234!|Garcia, Carey and Davis|Chief Officer|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
+travis-blankenship|Travis|Blankenship|travis.blankenship@business.au|Abcd1234!|Hughes-Taylor|HR|Holds a successful record in mergers and acquisitions, optimizing business value.
+anthony-jones|Anthony|Jones|anthony.jones@business.au|Abcd1234!|King Ltd|COO|Skilled in negotiation, having secured valuable partnerships and contracts.
+stacey-wells|Stacey|Wells|stacey.wells@business.au|Abcd1234!|Jones Group|Director of Operations|Adept at building, maintaining, and nurturing high-value customer relationships.
+denise-robinson|Denise|Robinson|denise.robinson@business.au|Abcd1234!|Murillo LLC|HR|Directed multiple successful product launches, resulting in a 300% growth in sales.
+james-rodriguez|James|Rodriguez|james.rodriguez@business.au|Abcd1234!|Nichols-Doyle|CTO|Extensive background in R&D, driving innovation and patenting new technologies.
+jerry-barry|Jerry|Barry|jerry.barry@business.au|Abcd1234!|Gonzalez, Joseph and Miller|Chief Officer|Consistently prioritizes customer feedback, leading to better product iterations.
+loretta-bray|Loretta|Bray|loretta.bray@business.au|Abcd1234!|Wallace, Miller and Bruce|Head of HR|Played a pivotal role in expanding the company's footprint in Asia and Europe.
+christopher-johnson|Christopher|Johnson|christopher.johnson@business.au|Abcd1234!|Carter LLC|CTO|Played a pivotal role in expanding the company's footprint in Asia and Europe.
