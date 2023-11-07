@@ -132,7 +132,7 @@ function showAllOrRecomandProjects(isAll) {
         // }
         console.log(pList)
         pList.forEach(project => {
-            let descriptionString = project.description;
+            let descriptionString = project.problem_statement;
             if (descriptionString.length > 80) {
                 descriptionString = cutStringBeforeSpace(descriptionString, 80) + ' ...';
             } 
