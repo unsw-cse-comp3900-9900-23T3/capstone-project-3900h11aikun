@@ -33,8 +33,19 @@ echo ""
 node --version > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "Node.js is already installed."
+    echo "follow the instruction show below"
     echo ""
-    echo "You can run \"npx http-server frontend -c 1 -p 6081\" inside capstone-project-3900h11aikun directory now"
+    echo "1. You can run \"npx http-server frontend -c 1 -p 6081\" inside capstone-project-3900h11aikun directory now"
+    echo "If the terminal ask you to install http-server then select yes"
+    echo ""
+    echo "2. open another terminal (don't close current running frontend terminal) and cd to \"capstone-project-3900h11aikun/backend\" folder"
+    echo ""
+    echo "3. enter \"python3 app.py\"if using linux/macos, enter \"python app.py\"if using windows"
+    echo ""
+    echo "** If your terminal shows ImportError: cannot import name EVENT_ TYPE_OPENED from 'watchdog.events'... "
+    echo "Try \"pip install --upgrade watchdog\""
+    echo ""
+    echo "** If error still exist contact us"
 else
     echo "Node.js is not installed. Please install Node.js package. After installing successful, run ./setup.sh again"
 fi
