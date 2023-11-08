@@ -1,10 +1,10 @@
-michael-osborne|Michael|Osborne|michael.osborne@business.au|Abcd1234!|Lee, Holt and Chapman|HR|Highly skilled in crisis management, steering the company through multiple challenging periods.
-james-burns|James|Burns|james.burns@business.au|Abcd1234!|Rodriguez-Long|Chief Officer|Championed company culture, employee satisfaction, and reduced attrition rates.
-harold-cameron|Harold|Cameron|harold.cameron@business.au|Abcd1234!|Mills, Henry and George|Chief Officer|Adept at building, maintaining, and nurturing high-value customer relationships.
-gary-shaffer|Gary|Shaffer|gary.shaffer@business.au|Abcd1234!|Navarro, Moyer and Nelson|Chief Officer|Strong advocate for diversity and inclusion, implementing company-wide programs.
-gregory-palmer|Gregory|Palmer|gregory.palmer@business.au|Abcd1234!|Black-Mills|Director of Operations|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
-mitchell-todd|Mitchell|Todd|mitchell.todd@business.au|Abcd1234!|Rodriguez-Townsend|HR|Known for a hands-on leadership style, directly contributing to project successes.
-tara-smith|Tara|Smith|tara.smith@business.au|Abcd1234!|Allen-Smith|CTO|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
-dominic-cox|Dominic|Cox|dominic.cox@business.au|Abcd1234!|Larson-Barker|CTO|Proven track record in scaling startups to multi-million user bases.
-karen-howard|Karen|Howard|karen.howard@business.au|Abcd1234!|Turner-Walker|COO|Extensive background in R&D, driving innovation and patenting new technologies.
-brenda-pacheco|Brenda|Pacheco|brenda.pacheco@business.au|Abcd1234!|Burke LLC|HR|Significant expertise in business transformation and change management across diverse industries.
+kelsey-austin|Kelsey|Austin|kelsey.austin@business.au|Abcd1234!|Barker, Hill and Bennett|Director of Sales|Over 20 years of experience leading technology teams.
+thomas-weber|Thomas|Weber|thomas.weber@business.au|Abcd1234!|Gomez, Kaufman and Peterson|Head of HR|Played a pivotal role in expanding the company's footprint in Asia and Europe.
+michael-gonzalez|Michael|Gonzalez|michael.gonzalez@business.au|Abcd1234!|Herrera-Gray|Head of HR|Frequent speaker at international conferences, representing the company's vision and achievements.
+ernest-baker|Ernest|Baker|ernest.baker@business.au|Abcd1234!|Owens, Harris and Lang|CTO|Skilled in negotiation, having secured valuable partnerships and contracts.
+alex-carlson|Alex|Carlson|alex.carlson@business.au|Abcd1234!|Garcia-Rodriguez|Director of Operations|Frequent speaker at international conferences, representing the company's vision and achievements.
+brett-oliver|Brett|Oliver|brett.oliver@business.au|Abcd1234!|Lee, Morrison and Burns|Head of HR|Proven track record in scaling startups to multi-million user bases.
+carolyn-martin|Carolyn|Martin|carolyn.martin@business.au|Abcd1234!|Gonzalez-Morgan|Chief Officer|Adept at building, maintaining, and nurturing high-value customer relationships.
+becky-bush|Becky|Bush|becky.bush@business.au|Abcd1234!|Summers-White|Chief Officer|Directed multiple successful product launches, resulting in a 300% growth in sales.
+stephen-wu|Stephen|Wu|stephen.wu@business.au|Abcd1234!|Carter, Barker and Solis|Director of Sales|Championed company culture, employee satisfaction, and reduced attrition rates.
+stanley-martinez|Stanley|Martinez|stanley.martinez@business.au|Abcd1234!|Gibson-Taylor|HR|Over 20 years of experience leading technology teams.
