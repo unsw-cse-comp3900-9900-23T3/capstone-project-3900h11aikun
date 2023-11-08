@@ -3,4 +3,4 @@
 **/database.db
 .DS_Store
 **/.DS_Store
-**/default_database.db
+# **/default_database.db
