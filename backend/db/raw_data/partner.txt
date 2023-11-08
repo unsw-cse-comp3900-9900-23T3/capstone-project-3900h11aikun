@@ -1,10 +1,10 @@
-jennifer-may|Jennifer|May|jennifer.may@business.au|Abcd1234!|Harding-Weaver|CTO|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
-shelby-martinez|Shelby|Martinez|shelby.martinez@business.au|Abcd1234!|Garcia, Carey and Davis|Chief Officer|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
-travis-blankenship|Travis|Blankenship|travis.blankenship@business.au|Abcd1234!|Hughes-Taylor|HR|Holds a successful record in mergers and acquisitions, optimizing business value.
-anthony-jones|Anthony|Jones|anthony.jones@business.au|Abcd1234!|King Ltd|COO|Skilled in negotiation, having secured valuable partnerships and contracts.
-stacey-wells|Stacey|Wells|stacey.wells@business.au|Abcd1234!|Jones Group|Director of Operations|Adept at building, maintaining, and nurturing high-value customer relationships.
-denise-robinson|Denise|Robinson|denise.robinson@business.au|Abcd1234!|Murillo LLC|HR|Directed multiple successful product launches, resulting in a 300% growth in sales.
-james-rodriguez|James|Rodriguez|james.rodriguez@business.au|Abcd1234!|Nichols-Doyle|CTO|Extensive background in R&D, driving innovation and patenting new technologies.
-jerry-barry|Jerry|Barry|jerry.barry@business.au|Abcd1234!|Gonzalez, Joseph and Miller|Chief Officer|Consistently prioritizes customer feedback, leading to better product iterations.
-loretta-bray|Loretta|Bray|loretta.bray@business.au|Abcd1234!|Wallace, Miller and Bruce|Head of HR|Played a pivotal role in expanding the company's footprint in Asia and Europe.
-christopher-johnson|Christopher|Johnson|christopher.johnson@business.au|Abcd1234!|Carter LLC|CTO|Played a pivotal role in expanding the company's footprint in Asia and Europe.
+caroline-burns|Caroline|Burns|caroline.burns@business.au|Abcd1234!|Ritter-Johnson|Chief Officer|Championed company culture, employee satisfaction, and reduced attrition rates.
+mary-reyes|Mary|Reyes|mary.reyes@business.au|Abcd1234!|Davis, Rodgers and Walker|HR|Holds a successful record in mergers and acquisitions, optimizing business value.
+kayla-armstrong|Kayla|Armstrong|kayla.armstrong@business.au|Abcd1234!|Harris, Jones and Payne|Director of Operations|Directed multiple successful product launches, resulting in a 300% growth in sales.
+frank-jones|Frank|Jones|frank.jones@business.au|Abcd1234!|Peterson PLC|HR|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
+erika-murphy|Erika|Murphy|erika.murphy@business.au|Abcd1234!|Hunt-Morales|HR|Deep understanding of the supply chain, having improved logistics efficiency by 25%.
+sheila-davis|Sheila|Davis|sheila.davis@business.au|Abcd1234!|Acosta, Khan and Gross|Director of Operations|Broad experience in setting company vision, strategy, and successfully executing it.
+theresa-willis|Theresa|Willis|theresa.willis@business.au|Abcd1234!|Brown-Ross|Chief Officer|Passionate about innovative marketing strategies and their execution in the global market.
+allison-lowe|Allison|Lowe|allison.lowe@business.au|Abcd1234!|Johnson Ltd|Head of HR|Passionate about fostering team growth, development, and ensuring optimal productivity.
+savannah-nunez|Savannah|Nunez|savannah.nunez@business.au|Abcd1234!|Mendoza-Woods|CEO|Extensive background in R&D, driving innovation and patenting new technologies.
+kimberly-bell|Kimberly|Bell|kimberly.bell@business.au|Abcd1234!|Ewing, Brewer and Newman|CEO|Directed multiple successful product launches, resulting in a 300% growth in sales.

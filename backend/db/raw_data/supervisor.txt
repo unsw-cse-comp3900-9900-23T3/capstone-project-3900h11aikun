@@ -1,10 +1,10 @@
-brittany-walton|Brittany|Walton|brittany.walton@school.edu.au|Abcd1234!|Bachelor of Engineering|University of Tasmania|Teamwork, Leadership, Digital marketing, Research
-steven-reid|Steven|Reid|steven.reid@school.edu.au|Abcd1234!|Master of Science|Monash University|Research, Software development, Public speaking, Leadership
-martin-taylor|Martin|Taylor|martin.taylor@school.edu.au|Abcd1234!|PhD in Business Administration|University of Adelaide|UX/UI design, Database management, Public speaking, Research
-benjamin-shaw|Benjamin|Shaw|benjamin.shaw@school.edu.au|Abcd1234!|Bachelor of Engineering|Macquarie University|Database management, Problem solving, Data analysis, UX/UI design
-jessica-davis|Jessica|Davis|jessica.davis@school.edu.au|Abcd1234!|PhD in Electrical Engineering|University of Western Australia|Digital marketing, Software development, Problem solving, Graphic design
-jose-small|Jose|Small|jose.small@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Sydney|Database management, Graphic design, Networking, Statistical analysis
-tamara-hatfield|Tamara|Hatfield|tamara.hatfield@school.edu.au|Abcd1234!|Master of Arts|University of New South Wales|Research, Software development, Leadership, Public speaking
-richard-little|Richard|Little|richard.little@school.edu.au|Abcd1234!|Master of Information Technology|James Cook University|Graphic design, Networking, Problem solving, Software development
-kimberly-hill|Kimberly|Hill|kimberly.hill@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Canberra|Graphic design, Data analysis, Teamwork, Database management
-angela-velazquez|Angela|Velazquez|angela.velazquez@school.edu.au|Abcd1234!|Master of Business Administration|James Cook University|UX/UI design, Leadership, Statistical analysis, Graphic design
+amanda-king|Amanda|King|amanda.king@school.edu.au|Abcd1234!|PhD in Electrical Engineering|Australian National University|Digital marketing, Statistical analysis, Software development, Research
+kathryn-nelson|Kathryn|Nelson|kathryn.nelson@school.edu.au|Abcd1234!|PhD in Electrical Engineering|Monash University|UX/UI design, Digital marketing, Project management, Database management
+michael-alvarez|Michael|Alvarez|michael.alvarez@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Melbourne|Leadership, Software development, UX/UI design, Statistical analysis
+kim-roberts|Kim|Roberts|kim.roberts@school.edu.au|Abcd1234!|Master of Arts|University of Tasmania|UX/UI design, Digital marketing, Statistical analysis, Software development
+angela-harper|Angela|Harper|angela.harper@school.edu.au|Abcd1234!|Master of Business Administration|University of Sydney|Project management, Digital marketing, UX/UI design, Software development
+andrew-hicks|Andrew|Hicks|andrew.hicks@school.edu.au|Abcd1234!|Master of Arts|University of Tasmania|Digital marketing, Statistical analysis, Graphic design, UX/UI design
+jaime-rosales|Jaime|Rosales|jaime.rosales@school.edu.au|Abcd1234!|Master of Information Technology|James Cook University|UX/UI design, Teamwork, Leadership, Data analysis
+kevin-robinson|Kevin|Robinson|kevin.robinson@school.edu.au|Abcd1234!|Master of Information Technology|University of Tasmania|Digital marketing, Teamwork, Public speaking, Problem solving
+christopher-long|Christopher|Long|christopher.long@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Queensland|Leadership, Research, Database management, Public speaking
+joshua-moran|Joshua|Moran|joshua.moran@school.edu.au|Abcd1234!|Bachelor of Engineering|University of Western Australia|UX/UI design, Networking, Software development, Statistical analysis
