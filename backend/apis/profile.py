@@ -85,6 +85,12 @@ class Projects(Resource):
             project.required_skills = data['required_skills']
         if 'deliverables' in data:
             project.deliverables = data['deliverables']
+        if 'student_id' in data:
+            project.student_id = data['student_id']
+        if 'supervisor_id' in data:
+            project.supervisor_id = data['supervisor_id']
+        if 'status' in data:
+            project.status = data['status']
         project.project_last_updated_at = datetime.now()
 
         db.session.commit()

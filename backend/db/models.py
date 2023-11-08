@@ -126,7 +126,7 @@ class Project(BaseModel):
     student_being_assigned_at = db.Column(db.DateTime, nullable=True)
 
     # project has a flag: is_open, in_progres, closed
-    status = db.Column(db.Enum('is_open', 'in_progress', 'closed'), nullable=False, default='is_open')
+    status = db.Column(db.Enum('is_open', 'in_progress', 'is_closed'), nullable=False, default='is_open')
 
 # the student express interests, and attach a sentence
 class StudentInterestExpress(BaseModel):

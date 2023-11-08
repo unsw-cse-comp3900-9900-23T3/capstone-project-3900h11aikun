@@ -63,12 +63,34 @@ function loadStudent(part, nameContent, education, stId) {
     const button = document.createElement('input');
     button.type = 'button';
     button.className = 'viewmore';
-    button.value = 'View More';
+    button.value = 'View more';
+    if (part === applied) {
+        const selectButton = document.createElement('input');
+        selectButton.type = 'button';
+        selectButton.className = 'viewmore';
+        selectButton.value = 'Add person to project';
+        student.appendChild(selectButton);
+        buttonDisplay(selectButton);
+        student.style.height = '140px';
+        selectButton.addEventListener("click", ()=>{
+            doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
+                console.log(data)
+                const currProj = data[0];
+                currProj.student_id = stId;
+                console.log(currProj)
+                doFetch('/profile/project', 'PUT', currProj);
+                doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{console.log(data)})
+            })
+        })
+    }
+    
     button.addEventListener('click', ()=>{
         window.location.href = "../stSuInfo/stSuinfo.html?studentId=" + stId;
     })
     student.appendChild(button);
+    
     buttonDisplay(button);
+    
 };
 
 console.log(project_id)
@@ -81,7 +103,7 @@ doFetch('/profile/project?project_id=' + project_id, 'GET').then((data)=>{
         console.log(data2);
         data2.forEach((student)=>{
             doFetch('/profile/student?student_id=' + student.student_id).then((data)=>{
-                loadStudent(applied, student.first_name + ' ' + student.last_name, data[0].email, data[0].student_id);
+                loadStudent(recommand, student.first_name + ' ' + student.last_name, data[0].email, data[0].student_id);
             })
         })
     })
