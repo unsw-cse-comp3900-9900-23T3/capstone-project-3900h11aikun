@@ -1,10 +1,10 @@
-karen-hanna|Karen|Hanna|karen.hanna@school.edu.au|Abcd1234!|PhD in Computer Science|University of Western Australia|Database management, Problem solving, Software development, Networking
-curtis-graham|Curtis|Graham|curtis.graham@school.edu.au|Abcd1234!|PhD in Computer Science|University of Western Australia|UX/UI design, Research, Software development, Graphic design
-ryan-griffin|Ryan|Griffin|ryan.griffin@school.edu.au|Abcd1234!|PhD in Mechanical Engineering|Australian National University|Graphic design, Data analysis, UX/UI design, Research
-charlotte-orozco|Charlotte|Orozco|charlotte.orozco@school.edu.au|Abcd1234!|Master of Arts|University of Queensland|Research, Leadership, Statistical analysis, Project management
-michael-campos|Michael|Campos|michael.campos@school.edu.au|Abcd1234!|Master of Science|University of Queensland|Leadership, Teamwork, Project management, Digital marketing
-sherry-delacruz|Sherry|Delacruz|sherry.delacruz@school.edu.au|Abcd1234!|Master of Information Technology|University of Tasmania|Teamwork, Software development, Research, Data analysis
-chloe-kirk|Chloe|Kirk|chloe.kirk@school.edu.au|Abcd1234!|PhD in Computer Science|Monash University|UX/UI design, Teamwork, Networking, Statistical analysis
-jennifer-swanson|Jennifer|Swanson|jennifer.swanson@school.edu.au|Abcd1234!|PhD in Business Administration|University of Adelaide|Leadership, Problem solving, Research, Database management
-mary-torres|Mary|Torres|mary.torres@school.edu.au|Abcd1234!|PhD in Mechanical Engineering|University of Queensland|UX/UI design, Software development, Graphic design, Public speaking
-carla-hampton|Carla|Hampton|carla.hampton@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Sydney|Graphic design, Leadership, Research, Project management
+aaron-lopez|Aaron|Lopez|aaron.lopez@school.edu.au|Abcd1234!|Master of Information Technology|University of Western Australia|Project management, Software development, Database management, Problem solving
+jennifer-riley|Jennifer|Riley|jennifer.riley@school.edu.au|Abcd1234!|Master of Information Technology|University of Queensland|Data analysis, Public speaking, Project management, Software development
+maria-herring|Maria|Herring|maria.herring@school.edu.au|Abcd1234!|Master of Information Technology|University of Canberra|Database management, Statistical analysis, Leadership, Networking
+shawn-guzman|Shawn|Guzman|shawn.guzman@school.edu.au|Abcd1234!|Master of Science|Australian National University|Networking, Digital marketing, Project management, Leadership
+donald-gray|Donald|Gray|donald.gray@school.edu.au|Abcd1234!|PhD in Business Administration|Australian National University|Project management, Software development, Leadership, Networking
+deborah-fitzgerald|Deborah|Fitzgerald|deborah.fitzgerald@school.edu.au|Abcd1234!|Bachelor of Engineering|Monash University|Public speaking, Research, Data analysis, UX/UI design
+ana-blanchard|Ana|Blanchard|ana.blanchard@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Tasmania|Project management, Statistical analysis, Database management, Public speaking
+brianna-hart|Brianna|Hart|brianna.hart@school.edu.au|Abcd1234!|PhD in Computer Science|University of Tasmania|Digital marketing, Statistical analysis, Leadership, Software development
+felicia-moses|Felicia|Moses|felicia.moses@school.edu.au|Abcd1234!|Doctorate in Psychology|University of New South Wales|Database management, Data analysis, Software development, Networking
+peggy-miller|Peggy|Miller|peggy.miller@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Western Australia|Public speaking, UX/UI design, Graphic design, Statistical analysis
