@@ -1,10 +1,17 @@
 # Backend 进展
 
-## 2023-11-01 更新了数据库， supervisor也有了 resume url
+### 2023-11-08 再次更新了数据库，所有的qualification是 master， undergraduate， doctorate 三选一。所有的skill （student 的，和supervisor的） 都是从 `['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data']` 这里面进行挑选。数据库是这样的的design，每个学生和supervisor随机匹配了9个skill里面的6个，然后每个project是随机匹配了9个skill里面的4个。这样就是确保recommendation可以working。
 
-## 每个人，pull 过最新的master 之后，都要！！重新！！复制黏贴 backend/db/default_database.db 文件，黏贴到 backend 里面，就等于是和 app.py, config.py 这些文件是同一个backend folder里面，同时重命名成*database.db*
+### 注意每个skills 是个string， 用 逗号+空格 的形式隔开！！！。 逗号+空格！！比如说 `Machine Learning, Java, Deep Learning, Pthon, Networking, Javascript` 这样的。
 
-## 注意，每个人的uploads里面，有两个文件，resume-1.pdf， resume-2.pdf，这两个文件是新的数据库里面，已有的student和supervisor每个人都被assign的resume。同时，uploads文件夹做了gitignore任何额外的文件的设置，这样子的话，你自己在本地test这个uploads的功能，你上传的文件，不会被传到github上。（在最终的版本的database里面，我们可以引入更多的resume的文件之类的。对于这方面如果有需要欢迎和backend组员说）
+### 同时check了一下 recommend 的api。 如果最后的res 是长度为0，那么从所有的project里面随机选两个project。这样保证recommendation是能return些东西的。
+
+### 还有一点，project 的status， 数据库的设计是 `"is_open", "in_progress", "is_closed"` 三选一，我把project update 和 post new project 的地方重新做了一下input data 的validation。
+
+### 最后，每个database里面已经有的project，如果有progress，我都link到了一份uploads 里面的文件。
+
+### 最后，uploads文件夹回归。
+
 
 backend的运行方法：
 ```
@@ -30,7 +37,3 @@ python3 app.py
 **db** folder里面是有个 model.py 文件，是数据库的每个table的定义。采用的是flask sqlalchemy 的object oriented 写法。每个table可以直接用这种class的形式来做数据库的CRUD操作。
 
 **models** folder 里面是包含了每个request parser，或者body的parameter 定义。
-
-
-
-
