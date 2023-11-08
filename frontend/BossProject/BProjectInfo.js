@@ -12,7 +12,7 @@ const projectName = document.getElementById('projectName');
 console.log(projectName);
 const contact = document.getElementById('contact');
 const urlParams = new URLSearchParams(window.location.search);
-const project_id = urlParams.get('id');
+const project_id = Number(urlParams.get('id'));
 // interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {

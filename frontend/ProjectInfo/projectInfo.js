@@ -44,7 +44,7 @@ naviDisplay(apply);
 naviDisplay(profile);
 naviDisplay(logout);
 const urlParams = new URLSearchParams(window.location.search);
-const project_id = urlParams.get('id');
+const project_id = Number(urlParams.get('id'));
 doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     console.log(data)
     const currProj = data[0];
@@ -84,14 +84,14 @@ doFetch(`/profile/project/interest/${role}?project_id=${project_id}&${roleString
 applyButton.addEventListener('click', ()=>{
     console.log(applied)
     if (applied) {
-        doFetch('/profile/project/interest/' + role, 'DELETE', {'project_id': Number(project_id), [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
+        doFetch('/profile/project/interest/' + role, 'DELETE', {'project_id': project_id, [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
             console.log(data)
             applyButton.value = 'Apply now';
             applied = false;
             applyButton.style.width = '200px';
         })
     } else {
-        doFetch('/profile/project/interest/' + role, 'POST', {'project_id': Number(project_id), [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
+        doFetch('/profile/project/interest/' + role, 'POST', {'project_id': project_id, [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
             console.log(data);
             applyButton.value = 'Cancel application';
             applyButton.style.width = '250px';
