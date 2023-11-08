@@ -74,12 +74,9 @@ function loadStudent(part, nameContent, education, stId) {
         student.style.height = '140px';
         selectButton.addEventListener("click", ()=>{
             doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
-                console.log(data)
                 const currProj = data[0];
                 currProj.student_id = stId;
-                console.log(currProj)
                 doFetch('/profile/project', 'PUT', currProj);
-                doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{console.log(data)})
             })
         })
     }

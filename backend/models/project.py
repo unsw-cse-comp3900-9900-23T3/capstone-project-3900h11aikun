@@ -22,5 +22,5 @@ project_update_model = api.model('project_update', {
     'supervisor_being_assigned_at': fields.DateTime(description='Updated timestamp when the supervisor was assigned to the project'),
     'student_id': fields.Integer(description='Updated student ID assigned to the project'),
     'student_being_assigned_at': fields.DateTime(description='Updated timestamp when the student was assigned to the project'),
-    'status': fields.String(required=False, description='status of project', default="is_open", enum=["is_open", "in_progress", "is_closed"])
+    'status': fields.String(required=False, description='status of project', default="is_open", enum=["is_open", "in_progress", "closed"])
 })
