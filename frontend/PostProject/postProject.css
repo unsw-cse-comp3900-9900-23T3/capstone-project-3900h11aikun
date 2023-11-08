@@ -191,3 +191,7 @@ body {
     margin-top: 20px;
     font-size: 1.1em;
 }
+.skill.selected {
+    color: white;
+    background-color: #02c1c1 !important; 
+}

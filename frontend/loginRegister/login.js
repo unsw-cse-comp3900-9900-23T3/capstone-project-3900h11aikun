@@ -136,6 +136,7 @@ function fetchInLogin(url, emailOrUsername, homePageLink) {
                 alert('no this kind of role');
             }
             localStorage.setItem('password', password.value);
+            console.log(data[roleIdName])
             localStorage.setItem('roleId', data[roleIdName]);
             localStorage.setItem('username', data.username);
             localStorage.setItem('token', data.token);

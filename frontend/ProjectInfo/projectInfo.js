@@ -69,7 +69,7 @@ if (role === 'student') {
     alert('in valid role using this function');
 }
 let applied = false;
-const roleId = localStorage.getItem('roleId');
+const roleId = Number(localStorage.getItem('roleId'));
 doFetch(`/profile/project/interest/${role}?project_id=${project_id}&${roleString}=${roleId}`, 'GET').then((data) => {
     console.log(data)
     if (data.length === 0) {
@@ -119,11 +119,11 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
     let formData = new FormData();
     formData.append("file", file, file.name);
 
-    let stSuUrl = 'change this';
+    let stSuUrl = '/supervisorInfo/supervisor_upload_resume';
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_upload_resume/';
     }
-    let roleId = localStorage.getItem('roleId');
+    let roleId = Number(localStorage.getItem('roleId'));
     // doFetch(stSuUrl + roleId, 'POST', formData);
     fetch('http://localhost:9998' + stSuUrl + roleId, {
         method: "POST",
@@ -136,3 +136,11 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
 improve.addEventListener("click", function() {
     document.getElementById("pdfUploader").click();
 });
+
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

@@ -11,8 +11,16 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const strength = document.getElementById('strength');
 const stOrSu = document.getElementById('stOrSu');
+const urlParams = new URLSearchParams(window.location.search);
+const bossView = urlParams.has('studentId');
+const bossViewSId = urlParams.get('studentId');
 
-
+if (bossView) {
+    console.log('yoo')
+    ret.addEventListener('click', function() {
+        window.history.back();
+    });
+}
 // Interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -50,20 +58,34 @@ naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(view);
 
-const student_id = localStorage.getItem('roleId');
-console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
-let url = `/studentInfo/getStudentInfo/${student_id}`;
-if (localStorage.getItem('role') === "supervisor") {
-    stOrSu = "Supervisor Information";
-    url="change this";
+const student_id = Number(localStorage.getItem('roleId'));
+let sendSid = student_id;
+if (bossView) {
+    sendSid = bossViewSId;
+}
+console.log(`/studentInfo/getStudentInfo/{${sendSid}}`);
+let url = `/studentInfo/getStudentInfo/${sendSid}`;
+const role = localStorage.getItem('role');
+if (role === "supervisor") {
+    console.log('hii')
+    stOrSu.textContent = "Supervisor Information";
+    url=`/profile/supervisor?supervisor_id=${sendSid}`;
 }
 let resumeURL = null;
-doFetch(url, 'GET').then((data)=>{
-    console.log(data);
+let quaOrStrength = "strength";
+    if(role === 'supervisor') {
+        quaOrStrength = "qualification";
+    }
+doFetch(url, 'GET').then((data1)=>{
+    console.log(data1);
+    let data = data1;
+    if(role === 'supervisor') {
+        data = data1[0];
+    }
     skill.textContent = data.skills;
     name.textContent = data.first_name + ' ' + data.last_name;
     email.textContent = data.email;
-    strength.textContent = data.strength;
+    strength.textContent = data[quaOrStrength];
     resumeURL = data.resume_url;
 })
 
@@ -71,3 +93,10 @@ view.addEventListener('click', ()=>{
     window.open(resumeURL, '_blank');
 })
 
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

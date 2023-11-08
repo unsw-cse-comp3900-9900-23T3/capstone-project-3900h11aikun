@@ -106,7 +106,7 @@ function createAppllication (pStatus, updateTime, pTitle, contacter, project_id)
 }
 
 let roleString = '';
-const roleId = localStorage.getItem('roleId');
+const roleId = Number(localStorage.getItem('roleId'));
 let role = localStorage.getItem('role');
 if (role === 'student') {
     roleString = 'student_id';
@@ -131,3 +131,11 @@ doFetch(`/profile/project/interest/${role}?${roleString}=${roleId}`, 'GET').then
     });
     
 });
+
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})

@@ -53,6 +53,8 @@ class Projects(Resource):
             project_last_updated_at=datetime.now(),
             status='is_open',
         )
+        if 'status' in data:
+            new_project.status = data['status']
         
         db.session.add(new_project)
         db.session.commit()
@@ -63,13 +65,13 @@ class Projects(Resource):
     @api.expect(project_update_model)
     @api.response(200, 'update success')
     @api.response(400, 'invalid params')
-    @api.response(401, 'only owner partner of project can update project')
+    @api.response(401, '')
     def put(self):
         data = request.get_json()
 
-        project = Project.query.filter_by(project_id=data["project_id"], partner_id=data["partner_id"]).first()
+        project = Project.query.filter_by(project_id=data["project_id"]).first()
         if project is None:
-            abort(401, 'unknown project id or partner id is not owner')
+            abort(401, 'unknown project id')
         if 'title' in data:
             project.title = data['title']
         if 'description' in data:
@@ -334,6 +336,16 @@ class Students(Resource):
         student = Student.query.filter_by(student_id=data["student_id"]).first()
         if student is None:
             abort(401, 'unknown student id')
+        if 'username' in data:
+            student.username = data['username']
+        if 'first_name' in data:
+            student.first_name = data['first_name']
+        if 'last_name' in data:
+            student.last_name = data['last_name']
+        if 'email' in data:
+            student.email = data['email']
+        if 'avatar' in data:
+            student.avatar = data['avatar']
         if 'qualification' in data:
             student.qualification = data['qualification']
         if 'school_name' in data:
@@ -344,6 +356,8 @@ class Students(Resource):
             student.skills = data['skills']
         if 'strength' in data:
             student.strength = data['strength']
+        if 'resume_url' in data:
+            student.resume_url = data['resume_url']
         db.session.commit()
 
         return jsonify(student.as_dict())
@@ -389,12 +403,17 @@ class Supervisors(Resource):
         supervisor = Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first()
         if supervisor is None:
             abort(401, 'unknown supervisor id')
-        if 'qualification' in data:
-            supervisor.qualification = data['qualification']
-        if 'school_name' in data:
-            supervisor.school_name = data['school_name']
+        
+        if 'first_name' in data:
+            supervisor.first_name = data['first_name']
+        if 'last_name' in data:
+            supervisor.last_name = data['last_name']
+        if 'email' in data:
+            supervisor.email = data['email']
         if 'skills' in data:
             supervisor.skills = data['skills']
+        if 'qualification' in data:
+            supervisor.qualification = data['qualification']
         db.session.commit()
 
         return jsonify(supervisor.as_dict())
@@ -431,12 +450,15 @@ class Partners(Resource):
         partner = Partner.query.filter_by(partner_id=data["partner_id"]).first()
         if partner is None:
             abort(401, 'unknown partner id')
+        
+        if 'first_name' in data:
+            partner.first_name = data['first_name']
+        if 'last_name' in data:
+            partner.last_name = data['last_name']
+        if 'email' in data:
+            partner.email = data['email']
         if 'company' in data:
             partner.company = data['company']
-        if 'position' in data:
-            partner.position = data['position']
-        if 'description' in data:
-            partner.description = data['description']
         db.session.commit()
 
         return jsonify(partner.as_dict())

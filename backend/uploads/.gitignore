@@ -1,6 +1,0 @@
-# Ignore everything in this directory
-*
-# Except this file
-!.gitignore
-!/resume-1.pdf
-!/resume-2.pdf

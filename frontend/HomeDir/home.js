@@ -112,8 +112,7 @@ function newPro (projectName, projectRequirements, project_id) {
 
     projects.appendChild(project);
 }
-const roleId = localStorage.getItem('roleId');
-newPro('Project Name', 'Project re');
+const roleId = Number(localStorage.getItem('roleId'));
 function showAllOrRecomandProjects(isAll) {
     let url = '/profile/project';
     let stOrSuID = "supervisor_id";
@@ -133,7 +132,7 @@ function showAllOrRecomandProjects(isAll) {
         // }
         console.log(pList)
         pList.forEach(project => {
-            let descriptionString = project.description;
+            let descriptionString = project.problem_statement;
             if (descriptionString.length > 80) {
                 descriptionString = cutStringBeforeSpace(descriptionString, 80) + ' ...';
             } 
@@ -146,4 +145,7 @@ showAllOrRecomandProjects(true);
 logout.addEventListener('click', ()=>{
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
 })

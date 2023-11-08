@@ -98,12 +98,24 @@ resumeDisplay(upload);
 resumeDisplay(submit);
 const skillList = ['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data'];
 const student_id = localStorage.getItem('roleId');
-doFetch(`/studentInfo/getStudentInfo/${student_id}`, 'GET').then((data)=>{
-    console.log(data);
+console.log(`/studentInfo/getStudentInfo/{${student_id}}`);
+let url = `/studentInfo/getStudentInfo/${student_id}`;
+const role = localStorage.getItem('role');
+if (role === "supervisor") {
+    url=`/profile/supervisor?supervisor_id=${student_id}`;
+}
+doFetch(url, 'GET').then((data1)=>{
+    let data = data1;
+    console.log(data)
+    let quaOrStrength = "strength";
+    if(role === 'supervisor') {
+        data = data1[0];
+        quaOrStrength = "qualification";
+    }
     name1.value = data.first_name;
     name2.value = data.last_name;
     email.value = data.email;
-    strengthInput.value = data.strength;
+    strengthInput.value = data[quaOrStrength];
     if (skillList.includes(data.skill)) {
         const selectedEle = findSelectedEle(data.skill);
         selectedEle.classList.add('selected');
@@ -171,10 +183,11 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
     let formData = new FormData();
     formData.append("file", file, file.name);
 
-    let stSuUrl = 'change this';
+    let stSuUrl = '/supervisorInfo/supervisor_upload_resume/';
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_upload_resume/';
     }
+    console.log(stSuUrl)
     let roleId = localStorage.getItem('roleId');
     // doFetch(stSuUrl + roleId, 'POST', formData);
     fetch('http://localhost:9998' + stSuUrl + roleId, {
@@ -188,22 +201,36 @@ document.getElementById('pdfUploader').addEventListener('change', (event)=> {
 
 
 submit.addEventListener('click', (event) => {
-    let selectedSkillvalue = '';
-    selectedSkillvalue = document.querySelector('.skill.selected');
+    let selectedSkillvalue = document.querySelector('.skill.selected');
     if (selectedSkillvalue !== null) {
         selectedSkillvalue = selectedSkillvalue.textContent;
+    } else {
+        selectedSkillvalue = '';
     }
     let stSuUrl = '/profile/supervisor';
     if (userRole === 'student') {
         stSuUrl = '/studentInfo/student_update';
     }
+    let quaOrStrength = "strength";
+    let stOrSu = "student_id";
+    if(role === 'supervisor') {
+        quaOrStrength = "qualification";
+        stOrSu = "supervisor_id"
+    }
     doFetch(stSuUrl, 'PUT', {
-        "student_id": roleId,
+        [stOrSu]: Number(roleId),
         "first_name": name1.value,
         "last_name": name2.value,
         "email": email.value,
         "skills": selectedSkillvalue,
-        "strength": strengthInput.value,
+        [quaOrStrength]: strengthInput.value,
     })
 })
 
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('roleId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+})
