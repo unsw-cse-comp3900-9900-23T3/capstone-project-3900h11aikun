@@ -1,10 +1,10 @@
-caroline-burns|Caroline|Burns|caroline.burns@business.au|Abcd1234!|Ritter-Johnson|Chief Officer|Championed company culture, employee satisfaction, and reduced attrition rates.
-mary-reyes|Mary|Reyes|mary.reyes@business.au|Abcd1234!|Davis, Rodgers and Walker|HR|Holds a successful record in mergers and acquisitions, optimizing business value.
-kayla-armstrong|Kayla|Armstrong|kayla.armstrong@business.au|Abcd1234!|Harris, Jones and Payne|Director of Operations|Directed multiple successful product launches, resulting in a 300% growth in sales.
-frank-jones|Frank|Jones|frank.jones@business.au|Abcd1234!|Peterson PLC|HR|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
-erika-murphy|Erika|Murphy|erika.murphy@business.au|Abcd1234!|Hunt-Morales|HR|Deep understanding of the supply chain, having improved logistics efficiency by 25%.
-sheila-davis|Sheila|Davis|sheila.davis@business.au|Abcd1234!|Acosta, Khan and Gross|Director of Operations|Broad experience in setting company vision, strategy, and successfully executing it.
-theresa-willis|Theresa|Willis|theresa.willis@business.au|Abcd1234!|Brown-Ross|Chief Officer|Passionate about innovative marketing strategies and their execution in the global market.
-allison-lowe|Allison|Lowe|allison.lowe@business.au|Abcd1234!|Johnson Ltd|Head of HR|Passionate about fostering team growth, development, and ensuring optimal productivity.
-savannah-nunez|Savannah|Nunez|savannah.nunez@business.au|Abcd1234!|Mendoza-Woods|CEO|Extensive background in R&D, driving innovation and patenting new technologies.
-kimberly-bell|Kimberly|Bell|kimberly.bell@business.au|Abcd1234!|Ewing, Brewer and Newman|CEO|Directed multiple successful product launches, resulting in a 300% growth in sales.
+christine-rodriguez|Christine|Rodriguez|christine.rodriguez@business.au|Abcd1234!|Robinson, James and Hudson|CTO|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
+nicholas-cardenas|Nicholas|Cardenas|nicholas.cardenas@business.au|Abcd1234!|Greene-Rodgers|Director of Sales|Guided by a strong ethical compass, prioritizing transparency and accountability.
+tristan-mckenzie|Tristan|Mckenzie|tristan.mckenzie@business.au|Abcd1234!|Gregory PLC|CEO|Extensive background in R&D, driving innovation and patenting new technologies.
+robert-nguyen|Robert|Nguyen|robert.nguyen@business.au|Abcd1234!|May Group|Head of HR|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
+heather-castillo|Heather|Castillo|heather.castillo@business.au|Abcd1234!|Arnold Inc|Director of Sales|Expert in crafting and implementing efficient operational processes, reducing overheads by 40%.
+laura-lopez|Laura|Lopez|laura.lopez@business.au|Abcd1234!|Keith-Austin|CEO|Adept at building, maintaining, and nurturing high-value customer relationships.
+mark-johns|Mark|Johns|mark.johns@business.au|Abcd1234!|Atkinson-Gould|Head of HR|Skilled in negotiation, having secured valuable partnerships and contracts.
+melissa-mcmillan|Melissa|Mcmillan|melissa.mcmillan@business.au|Abcd1234!|Nelson, Jackson and Rangel|Head of HR|Holds a successful record in mergers and acquisitions, optimizing business value.
+rebecca-martinez|Rebecca|Martinez|rebecca.martinez@business.au|Abcd1234!|Webb LLC|Director of Operations|Championed company culture, employee satisfaction, and reduced attrition rates.
+richard-garza|Richard|Garza|richard.garza@business.au|Abcd1234!|Stevens and Sons|Chief Officer|Directed multiple successful product launches, resulting in a 300% growth in sales.

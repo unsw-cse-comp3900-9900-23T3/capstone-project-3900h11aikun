@@ -1,10 +1,10 @@
-amanda-king|Amanda|King|amanda.king@school.edu.au|Abcd1234!|PhD in Electrical Engineering|Australian National University|Digital marketing, Statistical analysis, Software development, Research
-kathryn-nelson|Kathryn|Nelson|kathryn.nelson@school.edu.au|Abcd1234!|PhD in Electrical Engineering|Monash University|UX/UI design, Digital marketing, Project management, Database management
-michael-alvarez|Michael|Alvarez|michael.alvarez@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Melbourne|Leadership, Software development, UX/UI design, Statistical analysis
-kim-roberts|Kim|Roberts|kim.roberts@school.edu.au|Abcd1234!|Master of Arts|University of Tasmania|UX/UI design, Digital marketing, Statistical analysis, Software development
-angela-harper|Angela|Harper|angela.harper@school.edu.au|Abcd1234!|Master of Business Administration|University of Sydney|Project management, Digital marketing, UX/UI design, Software development
-andrew-hicks|Andrew|Hicks|andrew.hicks@school.edu.au|Abcd1234!|Master of Arts|University of Tasmania|Digital marketing, Statistical analysis, Graphic design, UX/UI design
-jaime-rosales|Jaime|Rosales|jaime.rosales@school.edu.au|Abcd1234!|Master of Information Technology|James Cook University|UX/UI design, Teamwork, Leadership, Data analysis
-kevin-robinson|Kevin|Robinson|kevin.robinson@school.edu.au|Abcd1234!|Master of Information Technology|University of Tasmania|Digital marketing, Teamwork, Public speaking, Problem solving
-christopher-long|Christopher|Long|christopher.long@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Queensland|Leadership, Research, Database management, Public speaking
-joshua-moran|Joshua|Moran|joshua.moran@school.edu.au|Abcd1234!|Bachelor of Engineering|University of Western Australia|UX/UI design, Networking, Software development, Statistical analysis
+karen-hanna|Karen|Hanna|karen.hanna@school.edu.au|Abcd1234!|PhD in Computer Science|University of Western Australia|Database management, Problem solving, Software development, Networking
+curtis-graham|Curtis|Graham|curtis.graham@school.edu.au|Abcd1234!|PhD in Computer Science|University of Western Australia|UX/UI design, Research, Software development, Graphic design
+ryan-griffin|Ryan|Griffin|ryan.griffin@school.edu.au|Abcd1234!|PhD in Mechanical Engineering|Australian National University|Graphic design, Data analysis, UX/UI design, Research
+charlotte-orozco|Charlotte|Orozco|charlotte.orozco@school.edu.au|Abcd1234!|Master of Arts|University of Queensland|Research, Leadership, Statistical analysis, Project management
+michael-campos|Michael|Campos|michael.campos@school.edu.au|Abcd1234!|Master of Science|University of Queensland|Leadership, Teamwork, Project management, Digital marketing
+sherry-delacruz|Sherry|Delacruz|sherry.delacruz@school.edu.au|Abcd1234!|Master of Information Technology|University of Tasmania|Teamwork, Software development, Research, Data analysis
+chloe-kirk|Chloe|Kirk|chloe.kirk@school.edu.au|Abcd1234!|PhD in Computer Science|Monash University|UX/UI design, Teamwork, Networking, Statistical analysis
+jennifer-swanson|Jennifer|Swanson|jennifer.swanson@school.edu.au|Abcd1234!|PhD in Business Administration|University of Adelaide|Leadership, Problem solving, Research, Database management
+mary-torres|Mary|Torres|mary.torres@school.edu.au|Abcd1234!|PhD in Mechanical Engineering|University of Queensland|UX/UI design, Software development, Graphic design, Public speaking
+carla-hampton|Carla|Hampton|carla.hampton@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Sydney|Graphic design, Leadership, Research, Project management
