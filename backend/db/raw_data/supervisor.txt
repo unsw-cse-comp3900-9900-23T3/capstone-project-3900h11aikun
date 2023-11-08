@@ -1,10 +1,10 @@
-aaron-lopez|Aaron|Lopez|aaron.lopez@school.edu.au|Abcd1234!|Master of Information Technology|University of Western Australia|Project management, Software development, Database management, Problem solving
-jennifer-riley|Jennifer|Riley|jennifer.riley@school.edu.au|Abcd1234!|Master of Information Technology|University of Queensland|Data analysis, Public speaking, Project management, Software development
-maria-herring|Maria|Herring|maria.herring@school.edu.au|Abcd1234!|Master of Information Technology|University of Canberra|Database management, Statistical analysis, Leadership, Networking
-shawn-guzman|Shawn|Guzman|shawn.guzman@school.edu.au|Abcd1234!|Master of Science|Australian National University|Networking, Digital marketing, Project management, Leadership
-donald-gray|Donald|Gray|donald.gray@school.edu.au|Abcd1234!|PhD in Business Administration|Australian National University|Project management, Software development, Leadership, Networking
-deborah-fitzgerald|Deborah|Fitzgerald|deborah.fitzgerald@school.edu.au|Abcd1234!|Bachelor of Engineering|Monash University|Public speaking, Research, Data analysis, UX/UI design
-ana-blanchard|Ana|Blanchard|ana.blanchard@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Tasmania|Project management, Statistical analysis, Database management, Public speaking
-brianna-hart|Brianna|Hart|brianna.hart@school.edu.au|Abcd1234!|PhD in Computer Science|University of Tasmania|Digital marketing, Statistical analysis, Leadership, Software development
-felicia-moses|Felicia|Moses|felicia.moses@school.edu.au|Abcd1234!|Doctorate in Psychology|University of New South Wales|Database management, Data analysis, Software development, Networking
-peggy-miller|Peggy|Miller|peggy.miller@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Western Australia|Public speaking, UX/UI design, Graphic design, Statistical analysis
+marcus-thomas|Marcus|Thomas|marcus.thomas@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of New South Wales|Leadership, Software development, Data analysis, Teamwork
+gregory-whitney|Gregory|Whitney|gregory.whitney@school.edu.au|Abcd1234!|PhD in Computer Science|University of Sydney|Data analysis, Teamwork, Leadership, Project management
+sarah-chase|Sarah|Chase|sarah.chase@school.edu.au|Abcd1234!|Master of Information Technology|University of Melbourne|Database management, Project management, Networking, Digital marketing
+sean-wolf|Sean|Wolf|sean.wolf@school.edu.au|Abcd1234!|PhD in Business Administration|University of Adelaide|UX/UI design, Data analysis, Public speaking, Software development
+nicole-aguilar|Nicole|Aguilar|nicole.aguilar@school.edu.au|Abcd1234!|Master of Business Administration|James Cook University|Problem solving, Public speaking, Digital marketing, UX/UI design
+steven-phillips|Steven|Phillips|steven.phillips@school.edu.au|Abcd1234!|PhD in Business Administration|University of Melbourne|Public speaking, Digital marketing, Data analysis, Leadership
+albert-walton|Albert|Walton|albert.walton@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Adelaide|Digital marketing, Problem solving, Statistical analysis, Project management
+matthew-adams|Matthew|Adams|matthew.adams@school.edu.au|Abcd1234!|Master of Information Technology|University of Queensland|Data analysis, Project management, Research, Software development
+brenda-anderson|Brenda|Anderson|brenda.anderson@school.edu.au|Abcd1234!|Bachelor of Engineering|University of Tasmania|Digital marketing, UX/UI design, Database management, Statistical analysis
+ryan-ramos|Ryan|Ramos|ryan.ramos@school.edu.au|Abcd1234!|Master of Arts|University of Queensland|Problem solving, Leadership, Graphic design, Data analysis
