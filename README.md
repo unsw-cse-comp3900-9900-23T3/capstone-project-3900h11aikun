@@ -1,16 +1,18 @@
 # Backend 进展
 
-### 2023-11-08 再次更新了数据库，所有的qualification是 master， undergraduate， doctorate 三选一。所有的skill （student 的，和supervisor的） 都是从 `['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data']` 这里面进行挑选。数据库是这样的的design，每个学生和supervisor随机匹配了9个skill里面的6个，然后每个project是随机匹配了9个skill里面的4个。这样就是确保recommendation可以working。
+#### 2023-11-08 再次更新了数据库，请 删掉原本的`backend/database.db`文件，然后copy `backend/db/default_database.db` 文件， 弄成`backend/database.db` 文件。
 
-### 注意每个skills 是个string， 用 逗号+空格 的形式隔开！！！。 逗号+空格！！比如说 `Machine Learning, Java, Deep Learning, Pthon, Networking, Javascript` 这样的。
+#### 所有的qualification是 master， undergraduate， doctorate 三选一。所有的skill （student 的，和supervisor的） 都是从 `['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data']` 这里面进行挑选。数据库是这样的的design，每个学生和supervisor随机匹配了9个skill里面的6个，然后每个project是随机匹配了9个skill里面的4个。这样就是确保recommendation可以working。
 
-### 同时check了一下 recommend 的api。 如果最后的res 是长度为0，那么从所有的project里面随机选两个project。这样保证recommendation是能return些东西的。
+#### 注意每个skills 是个string， 用 逗号+空格 的形式隔开！！！。 逗号+空格！！比如说 `Machine Learning, Java, Deep Learning, Pthon, Networking, Javascript` 这样的。
 
-### 还有一点，project 的status， 数据库的设计是 `"is_open", "in_progress", "is_closed"` 三选一，我把project update 和 post new project 的地方重新做了一下input data 的validation。
+#### 同时check了一下 recommend 的api。 如果最后的res 是长度为0，那么从所有的project里面随机选两个project。这样保证recommendation是能return些东西的。
 
-### 最后，每个database里面已经有的project，如果有progress，我都link到了一份uploads 里面的文件。
+#### 还有一点，project 的status， 数据库的设计是 `"is_open", "in_progress", "is_closed"` 三选一，我把project update 和 post new project 的地方重新做了一下input data 的validation。
 
-### 最后，uploads文件夹回归。
+#### 最后，每个database里面已经有的project，如果有progress，我都link到了一份uploads 里面的文件。
+
+#### 最后，uploads文件夹回归。
 
 
 backend的运行方法：
