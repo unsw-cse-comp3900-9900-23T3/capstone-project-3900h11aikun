@@ -2,6 +2,7 @@ from flask import request, abort, jsonify
 from flask_restx import Resource, Namespace
 from models.profile import *
 from db.models import *
+import random
 
 api = Namespace(
     "profile",
@@ -55,7 +56,7 @@ class Projects(Resource):
         )
         if 'status' in data:
             new_project.status = data['status']
-        
+
         db.session.add(new_project)
         db.session.commit()
 
@@ -403,7 +404,7 @@ class Supervisors(Resource):
         supervisor = Supervisor.query.filter_by(supervisor_id=data["supervisor_id"]).first()
         if supervisor is None:
             abort(401, 'unknown supervisor id')
-        
+
         if 'first_name' in data:
             supervisor.first_name = data['first_name']
         if 'last_name' in data:
@@ -450,7 +451,7 @@ class Partners(Resource):
         partner = Partner.query.filter_by(partner_id=data["partner_id"]).first()
         if partner is None:
             abort(401, 'unknown partner id')
-        
+
         if 'first_name' in data:
             partner.first_name = data['first_name']
         if 'last_name' in data:
@@ -464,16 +465,28 @@ class Partners(Resource):
         return jsonify(partner.as_dict())
 
 
-# skills must split by ','
+# skills must split by ', '
+# the first skill is the student/supervisor skill, and the second skill is the project required skill
 def skill_matched(skill1, skill2):
     skills1 = skill1.split(', ')
     skills2 = skill2.split(', ')
+
+    # for s1 in skills1:
+    #     s1 = s1.strip().strip('.')
+    #     for s2 in skills2:
+    #         s2 = s2.strip().strip('.')
+    #         if s1 == s2:
+    #             return True
+    # return False
+
+    # each element strip and remove .
+    skills1 = [s.strip().strip('.') for s in skills1]
+    skills2 = [s.strip().strip('.') for s in skills2]
+
     for s1 in skills1:
-        s1 = s1.strip().strip('.')
-        for s2 in skills2:
-            s2 = s2.strip().strip('.')
-            if s1 == s2:
-                return True
+        if s1 in skills2:
+            return True
+
     return False
 
 
@@ -502,9 +515,15 @@ class RecommendProject(Resource):
         skills = item.skills
 
         projects = Project.query.all()
+
         res = []
         for project in projects:
             if project.required_skills:
                 if skill_matched(skills, project.required_skills):
                     res.append(project.as_dict())
+
+        # if the res is still empty, return 2 random projects
+        if len(res) == 0:
+            res = random.sample(projects, 2)
+
         return jsonify(res)
