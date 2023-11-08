@@ -1,20 +1,20 @@
-elizabeth-summers|Elizabeth|Summers|elizabeth-summers@student.edu.au|Abcd1234!|Bachelor of Information Technology|Australian National University|History|Research, Teamwork, Public speaking|Solid management skills
-julie-wilson|Julie|Wilson|julie-wilson@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Queensland|Computer Science|Statistical analysis, Networking, Leadership|Quick learner
-tonya-williams|Tonya|Williams|tonya-williams@student.edu.au|Abcd1234!|Bachelor of Information Technology|University of Tasmania|Psychology|UX/UI design, Teamwork, Digital marketing|Strong analytical capabilities
-brenda-salinas|Brenda|Salinas|brenda-salinas@student.edu.au|Abcd1234!|Bachelor of Science|University of New South Wales|Mechanical Engineering|Statistical analysis, Leadership, Digital marketing|Quick learner
-tina-jones|Tina|Jones|tina-jones@student.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of New South Wales|Computer Science|Graphic design, Data analysis, Database management|Exceptional problem-solving aptitude
-abigail-decker|Abigail|Decker|abigail-decker@student.edu.au|Abcd1234!|Bachelor of Education|University of Melbourne|Physics|Software development, Leadership, Digital marketing|Resourceful and creative
-tiffany-mills|Tiffany|Mills|tiffany-mills@student.edu.au|Abcd1234!|Bachelor of Science|University of Sydney|Electrical Engineering|Public speaking, Problem solving, Project management|Detail-oriented
-nancy-vasquez|Nancy|Vasquez|nancy-vasquez@student.edu.au|Abcd1234!|Bachelor of Arts|University of Western Australia|Civil Engineering|Graphic design, Teamwork, Software development|Adept at multitasking
-joseph-ray|Joseph|Ray|joseph-ray@student.edu.au|Abcd1234!|Bachelor of Education|University of New South Wales|History|Networking, Graphic design, Teamwork|Solid management skills
-austin-long|Austin|Long|austin-long@student.edu.au|Abcd1234!|Master of Business Administration|University of Adelaide|Electrical Engineering|Research, Statistical analysis, Teamwork|Strong analytical capabilities
-carl-jensen|Carl|Jensen|carl-jensen@student.edu.au|Abcd1234!|Master of Business Administration|University of Queensland|Business Administration|Graphic design, Data analysis, UX/UI design|Detail-oriented
-michelle-cox|Michelle|Cox|michelle-cox@student.edu.au|Abcd1234!|Bachelor of Science|Australian National University|Literature|Software development, Graphic design, Problem solving|Versatile skillset
-luis-charles|Luis|Charles|luis-charles@student.edu.au|Abcd1234!|Bachelor of Engineering|James Cook University|Electrical Engineering|Data analysis, Research, UX/UI design|Solid management skills
-brandy-keller|Brandy|Keller|brandy-keller@student.edu.au|Abcd1234!|Master of Science|University of Adelaide|Civil Engineering|Research, Leadership, UX/UI design|Goal-driven
-kevin-avila|Kevin|Avila|kevin-avila@student.edu.au|Abcd1234!|Bachelor of Education|Monash University|Mathematics|Statistical analysis, Software development, UX/UI design|Versatile skillset
-jaclyn-thomas|Jaclyn|Thomas|jaclyn-thomas@student.edu.au|Abcd1234!|Master of Arts|Monash University|Biology|Software development, Problem solving, Database management|Profound coding abilities
-amber-clark|Amber|Clark|amber-clark@student.edu.au|Abcd1234!|Doctor of Philosophy in Arts|James Cook University|Physics|Networking, Statistical analysis, Data analysis|Profound coding abilities
-jamie-sharp|Jamie|Sharp|jamie-sharp@student.edu.au|Abcd1234!|Master of Arts|University of Sydney|Philosophy|Project management, Problem solving, Teamwork|Strong analytical capabilities
-pamela-baker|Pamela|Baker|pamela-baker@student.edu.au|Abcd1234!|Bachelor of Engineering|University of New South Wales|Business Administration|Project management, Public speaking, Teamwork|Profound coding abilities
-crystal-cook|Crystal|Cook|crystal-cook@student.edu.au|Abcd1234!|Master of Arts|University of Queensland|Civil Engineering|Software development, Graphic design, Research|Versatile skillset
+erika-gilmore|Erika|Gilmore|erika-gilmore@student.edu.au|Abcd1234!|Master of Information Technology|Monash University|History|Digital marketing, Database management, Teamwork|Goal-driven
+lisa-tucker|Lisa|Tucker|lisa-tucker@student.edu.au|Abcd1234!|Bachelor of Information Technology|University of Adelaide|Education|Public speaking, Research, Problem solving|Strong analytical capabilities
+jessica-morris|Jessica|Morris|jessica-morris@student.edu.au|Abcd1234!|Master of Arts|University of New South Wales|Mechanical Engineering|Public speaking, Project management, Problem solving|Versatile skillset
+megan-hardy|Megan|Hardy|megan-hardy@student.edu.au|Abcd1234!|Bachelor of Education|Macquarie University|Literature|Public speaking, Problem solving, Leadership|Resourceful and creative
+kristen-castaneda|Kristen|Castaneda|kristen-castaneda@student.edu.au|Abcd1234!|Master of Information Technology|University of Melbourne|Biology|Graphic design, Project management, Statistical analysis|Quick learner
+john-turner|John|Turner|john-turner@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Adelaide|Computer Science|Project management, Digital marketing, Networking|Detail-oriented
+tanya-patterson|Tanya|Patterson|tanya-patterson@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Queensland|Computer Science|Software development, Public speaking, UX/UI design|Profound coding abilities
+mario-yates|Mario|Yates|mario-yates@student.edu.au|Abcd1234!|Bachelor of Information Technology|Monash University|Psychology|Leadership, Software development, Database management|Highly communicative and team-oriented
+sydney-wilson|Sydney|Wilson|sydney-wilson@student.edu.au|Abcd1234!|Bachelor of Information Technology|Australian National University|Electrical Engineering|Networking, Database management, Leadership|Quick learner
+stanley-ingram|Stanley|Ingram|stanley-ingram@student.edu.au|Abcd1234!|Master of Information Technology|University of Queensland|Mathematics|Public speaking, Project management, UX/UI design|Adaptable to change
+anita-jones|Anita|Jones|anita-jones@student.edu.au|Abcd1234!|PhD in Computer Science|University of Melbourne|Literature|Data analysis, Database management, Research|Resourceful and creative
+bradley-carson|Bradley|Carson|bradley-carson@student.edu.au|Abcd1234!|Bachelor of Engineering|University of Queensland|History|UX/UI design, Problem solving, Database management|Adept at multitasking
+carly-thomas|Carly|Thomas|carly-thomas@student.edu.au|Abcd1234!|Bachelor of Engineering|Macquarie University|Electrical Engineering|Software development, Data analysis, Networking|Strong analytical capabilities
+timothy-ortega|Timothy|Ortega|timothy-ortega@student.edu.au|Abcd1234!|Master of Science|University of Sydney|Mechanical Engineering|UX/UI design, Teamwork, Public speaking|Exceptional problem-solving aptitude
+jason-robertson|Jason|Robertson|jason-robertson@student.edu.au|Abcd1234!|Bachelor of Science|University of Adelaide|Mathematics|Statistical analysis, Data analysis, Public speaking|Solid management skills
+elizabeth-conway|Elizabeth|Conway|elizabeth-conway@student.edu.au|Abcd1234!|Master of Science|Monash University|Chemistry|Networking, Research, Leadership|Strong analytical capabilities
+antonio-travis|Antonio|Travis|antonio-travis@student.edu.au|Abcd1234!|Bachelor of Engineering|Australian National University|Computer Science|Data analysis, Problem solving, Database management|Adaptable to change
+david-johnson|David|Johnson|david-johnson@student.edu.au|Abcd1234!|Master of Science|Australian National University|Electrical Engineering|Database management, Networking, Statistical analysis|Quick learner
+heather-larson|Heather|Larson|heather-larson@student.edu.au|Abcd1234!|Bachelor of Education|University of New South Wales|Mathematics|Statistical analysis, Leadership, Digital marketing|Detail-oriented
+christopher-evans|Christopher|Evans|christopher-evans@student.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Western Australia|Computer Science|Problem solving, Graphic design, Database management|Adept at multitasking
