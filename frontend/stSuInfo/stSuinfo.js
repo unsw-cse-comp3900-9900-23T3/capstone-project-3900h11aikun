@@ -41,7 +41,7 @@ ret.addEventListener('mouseleave', (event) => {
     ret.style.color = 'black';
 });
 ret.addEventListener('click', (event) => {
-    window.location.href = "../HomeDir/home.html";
+    window.history.back();
 });
 
 function buttonDisplay (item) {

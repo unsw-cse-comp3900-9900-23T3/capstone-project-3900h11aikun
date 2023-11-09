@@ -99,7 +99,6 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 1em;
-    background-color: rgba(0, 193, 193, 0.1);
     line-height: 30px;
     text-align: center;
     border-radius: 10px;
@@ -112,4 +111,16 @@ body {
     margin-top: 10px;
     border-radius: 10px;
     background-color: rgb(232, 235, 238);
+}
+
+.themeGreen{
+    background-color: rgb(0, 193, 193, 0.3);
+}
+
+.themeYellow{
+    background-color: rgb(197, 197, 7, 0.3);
+}
+
+.themeBlack{
+    background-color: rgba(255, 0, 0, 0.3);
 }

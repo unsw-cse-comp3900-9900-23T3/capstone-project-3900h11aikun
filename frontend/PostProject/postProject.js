@@ -2,7 +2,6 @@ import { doFetch } from "../helper.js";
 
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 const edu = document.getElementById('edu');
 const java = document.getElementById('java');
@@ -82,7 +81,6 @@ function resumeDisplay (item) {
 
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 inputDisplay(projName);
 inputDisplay(edu);

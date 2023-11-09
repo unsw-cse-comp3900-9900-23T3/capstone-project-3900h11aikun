@@ -70,35 +70,78 @@ if (role === 'student') {
 }
 let applied = false;
 const roleId = Number(localStorage.getItem('roleId'));
-doFetch(`/profile/project/interest/${role}?project_id=${project_id}&${roleString}=${roleId}`, 'GET').then((data) => {
+doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
     console.log(data)
-    if (data.length === 0) {
-        applyButton.value = 'Apply now';
-
+    const projContent =  data[0];
+    console.log(projContent[roleString])
+    if (projContent[roleString] === roleId && role === 'student') {
+        if (projContent.supervisor_id === null) {
+            applyButton.value = 'You joined! See recommand and applied supervisor';
+            
+        } else {
+            applyButton.value = 'You joined! See progress';
+            alert('navigate to my project page');
+        }
+        applyButton.style.width = '600px';
+        
+    } else if (projContent[roleString] !== null) {
+        // somebody else already joined this project
+        applyButton.style.display = 'none';
     } else {
-        applyButton.value = 'Cancel application';
-        applyButton.style.width = '250px';
-        applied = true;
+        doFetch('/profile/project', "GET").then((data) => {
+            console.log(data)
+            data.forEach((currProj)=>{
+                if (currProj.roleString === roleId) {
+                    // current user already joined another project
+                    applyButton.style.display = 'none';
+                }
+            })
+
+            doFetch(`/profile/project/interest/${role}?project_id=${project_id}&${roleString}=${roleId}`, 'GET').then((data) => {
+                console.log(applyButton.value)
+                if (data.length === 0) {
+                    applyButton.value = 'Apply now';
+            
+                } else if (applyButton.value.include('You joined!')) {
+                    applyButton.value = 'Cancel application';
+                    applyButton.style.width = '250px';
+                    applied = true;
+                }
+            })
+
+        })
     }
+    
 })
+
 applyButton.addEventListener('click', ()=>{
     console.log(applied)
     if (applied) {
         doFetch('/profile/project/interest/' + role, 'DELETE', {'project_id': project_id, [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
             console.log(data)
-            applyButton.value = 'Apply now';
-            applied = false;
-            applyButton.style.width = '200px';
+            if (applyButton.value != 'You joined! See recommand and applied supervisor') {
+                applyButton.value = 'Apply now';
+                applied = false;
+                applyButton.style.width = '200px';
+            }
         })
     } else {
         doFetch('/profile/project/interest/' + role, 'POST', {'project_id': project_id, [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
             console.log(data);
-            applyButton.value = 'Cancel application';
-            applyButton.style.width = '250px';
-            applied = true;
+            if (applyButton.value !== 'You joined! See recommand and applied supervisor') {
+                applyButton.value = 'Cancel application';
+                applyButton.style.width = '250px';
+                applied = true;
+            }
         });
     }
-    window.location.href = "../stSuApplication/stSuApplication.html";
+
+    if (applyButton.value === 'You joined! See recommand and applied supervisor') {
+        window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
+    } else {
+        window.location.href = "../stSuApplication/stSuApplication.html";
+    }
+    
 })
 let userRole = localStorage.getItem('role');
 document.getElementById('pdfUploader').addEventListener('change', (event)=> {

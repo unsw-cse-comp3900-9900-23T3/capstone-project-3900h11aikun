@@ -30,7 +30,12 @@ findSt.addEventListener('mouseleave', (event) => {
     findSt.style.background = `rgb(${0}, ${193}, ${193})`;
 });
 findSt.addEventListener('click', (event) => {
-    window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
+    console.log(findSt.value)
+    if (findSt.value === 'project is in progress') {
+        alert('to sp3 page')
+    } else {
+        window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
+    }
 
 });
 const roleId = Number(localStorage.getItem('roleId'));
@@ -57,11 +62,10 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     potentialDeliverable.textContent = currProj.deliverables;
     projectName.textContent = currProj.title;
     console.log(currProj.student_id)
-    if (currProj.student_id != null && currProj.supervisor_id != null) {
+    if (currProj.student_id !== null && currProj.supervisor_id !== null) {
         console.log('hiii')
-        findSt.value = 'student and supervisor are added';
-        findSt.disabled = true;
-    } else if (currProj.student_id != null) {
+        findSt.value = 'project is in progress';
+    } else if (currProj.student_id !== null) {
         findSt.value = 'Recommand and applied supervisor'
         findSt.style.width = '370px';
     }

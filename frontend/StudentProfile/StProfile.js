@@ -225,6 +225,11 @@ submit.addEventListener('click', (event) => {
         "skills": selectedSkillvalue,
         [quaOrStrength]: strengthInput.value,
     })
+    let stSu = 'studentId';
+    if (role != 'student') {
+        stSu = 'supervisorId';
+    }
+    window.location.href = `../stSuInfo/stSuinfo.html?${stSu}=${student_id}`;
 })
 
 logout.addEventListener('click', ()=>{

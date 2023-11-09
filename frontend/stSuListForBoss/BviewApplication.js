@@ -7,7 +7,9 @@ const ret = document.getElementById('return');
 const recommand = document.getElementById('recommand');
 const applied = document.getElementById('applied');
 const RStSu = document.getElementById('RStSu');
+const BossBar = document.getElementById('BossBar');
 const AStSu = document.getElementById('AStSu');
+const studentBar = document.getElementById('studentBar');
 const urlParams = new URLSearchParams(window.location.search);
 const project_id = urlParams.get('projectId');
 
@@ -30,6 +32,9 @@ ret.addEventListener('mouseleave', (event) => {
     ret.style.background = 'white';
     ret.style.color = 'black';
 });
+ret.addEventListener('click', (event) => {
+    window.history.back();
+});
 
 function buttonDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -44,7 +49,11 @@ naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(profile);
 naviDisplay(logout);
-
+let role = localStorage.getItem('role');
+if (role === 'student') {
+    BossBar.classList.add('hide');
+    studentBar.classList.remove('hide');
+}
 
 // Example of insert student
 function loadStudent(part, nameContent, education, stId) {
@@ -71,9 +80,12 @@ function loadStudent(part, nameContent, education, stId) {
         selectButton.type = 'button';
         selectButton.className = 'viewmore';
         selectButton.value = 'Add person to project';
-        student.appendChild(selectButton);
-        buttonDisplay(selectButton);
-        student.style.height = '170px';
+        if (role !== 'student') {
+            student.appendChild(selectButton);
+            buttonDisplay(selectButton);
+            student.style.height = '170px';
+        }
+        
         selectButton.addEventListener("click", ()=>{
             doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
                 let stSu = "student_id";
