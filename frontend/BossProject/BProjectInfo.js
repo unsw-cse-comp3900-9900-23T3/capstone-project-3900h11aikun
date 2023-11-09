@@ -56,6 +56,16 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     desiredOutcome.textContent = currProj.desired_outcomes;
     potentialDeliverable.textContent = currProj.deliverables;
     projectName.textContent = currProj.title;
+    console.log(currProj.student_id)
+    if (currProj.student_id != null && currProj.supervisor_id != null) {
+        console.log('hiii')
+        findSt.value = 'student and supervisor are added';
+        findSt.disabled = true;
+    } else if (currProj.student_id != null) {
+        findSt.value = 'Recommand and applied supervisor'
+        findSt.style.width = '370px';
+    }
+    
     doFetch('/profile/partner?partner_id=' + currProj.partner_id, 'GET').then((partnerInfo) => {
         console.log(partnerInfo[0]);
         contact.textContent = partnerInfo[0].email;
