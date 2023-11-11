@@ -24,7 +24,7 @@ edit_progress_model = api.model('edit_progress', {
 
 
 # partner add a feedback to a progress
-new_feedback_model = api.model('new_feedback', {
+new_partner_feedback_model = api.model('new_partner_feedback', {
     "partner_id": fields.Integer(required=True, description='partner id'),
     "partner_feedback": fields.String(required=True, description='feedback content in text'),
 })

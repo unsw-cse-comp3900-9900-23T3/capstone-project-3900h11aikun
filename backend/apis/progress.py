@@ -196,7 +196,7 @@ class PartnerFeedbackAction(Resource):
     @api.doc(description="Partner give / edit the feedback to the progress")
     @api.response(200, "Success, return the new progress dict")
     @api.response(400, "Progress id not found / other error")
-    @api.expect(new_feedback_model)
+    @api.expect(new_partner_feedback_model)
     def put(self, progress_id):
         """the partner can give feedback to the progress, and if the partner already give feedback, then this will replace the old feedback"""
 
