@@ -5,18 +5,26 @@
     </head>
 
     <body>
-        <div class="navigate">
-            <div class="studentName">View Profile</div>
+        <div class="navigate" id="BossBar">
+            <a class="studentName" href="../BossProfile/bossprofile.html">View Profile</a>
             <a id="home" class="left" href="../BossHome/bossHome.html">Home</a>
             <a id="mypro" class="left" href="../PostProject/postProject.html">Post projects</a>
+            <a id="logout" class="logout" href="../index.html">Log out</a>
+        </div>
+
+        <div class="navigate hide" id="studentBar">
+            <a class="studentName" href="../stSuInfo/stSuinfo.html">View Profile</a>
+            <a id="home" class="left" href="../HomeDir/home.html">Home</a>
+            <a id="mypro" class="left">My project</a>
+            <a id="apply" class="left" href="../stSuApplication/stSuApplication.html">Applications</a>
             <a id="profile" class="left" href="../StudentProfile/StProfile.html">Update profile</a>
             <a id="logout" class="logout" href="../index.html">Log out</a>
         </div>
 
         <div class="title">
             <input id="return" class="return" type="button" value="< Return" />
-            <div class="subtitle">Recommand Students</div>
-            <div class="subtitle">Applied Students</div>
+            <div class="subtitle" id="RStSu">Recommand Students</div>
+            <div class="subtitle" id="AStSu">Applied Students</div>
         </div>
 
         <div class="main">

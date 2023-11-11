@@ -2,7 +2,6 @@ import { doFetch } from "../helper.js";
 
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 const edu = document.getElementById('edu');
 const java = document.getElementById('java');
@@ -82,7 +81,6 @@ function resumeDisplay (item) {
 
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 inputDisplay(projName);
 inputDisplay(edu);
@@ -102,11 +100,12 @@ resumeDisplay(submit);
 
 const urlParams = new URLSearchParams(window.location.search);
 const edit = urlParams.has('projectId');
-const project_id = urlParams.get('projectId');
+const project_id = Number(urlParams.get('projectId'));
 
 const skillList = ['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data'];
 
 function findSelectedEle(selectedString) {
+    console.log(selectedString)
     if (selectedString === 'Java') {
         return java;
     } else if (selectedString === 'Pthon') {
@@ -143,8 +142,11 @@ if (edit) {
         problemInput.value = projContent.problem_statement;
         outcomeInput.value = projContent.desired_outcomes;
         deliverableInput.value = projContent.deliverables;
+        console.log(skillList)
+        console.log(projContent.required_skills)
         if (skillList.includes(projContent.required_skills)) {
-            const selectedEle = findSelectedEle(data.skill);
+            const selectedEle = findSelectedEle(projContent.required_skills);
+            console.log(selectedEle)
             selectedEle.classList.add('selected');
         }
     })
@@ -166,10 +168,6 @@ document.querySelectorAll('.skill').forEach(skill => {
     });
 });
 
-if (!edit) {
-
-}
-
 submit.addEventListener('click', (event) => { 
     let selectedSkillvalue = document.querySelector('.skill.selected');
     if (selectedSkillvalue !== null) {
@@ -181,16 +179,38 @@ submit.addEventListener('click', (event) => {
     if (edu.value === 'Close') {
         sta = 'closed';
     }
-    doFetch('/profile/project', 'POST', {
-        "project_id": roleId,
-        "title": projNameInput.value,
-        "description": "",
-        "problem_statement": problemInput.value,
-        "desired_outcomes": outcomeInput.value,
-        "required_skills": selectedSkillvalue,
-        "deliverables": deliverableInput.value,
-        "status": sta
-    })
+    console.log(typeof outcomeInput.value)
+    if (!edit) {
+        doFetch('/profile/project', 'POST', {
+            "partner_id": roleId,
+            "title": projNameInput.value,
+            "description": "",
+            "problem_statement": problemInput.value,
+            "desired_outcomes": outcomeInput.value,
+            "required_skills": selectedSkillvalue,
+            "deliverables": deliverableInput.value,
+            "status": 'is_open'
+        })
+    } else {
+        console.log('hii')
+        doFetch('/profile/project', 'PUT', {
+            "project_id": project_id,
+            "title": projNameInput.value,
+            "description": "",
+            "problem_statement": problemInput.value,
+            "desired_outcomes": outcomeInput.value,
+            "required_skills": selectedSkillvalue,
+            "deliverables": deliverableInput.value,
+            "project_last_updated_at": null,
+            "supervisor_id": null,
+            "supervisor_being_assigned_at":null,
+            "student_id": null,
+            "student_being_assigned_at": null,
+            "status": 'is_open'
+        })
+    }
+    
+    window.location.href = "../BossHome/bossHome.html"
 });
 
 logout.addEventListener('click', ()=>{

@@ -2,7 +2,6 @@ import { doFetch } from "../helper.js";
 
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 const projects = document.getElementById('projects');
 
@@ -17,7 +16,6 @@ function naviDisplay (item) {
 
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 
 function newPro (title, proStatus, project_id) {
@@ -33,6 +31,13 @@ function newPro (title, proStatus, project_id) {
     const status = document.createElement('div');
     status.textContent = proStatus;
     status.className = 'status';
+    if (proStatus === 'Finding student') {
+        status.classList.add('themeBlack');
+    } else if (proStatus === 'Finding supervisor') {
+        status.classList.add('themeYellow');
+    } else if (proStatus === 'Project in progress') {
+        status.classList.add('themeGreen');
+    }
     project.appendChild(status);
 
     const more = document.createElement('input');
@@ -57,7 +62,14 @@ function newPro (title, proStatus, project_id) {
 const partnerId = Number(localStorage.getItem('roleId'));
 doFetch(`/profile/project?partner_id=${partnerId}`, 'GET').then((projs)=>{
     projs.forEach((proj)=>{
-        newPro(proj.title, proj.status, proj.project_id);
+        console.log(proj)
+        let pStatus = 'Finding student';
+        if (proj.student_id !== null && proj.supervisor_id !== null) {
+            pStatus = 'Project in progress';
+        } else if (proj.student_id !== null) {
+            pStatus = 'Finding supervisor';
+        }
+        newPro(proj.title, pStatus, proj.project_id);
     })
 })
 logout.addEventListener('click', ()=>{

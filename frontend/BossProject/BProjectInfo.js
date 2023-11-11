@@ -12,7 +12,7 @@ const projectName = document.getElementById('projectName');
 console.log(projectName);
 const contact = document.getElementById('contact');
 const urlParams = new URLSearchParams(window.location.search);
-const project_id = urlParams.get('id');
+const project_id = Number(urlParams.get('id'));
 // interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -30,7 +30,12 @@ findSt.addEventListener('mouseleave', (event) => {
     findSt.style.background = `rgb(${0}, ${193}, ${193})`;
 });
 findSt.addEventListener('click', (event) => {
-    window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
+    console.log(findSt.value)
+    if (findSt.value === 'project is in progress') {
+        alert('to sp3 page')
+    } else {
+        window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
+    }
 
 });
 const roleId = Number(localStorage.getItem('roleId'));
@@ -56,6 +61,15 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     desiredOutcome.textContent = currProj.desired_outcomes;
     potentialDeliverable.textContent = currProj.deliverables;
     projectName.textContent = currProj.title;
+    console.log(currProj.student_id)
+    if (currProj.student_id !== null && currProj.supervisor_id !== null) {
+        console.log('hiii')
+        findSt.value = 'project is in progress';
+    } else if (currProj.student_id !== null) {
+        findSt.value = 'Recommand and applied supervisor'
+        findSt.style.width = '370px';
+    }
+    
     doFetch('/profile/partner?partner_id=' + currProj.partner_id, 'GET').then((partnerInfo) => {
         console.log(partnerInfo[0]);
         contact.textContent = partnerInfo[0].email;

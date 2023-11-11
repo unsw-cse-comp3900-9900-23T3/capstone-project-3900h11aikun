@@ -6,10 +6,9 @@
 
     <body>
         <div class="navigate">
-            <div class="studentName">View Profile</div>
+            <a class="studentName" href="../BossProfile/bossprofile.html">View Profile</a>
             <a id="home" class="left" href="../BossHome/bossHome.html">Home</a>
             <a id="mypro" class="left" href="../PostProject/postProject.html">Post projects</a>
-            <a id="profile" class="left" href="#">Update profile</a>
             <a id="logout" class="logout" href="../index.html">Log out</a>
         </div>
 
@@ -17,15 +16,15 @@
             <div class="title">My online profile</div>
             <div class="infoPart">
                 <div class="inputName">First Name</div>
-                <input id="firstName" class="input" type="text" placeholder="Please input your first name" />
+                <input id="firstName" class="input" type="text" placeholder="Please input your first name" disabled/>
                 <div class="inputName">Last Name</div>
-                <input id="lastName" class="input" type="text" placeholder="Please input your last name" />
+                <input id="lastName" class="input" type="text" placeholder="Please input your last name" disabled/>
                 <div class="inputName">Company</div>
-                <input id="company" class="input" type="text" placeholder="Please input your company" />
+                <input id="company" class="input" type="text" placeholder="Please input your company" disabled/>
                 <div class="inputName">Contact email</div>
-                <input id="email" class="input" type="text" placeholder="Please input your contact email" />
+                <input id="email" class="input" type="text" placeholder="Please input your contact email" disabled/>
             </div>
-            <input id="submit" class="submit" type="button" value="Submit" />
+            <input id="submit" class="submit" type="button" value="Edit" />
         </div>
 
         <script type="module" src="bossprofile.js"></script>

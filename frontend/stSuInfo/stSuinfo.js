@@ -12,9 +12,10 @@ const email = document.getElementById('email');
 const strength = document.getElementById('strength');
 const stOrSu = document.getElementById('stOrSu');
 const urlParams = new URLSearchParams(window.location.search);
-const bossView = urlParams.has('studentId');
-const bossViewSId = urlParams.get('studentId');
-
+const hasStudentId = urlParams.has('studentId');
+const hasSupervisorId = urlParams.has('supervisorId');
+const bossViewSId = Number(hasStudentId ? urlParams.get('studentId') : (hasSupervisorId ? urlParams.get('supervisorId') : null));
+const bossView = hasStudentId || hasSupervisorId;
 if (bossView) {
     console.log('yoo')
     ret.addEventListener('click', function() {
@@ -40,7 +41,7 @@ ret.addEventListener('mouseleave', (event) => {
     ret.style.color = 'black';
 });
 ret.addEventListener('click', (event) => {
-    window.location.href = "../HomeDir/home.html";
+    window.history.back();
 });
 
 function buttonDisplay (item) {
@@ -63,10 +64,12 @@ let sendSid = student_id;
 if (bossView) {
     sendSid = bossViewSId;
 }
+console.log(bossView)
+console.log(sendSid)
 console.log(`/studentInfo/getStudentInfo/{${sendSid}}`);
 let url = `/studentInfo/getStudentInfo/${sendSid}`;
 const role = localStorage.getItem('role');
-if (role === "supervisor") {
+if (role === "supervisor" || hasSupervisorId) {
     console.log('hii')
     stOrSu.textContent = "Supervisor Information";
     url=`/profile/supervisor?supervisor_id=${sendSid}`;
@@ -79,7 +82,7 @@ let quaOrStrength = "strength";
 doFetch(url, 'GET').then((data1)=>{
     console.log(data1);
     let data = data1;
-    if(role === 'supervisor') {
+    if(role === 'supervisor' || hasSupervisorId) {
         data = data1[0];
     }
     skill.textContent = data.skills;
