@@ -3,7 +3,6 @@ import { doFetch } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const logout = document.getElementById('logout');
-const edu = document.getElementById('edu');
 const java = document.getElementById('java');
 const python = document.getElementById('python');
 const js = document.getElementById('js');
@@ -22,7 +21,6 @@ const deliverable = document.getElementById('deliverable');
 const deliverableInput = document.getElementById('deliverableInput');
 const editOrCreate = document.getElementById('editOrCreate');
 const projName = document.getElementById('projName');
-const projStatus = document.getElementById('projStatus');
 const projNameInput = document.getElementById('projNameInput');
 let roleId = Number(localStorage.getItem('roleId'));
 
@@ -83,7 +81,6 @@ naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(logout);
 inputDisplay(projName);
-inputDisplay(edu);
 skillDisplay(java);
 skillDisplay(python);
 skillDisplay(js);
@@ -134,11 +131,6 @@ if (edit) {
         const projContent =  data[0];
         projNameInput.value = projContent.title;
         console.log(projName)
-        let defaultValue = 'Close';
-        if (projContent.status === 'is_open') {
-            defaultValue = 'Open';
-        }
-        edu.value = defaultValue;
         problemInput.value = projContent.problem_statement;
         outcomeInput.value = projContent.desired_outcomes;
         deliverableInput.value = projContent.deliverables;
@@ -174,10 +166,6 @@ submit.addEventListener('click', (event) => {
         selectedSkillvalue = selectedSkillvalue.textContent;
     } else {
         selectedSkillvalue = '';
-    }
-    let sta = 'is_open';
-    if (edu.value === 'Close') {
-        sta = 'closed';
     }
     console.log(typeof outcomeInput.value)
     if (!edit) {

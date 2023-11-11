@@ -32,7 +32,7 @@ findSt.addEventListener('mouseleave', (event) => {
 findSt.addEventListener('click', (event) => {
     console.log(findSt.value)
     if (findSt.value === 'project is in progress') {
-        alert('to sp3 page')
+        window.location.href = "../Progress/progress.html?projectId=" + project_id;
     } else {
         window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
     }
