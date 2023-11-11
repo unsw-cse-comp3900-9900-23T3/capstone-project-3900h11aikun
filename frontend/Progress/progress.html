@@ -22,7 +22,7 @@
         </div>
 
         <div class="title">
-            <div class="proName">Project name</div>
+            <div class="proName" id='proName'>Project name</div>
             <input id="detail" class="button" type="button" value="View Details" />
         </div>
     
@@ -32,7 +32,7 @@
                 <div class="line">|</div>
                 <input id="add" class="add" type="button" value="+" />
             </div>
-            <div class="status">In Progress</div>
+            <div class="status" id="status">In Progress</div>
             <div class="info">Sprint Objective:
                 <input id="spObj" class="statement" type="text" disabled/>
             </div>
@@ -50,17 +50,17 @@
             <div class="info">Partner Experience Mark</div>
             <div>
                 <select class="score" disabled id="score">
-                    <option>Sprint not finished, mark will be given when finished</option>
-                    <option>1: Hope can improve next time</option>
-                    <option>2: Hope can improve next time</option>
-                    <option>3: Hope can improve next time</option>
-                    <option>4: Hope can improve next time</option>
-                    <option>5: Not bad</option>
-                    <option>6: Not bad</option>
-                    <option>7: Not bad</option>
-                    <option>8: Excellent!</option>
-                    <option>9: Excellent!</option>
-                    <option>10: Excellent!</option>
+                    <option value="11">Sprint not finished, mark will be given when finished</option>
+                    <option value="1">1: Hope can improve next time</option>
+                    <option value="2">2: Hope can improve next time</option>
+                    <option value="3">3: Hope can improve next time</option>
+                    <option value="4">4:   Not bad</option>
+                    <option value="5">5:   Not bad</option>
+                    <option value="6">6:   Not bad</option>
+                    <option value="7">7:   Excellent!</option>
+                    <option value="8">8:   Excellent!</option>
+                    <option value="9">9:   Excellent!</option>
+                    <option value="10">10:   Excellent!</option>
                 </select>
             </div>
             <input id="edit" class="button" type="button" value="Edit Sprint" />

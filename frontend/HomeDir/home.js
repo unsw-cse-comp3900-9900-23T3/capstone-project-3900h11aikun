@@ -33,11 +33,9 @@ function optDisplay (item) {
 recommand.addEventListener('click', (event) => {
     recommand.style.background = `rgb(${0}, ${193}, ${193})`;
     all.style.background = `rgb(${232}, ${235}, ${238})`;
-    if (userRole === 'partner') {
-        alert('post project have not implemented');
-    } else {
-        showAllOrRecomandProjects(false);
-    }
+    
+    showAllOrRecomandProjects(false);
+    
 });
 
 all.addEventListener('click', (event) => {

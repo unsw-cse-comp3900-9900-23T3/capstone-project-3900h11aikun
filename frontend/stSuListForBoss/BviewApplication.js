@@ -11,7 +11,7 @@ const BossBar = document.getElementById('BossBar');
 const AStSu = document.getElementById('AStSu');
 const studentBar = document.getElementById('studentBar');
 const urlParams = new URLSearchParams(window.location.search);
-const project_id = urlParams.get('projectId');
+const project_id = Number(urlParams.get('projectId'));
 
 let isStudent = true;
 // Interaction display
