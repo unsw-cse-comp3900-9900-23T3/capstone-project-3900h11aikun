@@ -155,7 +155,7 @@ class SupervisorInterestExpress(BaseModel):
 
 # the student reports for progress for the project,
 # recorded with date, and content, and will be commented by the partner only
-class ProjectProgress(db.Model):
+class ProjectProgress(BaseModel):
     __tablename__ = 'project_progress'
     __table_args__ = {"extend_existing": True}
 
