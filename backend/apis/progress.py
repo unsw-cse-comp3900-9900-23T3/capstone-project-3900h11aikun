@@ -14,6 +14,31 @@ api = Namespace(
 )
 
 
+@api.route("/<int:project_id>/<int:progress_index>")
+class GetProgressViaIndex(Resource):
+    @api.doc(description="Get a progress by project_id and progress_index, index start from 0, 1, 2, and it is not the project_progress_id")
+    @api.response(200, "Success, return the progress dict")
+    @api.response(400, "Project not found / no such progress index / etc")
+    def get(self, project_id, progress_index):
+        """get a progress by project_id and progress_index, index start from 0, 1, 2, and it is not the project_progress_id"""
+        project = Project.query.get(project_id)
+        if project is None:
+            abort(400, "Project id {} not found".format(project_id))
+
+        # get all the progress related to this project id
+        # order by the project_progress_id by default
+        all_progress = ProjectProgress.query.filter_by(project_id=project_id).all()
+
+        # check if the progress_index is valid
+        if progress_index >= len(all_progress):
+            abort(400, "No such progress index {}. Total {} progress for project {}".format(
+                progress_index, len(all_progress), project_id))
+
+        # get the progress
+        progress = all_progress[progress_index]
+        return jsonify(progress.as_dict())
+
+
 @api.route("/all_progress/<int:project_id>")
 class GetAllProgress(Resource):
     @api.doc(description="This will return both the project dict, and the all progress into a list")
