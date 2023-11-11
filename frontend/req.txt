@@ -1,0 +1,10 @@
+progress/all_progress/ 
+    GET, POST每个progress需要加
+    1.status：1.to do 2.in progress 3. done
+    2.Deadline
+    3.spring objective
+    4.user story
+
+    需要PUT api更改progress
+
+partner需要给每个progress打分，domain：1-10分

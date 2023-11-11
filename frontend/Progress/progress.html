@@ -5,14 +5,20 @@
     </head>
 
     <body>
-        <div class="navigate">
-            <div class="studentName">Partner Name</div>
-            <div class="leftPart">
-                <input id="home" class="left" type="button" value="Home" />
-                <input id="mypro" class="left" type="button" value="Post Projects" />
-                <input id="profile" class="left" type="button" value="Profile" />
-            </div>
-            <input id="logout" class="logout" type="button" value="Log out" />
+        <div class="navigate" id="BossBar">
+            <a class="studentName" href="../BossProfile/bossprofile.html">View Profile</a>
+            <a id="home" class="left" href="../BossHome/bossHome.html">Home</a>
+            <a id="mypro" class="left" href="../PostProject/postProject.html">Post projects</a>
+            <a id="logout" class="logout" href="../index.html">Log out</a>
+        </div>
+
+        <div class="navigate hide" id="studentBar">
+            <a class="studentName" href="../stSuInfo/stSuinfo.html">View Profile</a>
+            <a id="home" class="left" href="../HomeDir/home.html">Home</a>
+            <a id="mypro" class="left" href="../Progress/progress.html">My project</a>
+            <a id="apply" class="left" href="../stSuApplication/stSuApplication.html">Applications</a>
+            <a id="profile" class="left" href="../StudentProfile/StProfile.html">Update profile</a>
+            <a id="logout" class="logout" href="../index.html">Log out</a>
         </div>
 
         <div class="title">
@@ -28,35 +34,35 @@
             </div>
             <div class="status">In Progress</div>
             <div class="info">Sprint Objective:
-                <div class="statement"></div>
+                <input id="spObj" class="statement" type="text" disabled/>
             </div>
             <div class="info">Deadline:
-                <div class="deadline"></div>
+                <input class="deadline" type="datetime-local" disabled id="deadline"/>
             </div>
             <div class="info">User Stories:</div>
-            <div class="stories"></div>
+            <textarea class="stories" type="text" disabled id="userStory"></textarea>
             <div class="info">Student Report</div>
-            <div class="stories"></div>
+            <textarea class="stories" type="text" disabled id="stReport"></textarea>
             <input id="upload" class="button" type="button" value="Upload Report" />
             <input id="view" class="button" type="button" value="View Report" />
             <div class="info">Supervisor Feedback</div>
-            <div class="stories"></div>
-            <div class="info">Rate Your Experience</div>
+            <textarea class="stories" type="text" disabled id="suFeedback"></textarea>
+            <div class="info">Partner Experience Mark</div>
             <div>
-                <select class="score">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
+                <select class="score" disabled id="score">
+                    <option>Sprint not finished, mark will be given when finished</option>
+                    <option>1: Hope can improve next time</option>
+                    <option>2: Hope can improve next time</option>
+                    <option>3: Hope can improve next time</option>
+                    <option>4: Hope can improve next time</option>
+                    <option>5: Not bad</option>
+                    <option>6: Not bad</option>
+                    <option>7: Not bad</option>
+                    <option>8: Excellent!</option>
+                    <option>9: Excellent!</option>
+                    <option>10: Excellent!</option>
                 </select>
             </div>
-            <input id="delete" class="button" type="button" value="Delete Sprint" />
             <input id="edit" class="button" type="button" value="Edit Sprint" />
         </div>
 
