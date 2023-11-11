@@ -1,5 +1,7 @@
 # Backend 进展
 
+### 2023-11-11 再次更新了数据库， progres table 引入了 `status` 为 `"to do", "in progress", "done"` 三选一， `deadline` (非必须，可选)，`sprint objective`, `user story`, 和 `partner mark` 1到10。请大家删掉原本的`backend/database.db`文件，然后copy `backend/db/default_database.db` 文件， 弄成`backend/database.db` 文件。
+
 #### 2023-11-08 再次更新了数据库，请 删掉原本的`backend/database.db`文件，然后copy `backend/db/default_database.db` 文件， 弄成`backend/database.db` 文件。
 
 #### 所有的qualification是 master， undergraduate， doctorate 三选一。所有的skill （student 的，和supervisor的） 都是从 `['Java', 'Python', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data']` 这里面进行挑选。数据库是这样的的design，每个学生和supervisor随机匹配了9个skill里面的6个，然后每个project是随机匹配了9个skill里面的4个。这样就是确保recommendation可以working。

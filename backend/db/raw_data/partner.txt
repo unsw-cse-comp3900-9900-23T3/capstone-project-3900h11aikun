@@ -1,10 +1,10 @@
-kelsey-austin|Kelsey|Austin|kelsey.austin@business.au|Abcd1234!|Barker, Hill and Bennett|Director of Sales|Over 20 years of experience leading technology teams.
-thomas-weber|Thomas|Weber|thomas.weber@business.au|Abcd1234!|Gomez, Kaufman and Peterson|Head of HR|Played a pivotal role in expanding the company's footprint in Asia and Europe.
-michael-gonzalez|Michael|Gonzalez|michael.gonzalez@business.au|Abcd1234!|Herrera-Gray|Head of HR|Frequent speaker at international conferences, representing the company's vision and achievements.
-ernest-baker|Ernest|Baker|ernest.baker@business.au|Abcd1234!|Owens, Harris and Lang|CTO|Skilled in negotiation, having secured valuable partnerships and contracts.
-alex-carlson|Alex|Carlson|alex.carlson@business.au|Abcd1234!|Garcia-Rodriguez|Director of Operations|Frequent speaker at international conferences, representing the company's vision and achievements.
-brett-oliver|Brett|Oliver|brett.oliver@business.au|Abcd1234!|Lee, Morrison and Burns|Head of HR|Proven track record in scaling startups to multi-million user bases.
-carolyn-martin|Carolyn|Martin|carolyn.martin@business.au|Abcd1234!|Gonzalez-Morgan|Chief Officer|Adept at building, maintaining, and nurturing high-value customer relationships.
-becky-bush|Becky|Bush|becky.bush@business.au|Abcd1234!|Summers-White|Chief Officer|Directed multiple successful product launches, resulting in a 300% growth in sales.
-stephen-wu|Stephen|Wu|stephen.wu@business.au|Abcd1234!|Carter, Barker and Solis|Director of Sales|Championed company culture, employee satisfaction, and reduced attrition rates.
-stanley-martinez|Stanley|Martinez|stanley.martinez@business.au|Abcd1234!|Gibson-Taylor|HR|Over 20 years of experience leading technology teams.
+diane-cook|Diane|Cook|diane.cook@business.au|Abcd1234!|Anderson, Townsend and Moore|CTO|Passionate about innovative marketing strategies and their execution in the global market.
+george-gonzalez|George|Gonzalez|george.gonzalez@business.au|Abcd1234!|Martin, Dean and Butler|CEO|Over 20 years of experience leading technology teams.
+becky-lawrence|Becky|Lawrence|becky.lawrence@business.au|Abcd1234!|Walton, Scott and Clark|HR|Pioneered the adoption of AI and ML techniques for business optimization in the company.
+rebecca-klein|Rebecca|Klein|rebecca.klein@business.au|Abcd1234!|Ochoa-Martinez|CEO|Strong background in data-driven decision making, leveraging cutting-edge analytics tools.
+richard-kim|Richard|Kim|richard.kim@business.au|Abcd1234!|Bailey Ltd|Director of Operations|Significant expertise in business transformation and change management across diverse industries.
+steven-benjamin|Steven|Benjamin|steven.benjamin@business.au|Abcd1234!|Stephens and Sons|Director of Operations|Frequent speaker at international conferences, representing the company's vision and achievements.
+lori-payne|Lori|Payne|lori.payne@business.au|Abcd1234!|Dyer, Weiss and Griffith|Director of Operations|Strong advocate for diversity and inclusion, implementing company-wide programs.
+brian-pope|Brian|Pope|brian.pope@business.au|Abcd1234!|Wells, Soto and Hernandez|Director of Operations|Proven track record in scaling startups to multi-million user bases.
+joy-wyatt|Joy|Wyatt|joy.wyatt@business.au|Abcd1234!|Miller-Jenkins|Director of Sales|Expertise in global finance, managing budgets exceeding $100 million.
+luke-dean|Luke|Dean|luke.dean@business.au|Abcd1234!|Brennan, Osborne and Brown|Director of Operations|Adept at building, maintaining, and nurturing high-value customer relationships.
