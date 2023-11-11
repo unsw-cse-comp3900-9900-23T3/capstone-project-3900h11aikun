@@ -155,7 +155,7 @@ class SupervisorInterestExpress(BaseModel):
 
 # the student reports for progress for the project,
 # recorded with date, and content, and will be commented by the partner only
-class ProjectProgress(BaseModel):
+class ProjectProgress(db.Model):
     __tablename__ = 'project_progress'
     __table_args__ = {"extend_existing": True}
 
@@ -170,11 +170,19 @@ class ProjectProgress(BaseModel):
     file_url = db.Column(db.String, nullable=True, default=None)
     student_last_updated_at = db.Column(db.DateTime, nullable=False)
 
+    # additional field
+    status = db.Column(db.Enum('to do', 'in progress', 'done'), nullable=True, default='pending')
+    deadline = db.Column(db.DateTime, nullable=True)
+    sprint_objective = db.Column(db.String, nullable=True, default=None)
+    user_story = db.Column(db.String, nullable=True, default=None)
+
     # the partner will provide some comment only
     partner_id = db.Column(db.Integer, db.ForeignKey('partner.partner_id'), nullable=True, default=None)
     partner_feedback = db.Column(db.String, nullable=True, default=None)
     partner_last_updated_at = db.Column(db.DateTime, nullable=True)
 
+    # partner mark the progress
+    partner_mark = db.Column(db.Integer, nullable=True, default=None)
 
 # the supervisor can provide feedback at all times
 class ProjectSupervisorFeedback(BaseModel):

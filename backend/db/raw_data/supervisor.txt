@@ -1,10 +1,10 @@
-marcus-thomas|Marcus|Thomas|marcus.thomas@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of New South Wales|Leadership, Software development, Data analysis, Teamwork
-gregory-whitney|Gregory|Whitney|gregory.whitney@school.edu.au|Abcd1234!|PhD in Computer Science|University of Sydney|Data analysis, Teamwork, Leadership, Project management
-sarah-chase|Sarah|Chase|sarah.chase@school.edu.au|Abcd1234!|Master of Information Technology|University of Melbourne|Database management, Project management, Networking, Digital marketing
-sean-wolf|Sean|Wolf|sean.wolf@school.edu.au|Abcd1234!|PhD in Business Administration|University of Adelaide|UX/UI design, Data analysis, Public speaking, Software development
-nicole-aguilar|Nicole|Aguilar|nicole.aguilar@school.edu.au|Abcd1234!|Master of Business Administration|James Cook University|Problem solving, Public speaking, Digital marketing, UX/UI design
-steven-phillips|Steven|Phillips|steven.phillips@school.edu.au|Abcd1234!|PhD in Business Administration|University of Melbourne|Public speaking, Digital marketing, Data analysis, Leadership
-albert-walton|Albert|Walton|albert.walton@school.edu.au|Abcd1234!|Doctorate in Psychology|University of Adelaide|Digital marketing, Problem solving, Statistical analysis, Project management
-matthew-adams|Matthew|Adams|matthew.adams@school.edu.au|Abcd1234!|Master of Information Technology|University of Queensland|Data analysis, Project management, Research, Software development
-brenda-anderson|Brenda|Anderson|brenda.anderson@school.edu.au|Abcd1234!|Bachelor of Engineering|University of Tasmania|Digital marketing, UX/UI design, Database management, Statistical analysis
-ryan-ramos|Ryan|Ramos|ryan.ramos@school.edu.au|Abcd1234!|Master of Arts|University of Queensland|Problem solving, Leadership, Graphic design, Data analysis
+clayton-simpson|Clayton|Simpson|clayton.simpson@school.edu.au|Abcd1234!|Master of Business Administration|University of Adelaide|Teamwork, Database management, Leadership, Graphic design
+andrew-middleton|Andrew|Middleton|andrew.middleton@school.edu.au|Abcd1234!|PhD in Computer Science|University of Adelaide|Software development, Problem solving, Research, Database management
+gail-carroll|Gail|Carroll|gail.carroll@school.edu.au|Abcd1234!|Master of Business Administration|University of Melbourne|Database management, Public speaking, Teamwork, Leadership
+larry-solis|Larry|Solis|larry.solis@school.edu.au|Abcd1234!|PhD in Electrical Engineering|University of Tasmania|Database management, Software development, Problem solving, Statistical analysis
+michael-nelson|Michael|Nelson|michael.nelson@school.edu.au|Abcd1234!|Doctor of Philosophy in Arts|University of Tasmania|Leadership, Software development, Project management, Statistical analysis
+rhonda-wheeler|Rhonda|Wheeler|rhonda.wheeler@school.edu.au|Abcd1234!|Bachelor of Engineering|University of New South Wales|Research, Software development, Problem solving, Leadership
+tracy-ingram|Tracy|Ingram|tracy.ingram@school.edu.au|Abcd1234!|Master of Arts|University of New South Wales|Leadership, Teamwork, UX/UI design, Software development
+denise-martin|Denise|Martin|denise.martin@school.edu.au|Abcd1234!|Master of Business Administration|Macquarie University|Graphic design, Networking, Software development, Project management
+hannah-brown|Hannah|Brown|hannah.brown@school.edu.au|Abcd1234!|PhD in Computer Science|University of Tasmania|UX/UI design, Teamwork, Graphic design, Project management
+eric-johnson|Eric|Johnson|eric.johnson@school.edu.au|Abcd1234!|Bachelor of Engineering|University of Tasmania|Public speaking, Data analysis, Research, Graphic design

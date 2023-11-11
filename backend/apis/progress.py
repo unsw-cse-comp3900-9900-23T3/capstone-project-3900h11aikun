@@ -73,9 +73,14 @@ class CreateNewProgress(Resource):
             content=data["content"],
             file_url=None,
             student_last_updated_at=datetime.now(),
+            deadline=data["deadline"] if "deadline" in data else None,
+            sprint_objective=data["sprint_objective"],
+            user_story=data["user_story"],
+            status=data["status"],
             partner_id=project.partner_id,
             partner_feedback=None,
-            partner_last_updated_at=None
+            partner_last_updated_at=None,
+            partner_mark=None
         )
 
         # add to the database and return
@@ -183,9 +188,14 @@ class ProgressAction(Resource):
 
         # update the content
         data = request.json
-        new_content = data["content"]
+        progress.content = data["content"]
 
-        progress.content = new_content
+        if "deadline" in data:
+            progress.deadline = data["deadline"]
+
+        progress.sprint_objective = data["sprint_objective"]
+        progress.user_story = data["user_story"]
+        progress.status = data["status"]
         progress.student_last_updated_at = datetime.now()
         db.session.commit()
         return jsonify(progress.as_dict())
@@ -217,6 +227,7 @@ class PartnerFeedbackAction(Resource):
         # now add the feedback
         progress.partner_feedback = data["partner_feedback"]
         progress.partner_last_updated_at = datetime.now()
+        progress.partner_mark = data["partner_mark"]
         db.session.commit()
         return jsonify(progress.as_dict())
 
