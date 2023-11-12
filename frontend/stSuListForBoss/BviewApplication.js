@@ -1,7 +1,7 @@
 import { doFetch } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
+
 const logout = document.getElementById('logout');
 const ret = document.getElementById('return');
 const recommand = document.getElementById('recommand');
@@ -47,7 +47,6 @@ function buttonDisplay (item) {
 
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 let role = localStorage.getItem('role');
 if (role === 'student') {
@@ -80,7 +79,7 @@ function loadStudent(part, nameContent, education, stId) {
         selectButton.type = 'button';
         selectButton.className = 'viewmore';
         selectButton.value = 'Add person to project';
-        if (role !== 'student') {
+        if (role === 'partner') {
             student.appendChild(selectButton);
             buttonDisplay(selectButton);
             student.style.height = '170px';
@@ -90,13 +89,19 @@ function loadStudent(part, nameContent, education, stId) {
             doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
                 let stSu = "student_id";
                 const currProj = data[0];
-                if (!isStudent) {
+                console.log(studentBar)
+                if (!AStSu.textContent.includes('tudents')) {
                     stSu = 'supervisor_id';
                 }
+                console.log(stSu)
                 currProj[stSu] = stId;
-                doFetch('/profile/project', 'PUT', currProj);
+                console.log(currProj)
+                doFetch('/profile/project', 'PUT', currProj).then(data=>{
+                    loadPageContent();
+                    console.log(data)
+                    window.location.href = "../BossProject/BProjectInfo.html" + '?id=' + project_id;
+                });
             })
-            window.location.href = "../BossProject/BProjectInfo.html" + '?id=' + project_id;
         })
     }
     
@@ -112,53 +117,58 @@ function loadStudent(part, nameContent, education, stId) {
     buttonDisplay(button);
     
 };
-
+function loadPageContent() {
+    recommand.textContent = '';
+    applied.textContent = '';
+    doFetch('/profile/project?project_id=' + project_id, 'GET').then((data)=>{
+    
+        console.log(data)
+        const currProj = data[0];
+        console.log(currProj);
+        
+        if (currProj.student_id != null) {
+            isStudent = false;
+            RStSu.textContent = 'Recommand Supervisors';
+            AStSu.textContent = 'Applied Supervisors';
+            doFetch('/profile/supervisor?skills=' + currProj.required_skills, 'GET').then((data2) => {
+                console.log(data2);
+                data2.forEach((student)=>{
+                    doFetch('/profile/supervisor?supervisor_id=' + student.supervisor_id).then((data)=>{
+                        loadStudent(recommand, student.first_name + ' ' + student.last_name, data[0].email, data[0].supervisor_id);
+                    })
+                })
+            })
+            doFetch('/profile/project/interest/supervisor?project_id=' + project_id, 'GET').then((data2) => {
+                console.log(data2);
+                data2.forEach((student)=>{
+                    doFetch('/profile/supervisor?supervisor_id=' + student.supervisor_id).then((data)=>{
+                        loadStudent(applied, student.first_name + ' ' + student.last_name, data[0].email, data[0].supervisor_id);
+                    })
+                })
+            })
+        } else {
+            console.log('ioioio')
+            doFetch('/profile/student?skills=' + currProj.required_skills, 'GET').then((data2) => {
+                console.log(data2);
+                data2.forEach((student)=>{
+                    doFetch('/profile/student?student_id=' + student.student_id).then((data)=>{
+                        loadStudent(recommand, student.first_name + ' ' + student.last_name, data[0].email, data[0].student_id);
+                    })
+                })
+            })
+            doFetch('/profile/project/interest/student?project_id=' + project_id, 'GET').then((data2) => {
+                console.log(data2);
+                data2.forEach((student)=>{
+                    doFetch('/profile/student?student_id=' + student.student_id).then((data)=>{
+                        loadStudent(applied, student.first_name + ' ' + student.last_name, data[0].email, data[0].student_id);
+                    })
+                })
+            })
+        }
+    })
+}
 console.log(project_id)
-doFetch('/profile/project?project_id=' + project_id, 'GET').then((data)=>{
-    
-    console.log(data)
-    const currProj = data[0];
-    console.log(currProj);
-    
-    if (currProj.student_id != null) {
-        isStudent = false;
-        RStSu.textContent = 'Recommand Supervisors';
-        AStSu.textContent = 'Applied Supervisors';
-        doFetch('/profile/supervisor?skills=' + currProj.required_skills, 'GET').then((data2) => {
-            console.log(data2);
-            data2.forEach((student)=>{
-                doFetch('/profile/supervisor?supervisor_id=' + student.supervisor_id).then((data)=>{
-                    loadStudent(recommand, student.first_name + ' ' + student.last_name, data[0].email, data[0].supervisor_id);
-                })
-            })
-        })
-        doFetch('/profile/project/interest/supervisor?project_id=' + project_id, 'GET').then((data2) => {
-            console.log(data2);
-            data2.forEach((student)=>{
-                doFetch('/profile/supervisor?supervisor_id=' + student.supervisor_id).then((data)=>{
-                    loadStudent(applied, student.first_name + ' ' + student.last_name, data[0].email, data[0].supervisor_id);
-                })
-            })
-        })
-    } else {
-        doFetch('/profile/student?skills=' + currProj.required_skills, 'GET').then((data2) => {
-            console.log(data2);
-            data2.forEach((student)=>{
-                doFetch('/profile/student?student_id=' + student.student_id).then((data)=>{
-                    loadStudent(recommand, student.first_name + ' ' + student.last_name, data[0].email, data[0].student_id);
-                })
-            })
-        })
-        doFetch('/profile/project/interest/student?project_id=' + project_id, 'GET').then((data2) => {
-            console.log(data2);
-            data2.forEach((student)=>{
-                doFetch('/profile/student?student_id=' + student.student_id).then((data)=>{
-                    loadStudent(applied, student.first_name + ' ' + student.last_name, data[0].email, data[0].student_id);
-                })
-            })
-        })
-    }
-})
+loadPageContent();
 
 
 

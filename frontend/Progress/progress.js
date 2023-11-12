@@ -1,14 +1,17 @@
-import { doFetch } from "../helper.js";
+import { doFetch, uploadPdf} from "../helper.js";
 
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
+
+const BossBar = document.getElementById('BossBar');
+const studentBar = document.getElementById('studentBar');
 const logout = document.getElementById('logout');
 const detail = document.getElementById('detail');
 const add = document.getElementById('add');
 const container = document.getElementById('container');
 const edit = document.getElementById('edit');
 const upload = document.getElementById('upload');
+const uploader = document.getElementById('uploader');
 const view = document.getElementById('view');
 const score = document.getElementById('score');
 const spObj = document.getElementById('spObj');
@@ -18,11 +21,59 @@ const stReport = document.getElementById('stReport');
 const suFeedback = document.getElementById('suFeedback');
 const status = document.getElementById('status');
 const proName = document.getElementById('proName');
+
+const reportErr = document.getElementById('reportErr');
 const roleId = Number(localStorage.getItem('roleId')); 
 const role = localStorage.getItem('role');
 const urlParams = new URLSearchParams(window.location.search);
-const project_id = Number(urlParams.get('projectId')); 
-
+let project_id = Number(urlParams.get('projectId')); 
+if (role !== 'student') {
+    upload.classList.add('hide');
+}
+if (role === 'partner') {
+    edit.value = 'Give mark or ungive mark'
+    edit.style.width = '230px';
+    doFetch('/progress/all_progress/' + project_id, 'GET').then(data =>{
+        const progressList = data.all_progress;
+        if (progressList.length === 0) {
+            add.click();
+        }
+        proName.textContent = data.project.title;
+        loadSprints(progressList.length, true, false);
+    })
+} else {
+    BossBar.classList.add('hide');
+    studentBar.classList.remove('hide');
+    let roleString = '';
+    if (role === 'student') {
+        roleString = 'student_id';
+    } else if (role === 'supervisor') {
+        roleString = 'supervisor_id';
+    }
+    
+    doFetch('/profile/project', 'GET').then(projs => {
+        let hasProject = false;
+        console.log(projs);
+        projs.forEach(proj => {
+            if (proj[roleString] == roleId) {
+                project_id = proj.project_id;
+                console.log('iii')
+                hasProject = true;
+            }
+        })
+        if (!hasProject) {
+            // window.location.href = "../stSuApplication/stSuApplication.html";
+        }
+        doFetch('/progress/all_progress/' + project_id, 'GET').then(data =>{
+            const progressList = data.all_progress;
+            if (progressList.length === 0) {
+                add.click();
+            }
+            proName.textContent = data.project.title;
+            loadSprints(progressList.length, true, false);
+        })
+    })
+}
 // Interaction color display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -61,7 +112,6 @@ add.addEventListener('mouseleave', (event) => {
 // interaction dynamic display
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(detail);
 buttonDisplay(edit);
@@ -108,7 +158,27 @@ function clickSprint (item) {
 function getSelectedSprintEle() {
     return document.querySelector('.selectedSprint');
 }
-
+upload.addEventListener('click', ()=>{
+    uploader.click();
+})
+uploader.addEventListener('click', ()=>{
+    let spNum = getSprintNumber(getSelectedSprintEle().value) - 1;
+    doFetch(`/progress/${project_id}/${spNum}`, 'GET').then(pInfo => {
+        const progressId = pInfo.project_progress_id;
+        uploadPdf(uploader, '/progress/file/' + progressId, "PUT", reportErr);
+    })
+})
+view.addEventListener('click', ()=>{
+    let spNum = getSprintNumber(getSelectedSprintEle().value) - 1;
+    doFetch(`/progress/${project_id}/${spNum}`, 'GET').then(pInfo => {
+        if (pInfo.file_url === null) {
+            reportErr.textContent = 'Student have not upload any report';
+            reportErr.classList.remove('hide');
+        } else {
+            window.open(pInfo.file_url, '_blank');
+        }
+    })
+})
 detail.addEventListener("click", ()=>{
     if (role === 'partner') {
         window.location.href = "../BossProject/BProjectInfo.html" + '?id=' + project_id;
@@ -116,11 +186,7 @@ detail.addEventListener("click", ()=>{
         window.location.href = '../ProjectInfo/projectInfo.html' + '?id=' + project_id;
     }
 })
-if (role === 'partner') {
-    upload.classList.add('hide');
-    edit.value = 'End sprint and give mark'
-    edit.style.width = '230px';
-}
+
 let editState = false;
 if(edit.value === 'Submit') {
     editState = true;
@@ -153,7 +219,8 @@ function showProgressContent(project_id, nSprint) {
             changeStatusColor(currProgress.status)
             console.log('hiii');
             console.log(score.value)
-            score.value = currProgress.partner_mark ? currProgress.partner_mark.toString():'Sprint not finished, mark will be given when finished';
+            score.value = currProgress.partner_mark ? currProgress.partner_mark.toString():'11';
+            reportErr.classList.add('hide');
            
         }
     })
@@ -177,18 +244,9 @@ add.addEventListener('click', (event) => {
                 loadSprints(progressList.length, false, true);
             })
         })
+
     })
 });
-
-doFetch('/progress/all_progress/' + project_id, 'GET').then(data =>{
-    const progressList = data.all_progress;
-    if (progressList.length === 0) {
-        add.click();
-    }
-    proName.textContent = data.project.title;
-    loadSprints(progressList.length, true, false);
-})
-
 
 edit.addEventListener('click', () => {
     console.log(getSelectedSprintEle())
@@ -212,7 +270,7 @@ edit.addEventListener('click', () => {
         editState = true;
     } else {
         if (role === 'partner') {
-            edit.value = 'End sprint and give mark';
+            edit.value = 'Give mark or ungive mark';
         } else {
             edit.value = 'Edit';
         }

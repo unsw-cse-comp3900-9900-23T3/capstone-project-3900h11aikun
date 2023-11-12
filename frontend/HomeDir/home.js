@@ -2,15 +2,16 @@ import { doFetch, cutStringBeforeSpace } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
-const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 const all = document.getElementById('all');
 const recommand = document.getElementById('recommand');
 const projects = document.getElementById('projects');
 let userRole = localStorage.getItem('role');
+const roleId = Number(localStorage.getItem('roleId'));
 if (userRole === 'partner') {
     window.location.href = "../BossHome/bossHome.html";
 }
+
 // Interaction display
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
@@ -46,7 +47,6 @@ all.addEventListener('click', (event) => {
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
-naviDisplay(profile);
 naviDisplay(logout);
 optDisplay(all);
 optDisplay(recommand);
@@ -110,7 +110,6 @@ function newPro (projectName, projectRequirements, project_id) {
 
     projects.appendChild(project);
 }
-const roleId = Number(localStorage.getItem('roleId'));
 function showAllOrRecomandProjects(isAll) {
     let url = '/profile/project';
     let stOrSuID = "supervisor_id";
@@ -146,4 +145,5 @@ logout.addEventListener('click', ()=>{
     localStorage.removeItem('roleId');
     localStorage.removeItem('username');
     localStorage.removeItem('password');
+    localStorage.removeItem('numOfSprint');
 })

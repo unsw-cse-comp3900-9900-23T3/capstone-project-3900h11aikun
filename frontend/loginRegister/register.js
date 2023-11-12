@@ -81,7 +81,7 @@ partner.addEventListener('click', (event) => {
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'partner';
 });
-
+password.value = 'Abcd1234!';
 
 submit.addEventListener('mouseover', (event) => {
     submit.style.background = `rgba(${1}, ${173}, ${173}, ${0.8})`
@@ -169,11 +169,4 @@ submit.addEventListener('click', (event) => {
     }
 });
 
-logout.addEventListener('click', ()=>{
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('roleId');
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
-})
 

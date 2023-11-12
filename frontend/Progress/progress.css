@@ -59,7 +59,7 @@ body {
     background-color: rgb(0, 193, 193);
     color: white;
     margin-left: 20px;
-    width: 160px;
+    width: 180px;
     height: 50px;
     border: 0px;
     border-radius: 20px;
@@ -170,6 +170,13 @@ body {
     height: 200px;
     padding: 20px;
     overflow: auto;
+}
+.error {
+    margin-top: 2px;
+    margin-left: 35px;
+    height: 20px;
+    color: red;
+    font-size: 1em;
 }
 .score {
     width: 380px;

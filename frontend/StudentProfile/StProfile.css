@@ -168,6 +168,13 @@ body {
     border-radius: 30px;
     margin-bottom: 30px;
 }
+.error {
+    margin-top: 2px;
+    margin-left: 35px;
+    height: 20px;
+    color: red;
+    font-size: 1em;
+}
 .resume {
     margin-left: 35px;
     margin-right: 35px;

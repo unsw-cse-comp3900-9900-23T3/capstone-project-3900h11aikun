@@ -3,7 +3,7 @@ import { doFetch } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
-const profile = document.getElementById('profile');
+
 const logout = document.getElementById('logout');
 const ret = document.getElementById('return');
 const applications = document.getElementById('applications');
@@ -22,7 +22,6 @@ function naviDisplay (item) {
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
-naviDisplay(profile);
 naviDisplay(logout);
 
 

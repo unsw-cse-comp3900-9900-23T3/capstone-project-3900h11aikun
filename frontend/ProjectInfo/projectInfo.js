@@ -3,7 +3,7 @@ import { doFetch } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
-const profile = document.getElementById('profile');
+
 const logout = document.getElementById('logout');
 const applyButton = document.getElementById('applyButton');
 const improve = document.getElementById('improve');
@@ -41,7 +41,6 @@ improve.addEventListener('mouseleave', (event) => {
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
-naviDisplay(profile);
 naviDisplay(logout);
 const urlParams = new URLSearchParams(window.location.search);
 const project_id = Number(urlParams.get('id'));
@@ -80,10 +79,12 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
             
         } else {
             applyButton.value = 'You joined! See progress';
-            alert('navigate to my project page');
         }
         applyButton.style.width = '600px';
         
+    } else if (projContent[roleString] === roleId && role === 'supervisor'){
+        applyButton.value = 'You joined! See progress';
+        applyButton.style.width = '400px';
     } else if (projContent[roleString] !== null) {
         // somebody else already joined this project
         applyButton.style.display = 'none';
@@ -91,18 +92,19 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
         doFetch('/profile/project', "GET").then((data) => {
             console.log(data)
             data.forEach((currProj)=>{
-                if (currProj.roleString === roleId) {
+                if (currProj[roleString] == roleId) {
                     // current user already joined another project
+                    console.log('yooo')
                     applyButton.style.display = 'none';
                 }
             })
 
             doFetch(`/profile/project/interest/${role}?project_id=${project_id}&${roleString}=${roleId}`, 'GET').then((data) => {
-                console.log(applyButton.value)
-                if (data.length === 0) {
+                console.log(data)
+                if (data.length === 0 && applyButton.style.display != 'none') {
                     applyButton.value = 'Apply now';
             
-                } else if (applyButton.value.include('You joined!')) {
+                } else if (!applyButton.value.includes('You joined!')) {
                     applyButton.value = 'Cancel application';
                     applyButton.style.width = '250px';
                     applied = true;
@@ -138,6 +140,8 @@ applyButton.addEventListener('click', ()=>{
 
     if (applyButton.value === 'You joined! See recommand and applied supervisor') {
         window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
+    } else if (applyButton.value === 'You joined! See progress') {
+        window.location.href = "../Progress/progress.html?projectId=" + project_id;
     } else {
         window.location.href = "../stSuApplication/stSuApplication.html";
     }

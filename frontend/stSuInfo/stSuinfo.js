@@ -2,7 +2,7 @@ import { doFetch } from "../helper.js";
 
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
+
 const logout = document.getElementById('logout');
 const ret = document.getElementById('return');
 const view = document.getElementById('view');
@@ -55,7 +55,6 @@ function buttonDisplay (item) {
 
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(view);
 
@@ -90,11 +89,11 @@ doFetch(url, 'GET').then((data1)=>{
     email.textContent = data.email;
     strength.textContent = data[quaOrStrength];
     resumeURL = data.resume_url;
+    view.addEventListener('click', ()=>{
+        window.open(resumeURL, '_blank');
+    })
 })
 
-view.addEventListener('click', ()=>{
-    window.open(resumeURL, '_blank');
-})
 
 logout.addEventListener('click', ()=>{
     localStorage.removeItem('token');
