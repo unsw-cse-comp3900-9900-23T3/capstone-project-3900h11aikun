@@ -15,7 +15,6 @@ const uploader = document.getElementById('uploader');
 const view = document.getElementById('view');
 const score = document.getElementById('score');
 const spObj = document.getElementById('spObj');
-const deadline = document.getElementById('deadline');
 const userStory = document.getElementById('userStory');
 const stReport = document.getElementById('stReport');
 const suFeedback = document.getElementById('suFeedback');
@@ -53,16 +52,20 @@ if (role === 'partner') {
     
     doFetch('/profile/project', 'GET').then(projs => {
         let hasProject = false;
+        let supJoined = false;
         console.log(projs);
         projs.forEach(proj => {
             if (proj[roleString] == roleId) {
                 project_id = proj.project_id;
                 console.log('iii')
                 hasProject = true;
+                if (proj.supervisor_id) supJoined = true;
             }
         })
         if (!hasProject) {
-            // window.location.href = "../stSuApplication/stSuApplication.html";
+            window.location.href = "../stSuApplication/stSuApplication.html";
+        } else if (!supJoined) {
+            window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
         }
         doFetch('/progress/all_progress/' + project_id, 'GET').then(data =>{
             const progressList = data.all_progress;
@@ -259,7 +262,6 @@ edit.addEventListener('click', () => {
         }
         if (role === 'student') {
             spObj.disabled = false;
-            deadline.disabled = false;
             userStory.disabled = false;
             stReport.disabled = false;
         }
@@ -276,7 +278,6 @@ edit.addEventListener('click', () => {
         }
         score.disabled = true;
         spObj.disabled = true;
-        deadline.disabled = true;
         userStory.disabled = true;
         stReport.disabled = true;
         suFeedback.disabled = true;

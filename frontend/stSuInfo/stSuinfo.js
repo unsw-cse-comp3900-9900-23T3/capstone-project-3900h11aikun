@@ -3,6 +3,7 @@ import { doFetch } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 
+const resumeErr = document.getElementById('resumeErr');
 const logout = document.getElementById('logout');
 const ret = document.getElementById('return');
 const view = document.getElementById('view');
@@ -90,7 +91,11 @@ doFetch(url, 'GET').then((data1)=>{
     strength.textContent = data[quaOrStrength];
     resumeURL = data.resume_url;
     view.addEventListener('click', ()=>{
-        window.open(resumeURL, '_blank');
+        console.log(resumeURL)
+        if (resumeURL != 'http://localhost:9998/')
+            window.open(resumeURL, '_blank');
+        else
+            resumeErr.textContent = 'No resume uploaded'
     })
 })
 
