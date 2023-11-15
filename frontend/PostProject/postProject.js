@@ -100,7 +100,7 @@ const edit = urlParams.has('projectId');
 const project_id = Number(urlParams.get('projectId'));
 
 const skillList = ['Java', 'Pthon', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data'];
-
+// find out which skill user chosen
 function findSelectedEle(selectedString) {
     console.log(selectedString)
     if (selectedString === 'Java') {
@@ -123,7 +123,7 @@ function findSelectedEle(selectedString) {
         return data;
     } 
 } 
-
+// show user original input
 if (edit) {
     editOrCreate.textContent = 'Edit project';
     doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
@@ -155,11 +155,10 @@ function selectSkill(selectedSkillElement) {
 document.querySelectorAll('.skill').forEach(skill => {
     skill.addEventListener('click', function() {
         selectSkill(this);
-
-        
     });
 });
 
+// send user input data to backend when submit button is clicked
 submit.addEventListener('click', (event) => { 
     let selectedSkillvalue = document.querySelector('.skill.selected');
     if (selectedSkillvalue !== null) {

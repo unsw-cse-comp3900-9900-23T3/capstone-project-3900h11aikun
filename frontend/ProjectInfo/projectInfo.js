@@ -44,6 +44,7 @@ naviDisplay(apply);
 naviDisplay(logout);
 const urlParams = new URLSearchParams(window.location.search);
 const project_id = Number(urlParams.get('id'));
+// get project info, display in the coresponding fields
 doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     console.log(data)
     const currProj = data[0];
@@ -73,6 +74,7 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
     console.log(data)
     const projContent =  data[0];
     console.log(projContent[roleString])
+    //  figure out content in the button
     if (projContent[roleString] === roleId && role === 'student') {
         if (projContent.supervisor_id === null) {
             applyButton.value = 'You joined! See recommand and applied supervisor';
@@ -115,10 +117,11 @@ doFetch('/profile/project?project_id=' + project_id, "GET").then((data) => {
     }
     
 })
-
+//  do apply or cancel apply when this button is clicked
 applyButton.addEventListener('click', ()=>{
     console.log(applied)
     if (applied) {
+        // cancel apply
         doFetch('/profile/project/interest/' + role, 'DELETE', {'project_id': project_id, [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
             console.log(data)
             if (applyButton.value != 'You joined! See recommand and applied supervisor') {
@@ -128,6 +131,7 @@ applyButton.addEventListener('click', ()=>{
             }
         })
     } else {
+        // do apply
         doFetch('/profile/project/interest/' + role, 'POST', {'project_id': project_id, [roleString]: Number(localStorage.getItem('roleId'))}).then((data) => {
             console.log(data);
             if (applyButton.value !== 'You joined! See recommand and applied supervisor') {
@@ -137,7 +141,7 @@ applyButton.addEventListener('click', ()=>{
             }
         });
     }
-
+    // navigate coresponding page
     if (applyButton.value === 'You joined! See recommand and applied supervisor') {
         window.location.href = "../stSuListForBoss/BviewApplication.html?projectId=" + project_id;
     } else if (applyButton.value === 'You joined! See progress') {
@@ -148,6 +152,7 @@ applyButton.addEventListener('click', ()=>{
     
 })
 let userRole = localStorage.getItem('role');
+// let user upload
 document.getElementById('pdfUploader').addEventListener('change', (event)=> {
     let file = event.target.files[0];
 

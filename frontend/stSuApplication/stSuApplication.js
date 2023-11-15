@@ -45,7 +45,7 @@ function createAppllication (pStatus, updateTime, pTitle, contacter, project_id)
 
     const partner = document.createElement('div');
     partner.style.width = '560px';
-    partner.textContent = `Status: ${pStatus} | Updated at: ${updateTime}`;
+    partner.textContent = `Updated at: ${updateTime}`;
     partner.style.fontSize = '1.1em';
     partner.style.lineHeight = '50px';
     partner.style.marginLeft = '25px';
@@ -114,18 +114,21 @@ if (role === 'student') {
 } else {
     alert('in valid role using this function');
 }
-
+//  get coresponding application data related to curr user
 doFetch(`/profile/project/interest/${role}?${roleString}=${roleId}`, 'GET').then((data)=>{
-
+    console.log(data)
     data.forEach(proj => {
         doFetch('/profile/project?project_id=' + proj.project_id, 'GET').then((currProjLi)=>{
             const projInfo = currProjLi[0];
             console.log(projInfo)
-            doFetch('/profile/partner?partner_id=' + projInfo.partner_id, 'GET').then((partnerInfo) => {
-                console.log(partnerInfo[0]);
-                createAppllication(projInfo.status, projInfo.project_last_updated_at, projInfo.title, partnerInfo[0].email, proj.project_id);
-            })
-            
+            if (projInfo[roleString] == roleId && projInfo.supervisor_id != null) {
+
+            } else {
+                doFetch('/profile/partner?partner_id=' + projInfo.partner_id, 'GET').then((partnerInfo) => {
+                    console.log(partnerInfo[0]);
+                    createAppllication(projInfo.status, projInfo.project_last_updated_at, projInfo.title, partnerInfo[0].email, proj.project_id);
+                })
+            }
         })
     });
     

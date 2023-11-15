@@ -43,7 +43,7 @@ identityMouseDisplay(partner);
 infoMouseDisplay(username);
 infoMouseDisplay(email);
 infoMouseDisplay(password);
-
+// ads for student
 let roleType = 'student';
 student.addEventListener('click', (event) => {
     student.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -57,6 +57,7 @@ student.addEventListener('click', (event) => {
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'student';
 });
+// ads for supervisor
 supervisor.addEventListener('click', (event) => {
     supervisor.style.color = `rgb(${0}, ${193}, ${193})`;
     supervisor.style.background = 'white';
@@ -69,6 +70,7 @@ supervisor.addEventListener('click', (event) => {
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'supervisor';
 });
+// ads for partner
 partner.addEventListener('click', (event) => {
     partner.style.color = `rgb(${0}, ${193}, ${193})`;
     partner.style.background = 'white';
@@ -109,6 +111,7 @@ submit.addEventListener('click', (event) => {
     let lwerr = true;
     let nuerr = true;
     let syerr = true;
+    // check password validation
     for (let i = 0; i < password.value.length; i++) {
         let char = password.value[i];
         if (char >= 'A' && char <= 'Z') {
@@ -123,6 +126,7 @@ submit.addEventListener('click', (event) => {
             hasError = true;
         }
     }
+    // show password error
     if (password.value.length < 8) {
         passerror.textContent = 'Password can not be shorter than 8 characters';
         hasError = true;

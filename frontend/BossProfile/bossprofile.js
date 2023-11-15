@@ -10,6 +10,7 @@ const email = document.getElementById('email');
 const submit = document.getElementById('submit');
 const roleId = Number(localStorage.getItem('roleId')); 
 
+// make button color change when mouse over
 function naviDisplay (item) {
     item.addEventListener('mouseover', (event) => {
         item.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -35,6 +36,7 @@ submit.addEventListener('mouseleave', (event) => {
     submit.style.background =  `rgb(${0}, ${193}, ${193})`;
 });
 
+// modify partner's profile when user click submit
 submit.addEventListener('click', (event) => {
     if (submit.value === 'Submit') {
         doFetch('/profile/partner', 'PUT', {
@@ -70,7 +72,7 @@ inputDisplay(company);
 inputDisplay(email);
 
 
-
+// get partner's originaol info
 doFetch('/profile/partner?partner_id=' + roleId, 'GET').then((data)=>{
     const pInfo = data[0];
     firstName.value = pInfo.first_name;

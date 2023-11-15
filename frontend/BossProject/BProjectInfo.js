@@ -51,7 +51,7 @@ revise.addEventListener('mouseleave', (event) => {
 revise.addEventListener('click', (event) => {
     window.location.href = "../PostProject/postProject.html?projectId=" + project_id;
 });
-
+// get project detailed info
 doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
     console.log(data)
     const currProj = data[0];

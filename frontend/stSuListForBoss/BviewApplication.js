@@ -84,7 +84,7 @@ function loadStudent(part, nameContent, education, stId) {
             buttonDisplay(selectButton);
             student.style.height = '170px';
         }
-        
+        // partner can choose applied student and supervisor into project
         selectButton.addEventListener("click", ()=>{
             doFetch('/profile/project?project_id=' + project_id, "GET").then((data)=>{
                 let stSu = "student_id";
@@ -125,19 +125,21 @@ function loadPageContent() {
         console.log(data)
         const currProj = data[0];
         console.log(currProj);
-        
+        // show recommand and applied supervisor if student already be invited
         if (currProj.student_id != null) {
             isStudent = false;
             RStSu.textContent = 'Recommand Supervisors';
             AStSu.textContent = 'Applied Supervisors';
             doFetch('/profile/supervisor?skills=' + currProj.required_skills, 'GET').then((data2) => {
                 console.log(data2);
+                // get interested supervisor info
                 data2.forEach((student)=>{
                     doFetch('/profile/supervisor?supervisor_id=' + student.supervisor_id).then((data)=>{
                         loadStudent(recommand, student.first_name + ' ' + student.last_name, data[0].email, data[0].supervisor_id);
                     })
                 })
             })
+            // get applied supervisor info
             doFetch('/profile/project/interest/supervisor?project_id=' + project_id, 'GET').then((data2) => {
                 console.log(data2);
                 data2.forEach((student)=>{
@@ -148,6 +150,7 @@ function loadPageContent() {
             })
         } else {
             console.log('ioioio')
+            // get intersted studens info
             doFetch('/profile/student?skills=' + currProj.required_skills, 'GET').then((data2) => {
                 console.log(data2);
                 data2.forEach((student)=>{
@@ -156,6 +159,7 @@ function loadPageContent() {
                     })
                 })
             })
+            // get applied studens info
             doFetch('/profile/project/interest/student?project_id=' + project_id, 'GET').then((data2) => {
                 console.log(data2);
                 data2.forEach((student)=>{

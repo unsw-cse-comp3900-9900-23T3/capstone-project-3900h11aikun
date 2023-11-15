@@ -18,6 +18,7 @@ naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(logout);
 
+// function for creating new project container
 function newPro (title, proStatus, project_id) {
     const project = document.createElement('div');
     project.className = 'project';
@@ -26,6 +27,7 @@ function newPro (title, proStatus, project_id) {
     const name = document.createElement('div');
     name.textContent = title;
     name.className = 'name';
+    name.style.overflow = 'auto';
     project.appendChild(name);
 
     const status = document.createElement('div');
@@ -58,7 +60,7 @@ function newPro (title, proStatus, project_id) {
 
     project.appendChild(more);
 }
-
+// get projects contents
 const partnerId = Number(localStorage.getItem('roleId'));
 doFetch(`/profile/project?partner_id=${partnerId}`, 'GET').then((projs)=>{
     projs.forEach((proj)=>{
@@ -72,6 +74,7 @@ doFetch(`/profile/project?partner_id=${partnerId}`, 'GET').then((projs)=>{
         newPro(proj.title, pStatus, proj.project_id);
     })
 })
+// logout button
 logout.addEventListener('click', ()=>{
     localStorage.removeItem('token');
     localStorage.removeItem('role');

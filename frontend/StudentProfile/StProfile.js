@@ -171,7 +171,7 @@ if (userRole === 'student') {
 console.log(stSuUrl)
 uploadPdf(uploader, stSuUrl + roleId, "POST", resumeErr)
 
-
+// submit user updated info to backend when user click submit button
 submit.addEventListener('click', (event) => {
     let selectedSkillvalue = document.querySelector('.skill.selected');
     if (selectedSkillvalue !== null) {
@@ -189,6 +189,7 @@ submit.addEventListener('click', (event) => {
         quaOrStrength = "qualification";
         stOrSu = "supervisor_id"
     }
+    // change user profile info
     doFetch(stSuUrl, 'PUT', {
         [stOrSu]: Number(roleId),
         "first_name": name1.value,

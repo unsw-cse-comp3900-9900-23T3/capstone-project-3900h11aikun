@@ -52,7 +52,7 @@ optDisplay(all);
 optDisplay(recommand);
 
 let viewMoreId = 0;
-// Example of post a project
+// create a new container for new project
 function newPro (projectName, projectRequirements, project_id) {
     const project = document.createElement('div');
     project.style.width = '370px';
@@ -60,7 +60,6 @@ function newPro (projectName, projectRequirements, project_id) {
     project.style.background = 'white';
     project.style.margin = '10px';
     project.style.borderRadius = '20px';
-
     const name = document.createElement('div');
     name.textContent = projectName;
     name.style.width = '350px';
@@ -69,16 +68,18 @@ function newPro (projectName, projectRequirements, project_id) {
     name.style.marginTop = '10px';
     name.style.fontSize = '1.2em';
     name.style.fontWeight = 'bold';
+    name.style.overflow = "auto";
 
     project.appendChild(name);
 
     const require = document.createElement('div');
     require.textContent = projectRequirements;
     require.style.width = '350px';
-    require.style.height = '30px';
+    require.style.height = '25px';
     require.style.marginLeft = '10px';
     require.style.marginTop = '10px';
     require.style.fontSize = '1em';
+    require.style.overflow = "auto";
 
     project.appendChild(require);
 
@@ -110,6 +111,7 @@ function newPro (projectName, projectRequirements, project_id) {
 
     projects.appendChild(project);
 }
+// reload page, get page projects info
 function showAllOrRecomandProjects(isAll) {
     let url = '/profile/project';
     let stOrSuID = "supervisor_id";
@@ -130,9 +132,6 @@ function showAllOrRecomandProjects(isAll) {
         console.log(pList)
         pList.forEach(project => {
             let descriptionString = project.problem_statement;
-            if (descriptionString.length > 80) {
-                descriptionString = cutStringBeforeSpace(descriptionString, 80) + ' ...';
-            } 
             newPro(project.title, descriptionString, project.project_id);
         });
     })

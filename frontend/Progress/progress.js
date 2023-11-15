@@ -29,6 +29,7 @@ let project_id = Number(urlParams.get('projectId'));
 if (role !== 'student') {
     upload.classList.add('hide');
 }
+// show partner's view button
 if (role === 'partner') {
     edit.value = 'Give mark or ungive mark'
     edit.style.width = '230px';
@@ -41,6 +42,7 @@ if (role === 'partner') {
         loadSprints(progressList.length, true, false);
     })
 } else {
+    // student and supervisor's view button
     BossBar.classList.add('hide');
     studentBar.classList.remove('hide');
     let roleString = '';
@@ -62,6 +64,7 @@ if (role === 'partner') {
                 if (proj.supervisor_id) supJoined = true;
             }
         })
+        // navigate to application page if curr user not joined any project
         if (!hasProject) {
             window.location.href = "../stSuApplication/stSuApplication.html";
         } else if (!supJoined) {
@@ -120,7 +123,7 @@ buttonDisplay(detail);
 buttonDisplay(edit);
 buttonDisplay(view);
 buttonDisplay(upload);
-
+// load a sprint button
 function loadSprints (num, clickSp1, clickLastSprint) {
     container.textContent = '';
     for (let i = 1; i <= num; i++) {
@@ -164,6 +167,7 @@ function getSelectedSprintEle() {
 upload.addEventListener('click', ()=>{
     uploader.click();
 })
+// let user upload pdf
 uploader.addEventListener('click', ()=>{
     let spNum = getSprintNumber(getSelectedSprintEle().value) - 1;
     doFetch(`/progress/${project_id}/${spNum}`, 'GET').then(pInfo => {
@@ -207,7 +211,7 @@ function changeStatusColor(statusStr) {
         status.style.backgroundColor = '#efe202';
     }
 }
-
+// show current sprint progress
 function showProgressContent(project_id, nSprint) {
     doFetch('/progress/all_progress/' + project_id, 'GET').then( data =>{
         if (nSprint <= data.all_progress.length) {
@@ -230,7 +234,7 @@ function showProgressContent(project_id, nSprint) {
 
 }
 
-
+// when user click an add, add one more sprint
 add.addEventListener('click', (event) => {
     doFetch('/profile/project?project_id=' + project_id, "GET").then(data =>{
         const student_id = data[0].student_id;
@@ -250,11 +254,12 @@ add.addEventListener('click', (event) => {
 
     })
 });
-
+// let user edit coresponding progress part
 edit.addEventListener('click', () => {
     console.log(getSelectedSprintEle())
 
     let spNum = getSprintNumber(getSelectedSprintEle().value) - 1;
+    // if it is not in edit status, disable all input field
     if (!editState) {
         edit.value = 'Submit';
         if (role === 'partner') {
@@ -282,6 +287,7 @@ edit.addEventListener('click', () => {
         stReport.disabled = true;
         suFeedback.disabled = true;
         editState = false;
+        // get current progress info
         doFetch(`/progress/${project_id}/${spNum}`, 'GET').then(pInfo => {
             const progressId = pInfo.project_progress_id;
 
@@ -293,6 +299,7 @@ edit.addEventListener('click', () => {
             }).then(data => {
                 let statusStr = 'to do';
                 console.log(data)
+                // send user input data to backend
                 if (data.partner_mark !== null && data.partner_mark !== 11) {
                     statusStr = "done";
                 } else if (stReport.value !== "") {

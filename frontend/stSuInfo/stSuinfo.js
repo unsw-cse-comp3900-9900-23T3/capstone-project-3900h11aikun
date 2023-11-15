@@ -79,6 +79,7 @@ let quaOrStrength = "strength";
     if(role === 'supervisor') {
         quaOrStrength = "qualification";
     }
+// get user profile content and display in the coresponding field
 doFetch(url, 'GET').then((data1)=>{
     console.log(data1);
     let data = data1;

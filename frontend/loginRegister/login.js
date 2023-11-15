@@ -15,7 +15,7 @@ const register = document.getElementById('register');
 student.style.background = 'white';
 student.style.color = `rgb(${0}, ${193}, ${193})`
 
-
+// change color when user mouse over
 function identityMouseDisplay(identity) {
     identity.addEventListener('mouseover', (event) => {
         identity.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -41,7 +41,7 @@ identityMouseDisplay(supervisor);
 identityMouseDisplay(partner);
 infoMouseDisplay(username);
 infoMouseDisplay(password);
-
+// ads student
 let roleType = 'student';
 student.addEventListener('click', (event) => {
     student.style.color = `rgb(${0}, ${193}, ${193})`;
@@ -54,8 +54,9 @@ student.addEventListener('click', (event) => {
     comment2.textContent = 'Professional guidance & help';
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'student';
-    // username.value = 'heather-castro';
+    username.value = '';
 });
+// ads for supervisor 
 supervisor.addEventListener('click', (event) => {
     supervisor.style.color = `rgb(${0}, ${193}, ${193})`;
     supervisor.style.background = 'white';
@@ -67,8 +68,9 @@ supervisor.addEventListener('click', (event) => {
     comment2.textContent = 'Work with excelent students';
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'supervisor';
-    // username.value = 'bbbbSup';
+    username.value = '';
 });
+// aads for partner
 partner.addEventListener('click', (event) => {
     partner.style.color = `rgb(${0}, ${193}, ${193})`;
     partner.style.background = 'white';
