@@ -82,9 +82,7 @@ partner.addEventListener('click', (event) => {
     comment2.textContent = 'excellent students & supervisor';
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'partner';
-    username.value = 'diane-cook';
 });
-password.value = 'Abcd1234!';
 
 submit.addEventListener('mouseover', (event) => {
     submit.style.background = `rgba(${1}, ${173}, ${173}, ${0.8})`

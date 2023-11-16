@@ -83,7 +83,6 @@ partner.addEventListener('click', (event) => {
     comment3.textContent = 'Get accurate recommendations';
     roleType = 'partner';
 });
-password.value = 'Abcd1234!';
 
 submit.addEventListener('mouseover', (event) => {
     submit.style.background = `rgba(${1}, ${173}, ${173}, ${0.8})`
