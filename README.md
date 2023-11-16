@@ -9,7 +9,7 @@ git clone git@github.com:unsw-cse-comp3900-9900-23T3/capstone-project-3900h11aik
 ```
 ## Quick version to finish set up (See pictures of each step in section4 of final report if you need)
 (Suppose using macOs or linux system and node.js, python3, pip already installed, if not see set up instructions below) 
-If setup successfully you can skip below frontend setup and start backend section
+If setup successfully you can skip below `frontend setup` and `Steps to Start the Backend` section
 
 Run `chmod +x setup.sh` first, then run `./setup.sh` in root directory (...../capstone-project-3900h11aikun).
 
@@ -25,7 +25,7 @@ Copy the FIRST LINK under “Available on” to Chrome browser. Do not use the s
 If some other error shows, check below Front end setup and start backend sction.
 
 
-## Steps to set up front end
+## Steps to set up front end (skip if quick version is working)
 Please ensure you have `Node.js` and `npm` installed on your computer. You can check this by running the following commands in any termina:
 
 ```bash
@@ -39,7 +39,7 @@ You can run `npx http-server frontend -c 1 -p 6081` in the root directory (.....
 Copy the FIRST LINK under “Available on” to Chrome browser,do not use the second link. 
 Then you can see our website now, but it can't work properly right now, start backend described below before use it.
 
-## Steps to Start the Backend
+## Steps to Start the Backend (skip if quick version is working)
 
 Please ensure you have `python` and `pip` installed on your computer. You can check this by running the following commands in any termina:
 
