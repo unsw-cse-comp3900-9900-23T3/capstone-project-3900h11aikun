@@ -1,8 +1,8 @@
-import { doFetch } from "../helper.js";
+import { doFetch, uploadPdf } from "../helper.js";
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
 const apply = document.getElementById('apply');
-const profile = document.getElementById('profile');
+
 const logout = document.getElementById('logout');
 const name1 = document.getElementById('name');
 const name2 = document.getElementById('name2');
@@ -20,7 +20,8 @@ const strength = document.getElementById('strength');
 const strengthInput = document.getElementById('strengthInput');
 const upload = document.getElementById('upload');
 const submit = document.getElementById('submit');
-
+const uploader = document.getElementById('uploader');
+const resumeErr = document.getElementById('resumeErr');
 
 // Interaction display
 
@@ -79,7 +80,6 @@ function resumeDisplay (item) {
 naviDisplay(home);
 naviDisplay(myPro);
 naviDisplay(apply);
-naviDisplay(profile);
 naviDisplay(logout);
 inputDisplay(name1);
 inputDisplay(name2);
@@ -164,42 +164,14 @@ document.querySelectorAll('.skill').forEach(skill => {
     });
 });
 // Can not use Form to submit
+let stSuUrl = '/supervisorInfo/supervisor_upload_resume/';
+if (userRole === 'student') {
+    stSuUrl = '/studentInfo/student_upload_resume/';
+}
+console.log(stSuUrl)
+uploadPdf(uploader, stSuUrl + roleId, "POST", resumeErr)
 
-document.getElementById('pdfUploader').addEventListener('change', (event)=> {
-    let file = event.target.files[0];
-
-    if (!file) {
-        console.log("No file selected.");
-        return;
-    }
-
-    // Check if the file is a PDF
-    if (file.type !== "application/pdf") {
-        console.log("Please select a PDF file.");
-        return;
-    }
-
-    // Create FormData and append the file
-    let formData = new FormData();
-    formData.append("file", file, file.name);
-
-    let stSuUrl = '/supervisorInfo/supervisor_upload_resume/';
-    if (userRole === 'student') {
-        stSuUrl = '/studentInfo/student_upload_resume/';
-    }
-    console.log(stSuUrl)
-    let roleId = localStorage.getItem('roleId');
-    // doFetch(stSuUrl + roleId, 'POST', formData);
-    fetch('http://localhost:9998' + stSuUrl + roleId, {
-        method: "POST",
-        body: formData,
-      })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-});
-
-
+// submit user updated info to backend when user click submit button
 submit.addEventListener('click', (event) => {
     let selectedSkillvalue = document.querySelector('.skill.selected');
     if (selectedSkillvalue !== null) {
@@ -217,6 +189,7 @@ submit.addEventListener('click', (event) => {
         quaOrStrength = "qualification";
         stOrSu = "supervisor_id"
     }
+    // change user profile info
     doFetch(stSuUrl, 'PUT', {
         [stOrSu]: Number(roleId),
         "first_name": name1.value,

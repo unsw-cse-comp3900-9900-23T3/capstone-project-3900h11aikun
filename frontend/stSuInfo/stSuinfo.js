@@ -2,7 +2,8 @@ import { doFetch } from "../helper.js";
 
 const home = document.getElementById('home');
 const myPro = document.getElementById('mypro');
-const profile = document.getElementById('profile');
+
+const resumeErr = document.getElementById('resumeErr');
 const logout = document.getElementById('logout');
 const ret = document.getElementById('return');
 const view = document.getElementById('view');
@@ -55,7 +56,6 @@ function buttonDisplay (item) {
 
 naviDisplay(home);
 naviDisplay(myPro);
-naviDisplay(profile);
 naviDisplay(logout);
 buttonDisplay(view);
 
@@ -79,6 +79,7 @@ let quaOrStrength = "strength";
     if(role === 'supervisor') {
         quaOrStrength = "qualification";
     }
+// get user profile content and display in the coresponding field
 doFetch(url, 'GET').then((data1)=>{
     console.log(data1);
     let data = data1;
@@ -90,11 +91,15 @@ doFetch(url, 'GET').then((data1)=>{
     email.textContent = data.email;
     strength.textContent = data[quaOrStrength];
     resumeURL = data.resume_url;
+    view.addEventListener('click', ()=>{
+        console.log(resumeURL)
+        if (resumeURL != 'http://localhost:9998/')
+            window.open(resumeURL, '_blank');
+        else
+            resumeErr.textContent = 'No resume uploaded'
+    })
 })
 
-view.addEventListener('click', ()=>{
-    window.open(resumeURL, '_blank');
-})
 
 logout.addEventListener('click', ()=>{
     localStorage.removeItem('token');
