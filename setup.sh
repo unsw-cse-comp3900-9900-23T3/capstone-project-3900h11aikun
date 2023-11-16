@@ -48,8 +48,6 @@ if [ $? -eq 0 ]; then
     echo "** If your terminal shows ImportError: cannot import name EVENT_ TYPE_OPENED from 'watchdog.events'... "
     echo "Try \"pip install --upgrade watchdog\""
     echo ""
-    echo "** If error still exist contact us"
-    echo ""
     echo "**If no error shows, you can use the website now"
 else
     echo "Node.js is not installed. Please install Node.js package. After installing successful, run ./setup.sh again"

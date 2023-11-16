@@ -13,14 +13,16 @@ If setup successfully you can skip below frontend setup and start backend sectio
 
 Run `chmod +x setup.sh` first, then run `./setup.sh` in root directory (...../capstone-project-3900h11aikun).
 
-Run “npx http-server frontend -c 1 -p 6081” in the root directory.
+Run `npx http-server frontend -c 1 -p 6081` in the root directory.
 
 Open another terminal and cd to the backend folder folder(...../capstone-project-3900h11aikun/backend) and run `python3 app.py`.
 
-If you are using school account you may see ImportError: cannot import name EVENT_ TYPE_OPENED from 'watchdog.events'... 
+If you are using school account you may see `ImportError: cannot import name EVENT_ TYPE_OPENED from 'watchdog.events'... `
 Try to run `pip install --upgrade watchdog` and run `python3 app.py` again, the issue should be solved.
 
 Copy the FIRST LINK under “Available on” to Chrome browser. Do not use the second link.
+
+If some other error shows, check below Front end setup and start backend sction.
 
 
 ## Steps to set up front end
