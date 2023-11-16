@@ -1,43 +1,49 @@
-# Backend 进展
+# Student Industry Capstone Project Management System
 
-### 2023-11-11 再次更新了数据库， progres table 引入了 `status` 为 `"to do", "in progress", "done"` 三选一， `deadline` (非必须，可选)，`sprint objective`, `user story`, 和 `partner mark` 1到10。请大家删掉原本的`backend/database.db`文件，然后copy `backend/db/default_database.db` 文件， 弄成`backend/database.db` 文件。
+## Download the code
 
-#### 2023-11-08 再次更新了数据库，请 删掉原本的`backend/database.db`文件，然后copy `backend/db/default_database.db` 文件， 弄成`backend/database.db` 文件。
+The project repository is on the [github link here](https://github.com/unsw-cse-comp3900-9900-23T3/capstone-project-3900h11aikun). You can either `git clone` the code, or download the code in a zip file.
 
-#### 所有的qualification是 master， undergraduate， doctorate 三选一。所有的skill （student 的，和supervisor的） 都是从 `['Java', 'Python', 'Javascript', 'C/C++', 'Machine Learning', 'Deep Learning', 'Software Develop', 'Networking', 'Database/Big Data']` 这里面进行挑选。数据库是这样的的design，每个学生和supervisor随机匹配了9个skill里面的6个，然后每个project是随机匹配了9个skill里面的4个。这样就是确保recommendation可以working。
-
-#### 注意每个skills 是个string， 用 逗号+空格 的形式隔开！！！。 逗号+空格！！比如说 `Machine Learning, Java, Deep Learning, Pthon, Networking, Javascript` 这样的。
-
-#### 同时check了一下 recommend 的api。 如果最后的res 是长度为0，那么从所有的project里面随机选两个project。这样保证recommendation是能return些东西的。
-
-#### 还有一点，project 的status， 数据库的设计是 `"is_open", "in_progress", "is_closed"` 三选一，我把project update 和 post new project 的地方重新做了一下input data 的validation。
-
-#### 最后，每个database里面已经有的project，如果有progress，我都link到了一份uploads 里面的文件。
-
-#### 最后，uploads文件夹回归。
-
-
-backend的运行方法：
 ```
+git clone git@github.com:unsw-cse-comp3900-9900-23T3/capstone-project-3900h11aikun.git
+```
+
+## Steps to Start the Backend
+
+Please ensure you have `python` and `pip` installed on your computer. You can check this by running the following commands in any termina:
+
+```bash
+python --version        # if you are on windows
+python3 --version       # if you are on mac or linux
+
+pip --version           # if you are on windows
+pip3 --version          # if you are on mac or linux
+```
+
+If you do not have `python` or `pip` installed,
+* for windows, please visit the [python download page](https://www.python.org/downloads/) to download the python. A version that is greater or equal to 3.9 is preferred. Make sure you click `Add to PATH` when installing python.
+* for mac or linux, please open a terminal and run the following commands to install python and pip:
+
+    ```bash
+    sudo apt-get install python3
+    sudo apt-get install python3-pip
+    ```
+    And then you can run the `python3 --version` and `pip3 --version` to check if the installation is successful.
+
+Open the terminal in the capstone-project-3900h11aikun folder, and run the following commands:
+
+```bash
+# first move into the backend folder
 cd backend
-确保你的terminal是在backend这个folder
 
-pip install -r requirements.txt
+# install the requirements.txt file (only need to do this once)
+pip install -r requirements.txt     # if you are on windows
+pip3 install -r requirements.txt    # if you are on mac or linux
 
-如果是mac linux的话，
-pip3 install -r requirements.txt
-
-python app.py
-或者mac或者linux的话
-python3 app.py
+# run the backend server
+python app.py                       # if you are on windows
+python3 app.py                      # if you are on mac or linux
 ```
 
-后端是跑在 http://localhost:9998 端口。浏览器打开这个网址，可以看到后端接口的swagger doc。
+The backend server runs on the [http://localhost:9998](http://localhost:9998) port. You can open this link in the browser to see the swagger doc of the backend API.
 
-简单介绍一下文件：
-
-**apis** 里面，每个不同的module分布在不同的apis 文件夹的py文件里面。记得在backend/config.py 里面做个import，详情请看backend/config.py
-
-**db** folder里面是有个 model.py 文件，是数据库的每个table的定义。采用的是flask sqlalchemy 的object oriented 写法。每个table可以直接用这种class的形式来做数据库的CRUD操作。
-
-**models** folder 里面是包含了每个request parser，或者body的parameter 定义。

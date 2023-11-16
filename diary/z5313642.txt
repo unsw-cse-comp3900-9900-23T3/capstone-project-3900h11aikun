@@ -9,3 +9,21 @@ Everyone participated in the discussion and together all the user stories were f
 
 Week 4 Diary:
 This past weekend we had a separate group meeting where we decided on the division of labor for the first sprint. I was assigned to finish the backend, and the work was to build the entire structure, finish the database, make login and register, and show how sqlite can drink python links. So far, I've identified all the attributes needed for the database, and finished building the structure.
+
+Week 5 Diary:
+Progress demo. Continue to work on the code.
+
+Week 6 Diary:
+Analyze the database issue.
+
+Week 7 Diary:
+Update the database, start to work on the uploading files to static folder.
+
+Week 8 Diary
+Update database, working on the project route and progress route.
+
+Week 9 Diary:
+Update database, fix bugs in the backend code.
+
+Week 10 Diary:
+Work on the presentation and final report.
